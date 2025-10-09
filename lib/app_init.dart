@@ -16,7 +16,7 @@ class AppInit extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Beauty Points',
-      initialRoute: '/',
+      initialRoute: '/home_screen',
       onGenerateRoute: RouteGenerator.generateRoute,
       themeMode: themeMode,
       theme: AppTheme.lightTheme,
