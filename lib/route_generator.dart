@@ -1,20 +1,20 @@
 import 'package:beauty_points/screens/Gender_service_screen.dart';
+import 'package:beauty_points/screens/availability_screen.dart';
+import 'package:beauty_points/screens/bot_nav_bar_page.dart';
+import 'package:beauty_points/screens/card_details_screen.dart';
+import 'package:beauty_points/screens/home_screen.dart';
 import 'package:beauty_points/screens/add_service_screen.dart';
 import 'package:beauty_points/screens/bot_nav_bar.dart';
 import 'package:beauty_points/screens/location_screen.dart';
-import 'package:beauty_points/screens/home_screen.dart';
 import 'package:beauty_points/screens/login_screen.dart';
 import 'package:beauty_points/screens/my_booking_detail_screen.dart';
 import 'package:beauty_points/screens/my_booking_screen.dart';
 import 'package:beauty_points/screens/otp_screen.dart';
+import 'package:beauty_points/screens/payment_method_screen.dart';
 import 'package:beauty_points/screens/personal_information_screen.dart';
 import 'package:beauty_points/screens/signup_screen.dart';
 import 'package:beauty_points/screens/splash_screen.dart';
 import 'package:beauty_points/screens/upload_image_screen.dart';
-import 'package:beauty_points/screens/availability_screen.dart';
-import 'package:beauty_points/screens/payment_method_screen.dart';
-import 'package:beauty_points/screens/card_details_screen.dart';
-import 'package:beauty_points/utills/assets.dart';
 import 'package:flutter/material.dart';
 
 const String splashScreen = '/splash_screen';
@@ -43,6 +43,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: RouteSettings(name: splashScreen),
           builder: (_) => SplashScreen(),
+        );
+      case BotNavPage.routeName:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: BotNavPage.routeName),
+          builder: (_) => BotNavPage(),
         );
       case homeScreen:
         return MaterialPageRoute(
