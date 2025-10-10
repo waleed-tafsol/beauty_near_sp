@@ -1,5 +1,6 @@
 import 'package:beauty_points/app_init.dart';
 import 'package:beauty_points/utills/screen_size.dart';
+import 'package:beauty_points/view_models/bot_nav_view_model.dart';
 import 'package:beauty_points/view_models/theme_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,6 +18,7 @@ Future<void> main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeViewModel()),
+        ChangeNotifierProvider(create: (context) => BotNavViewModel()),
       ],
       child: ScreenUtilInit(
         designSize: getDesignSize(),
