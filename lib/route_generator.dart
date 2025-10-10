@@ -4,7 +4,6 @@ import 'package:beauty_points/screens/bot_nav_bar_page.dart';
 import 'package:beauty_points/screens/card_details_screen.dart';
 import 'package:beauty_points/screens/home_screen.dart';
 import 'package:beauty_points/screens/add_service_screen.dart';
-import 'package:beauty_points/screens/bot_nav_bar.dart';
 import 'package:beauty_points/screens/location_screen.dart';
 import 'package:beauty_points/screens/login_screen.dart';
 import 'package:beauty_points/screens/my_booking_detail_screen.dart';
