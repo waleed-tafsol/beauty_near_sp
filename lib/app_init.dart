@@ -4,7 +4,7 @@ import 'package:beauty_points/view_models/theme_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'screens/bot_nav_bar.dart';
+import 'screens/bot_nav_bar_page.dart';
 
 class AppInit extends StatelessWidget {
   const AppInit({super.key});
