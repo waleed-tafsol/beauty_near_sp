@@ -1,4 +1,7 @@
 import 'package:beauty_points/screens/Gender_service_screen.dart';
+import 'package:beauty_points/screens/account_settings.dart';
+import 'package:beauty_points/screens/chat_screen.dart';
+import 'package:beauty_points/screens/languages_screen.dart';
 import 'package:beauty_points/screens/bot_nav_bar.dart';
 import 'package:beauty_points/screens/location_screen.dart';
 import 'package:beauty_points/screens/home_screen.dart';
@@ -25,6 +28,9 @@ const String availabilityScreen = '/availability';
 const String paymentMethodScreen = '/payment_method';
 const String cardDetailsScreen = '/card_details';
 const String botNavBar = '/bot_nav_bar';
+const String accountSettingsScreen = '/account_settings';
+const String languagesScreen = '/languages';
+const String chatScreen = '/chat';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -86,13 +92,21 @@ class RouteGenerator {
           settings: RouteSettings(name: cardDetailsScreen),
           builder: (_) => CardDetailsScreen(),
         );
-      // case botNavBar:
-      //   return MaterialPageRoute(
-      //     settings: RouteSettings(name: botNavBar),
-      //     builder: (_) => BotNavBar(),
-      //   );
-    
-
+      case accountSettingsScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: accountSettingsScreen),
+          builder: (_) => AccountSettings(),
+        );
+      case languagesScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: languagesScreen),
+          builder: (_) => LanguagesScreen(),
+        );
+      case chatScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: chatScreen),
+          builder: (_) => ChatScreen(),
+        );
       default:
         return _errorRoute();
     }

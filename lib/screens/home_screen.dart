@@ -1,290 +1,209 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:beauty_points/utills/color_constant.dart';
 import 'package:beauty_points/utills/assets.dart';
-import 'package:beauty_points/screens/bot_nav_bar.dart';
+import 'package:beauty_points/widgets/service_card.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconsax/iconsax.dart';
+
+// Service Model
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+
+  final List<Service> services = [
+    Service(
+      name: 'Haircut',
+      duration: '60 min session',
+      price: '\$20',
+      icon: SvgAssets.haircut,
+      iconBackgroundColor: Color(0xFFF7E6EC),
+    ),
+    Service(
+      name: 'Shaving',
+      duration: '60 min session',
+      price: '\$20',
+      icon: SvgAssets.shaving,
+      iconBackgroundColor: Color(0xFFFCEBEC),
+    ),
+    Service(
+      name: 'Haircut',
+      duration: '60 min session',
+      price: '\$20',
+      icon: SvgAssets.haircut,
+      iconBackgroundColor: Color(0xFFF7E6EC),
+    ),
+    Service(
+      name: 'Shaving',
+      duration: '60 min session',
+      price: '\$20',
+      icon: SvgAssets.shaving,
+      iconBackgroundColor: Color(0xFFFCEBEC),
+    ),
+    Service(
+      name: 'Haircut',
+      duration: '60 min session',
+      price: '\$20',
+      icon: SvgAssets.haircut,
+      iconBackgroundColor: Color(0xFFF7E6EC),
+    ),
+    Service(
+      name: 'Shaving',
+      duration: '60 min session',
+      price: '\$20',
+      icon: SvgAssets.shaving,
+      iconBackgroundColor: Color(0xFFFCEBEC),
+    ),
+    Service(
+      name: 'Haircut',
+      duration: '60 min session',
+      price: '\$20',
+      icon: SvgAssets.haircut,
+      iconBackgroundColor: Color(0xFFF7E6EC),
+    ),
+    Service(
+      name: 'Shaving',
+      duration: '60 min session',
+      price: '\$20',
+      icon: SvgAssets.shaving,
+      iconBackgroundColor: Color(0xFFFCEBEC),
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.kScaffoldColor,
-      body: SafeArea(
-        child: Column(
+      appBar: AppBar(
+        forceMaterialTransparency: true,
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        toolbarHeight: 80.h,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            // Header Section
-            _buildHeader(),
-            SizedBox(height: 20.h),
-            
-            // Search Bar
-            _buildSearchBar(),
-            SizedBox(height: 20.h),
-            
-            // My Services Section
-            Expanded(
-              child: _buildMyServicesSection(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  'Hello Kelly',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14.sp,
+                    color: AppColors.textPrimaryColor,
+                  ),
+                ),
+                SizedBox(height: 8.h),
+                Text(
+                  'Good Morning!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18.sp,
+                    color: AppColors.textPrimaryColor,
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              width: 36.w,
+              height: 36.h,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50.r),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 30,
+                    offset: Offset(0, 0),
+                  ),
+                ],
+              ),
+              child: Center(
+                child: Icon(
+                  Iconsax.notification,
+                  size: 18.sp,
+                  color: AppColors.textPrimaryColor,
+                ),
+              ),
             ),
           ],
         ),
       ),
-      // bottomNavigationBar: const BotNavBar(),
-    );
-  }
-
-  Widget _buildHeader() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.end,
+      body: Column(
         children: [
-          // Greeting Text
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Hello Kelly',
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.textPrimaryColor,
+          SizedBox(height: 30.h),
+          Padding(
+            padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search',
+                prefixIcon: Icon(
+                  Iconsax.search_normal,
+                  size: 20.sp,
+                  color: AppColors.greyColor,
                 ),
-              ),
-              SizedBox(height: 8.h),
-              Text(
-                'Good Morning!',
-                style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-            ],
-          ),
-          
-          // Profile Image
-          Container(
-            width: 36.w,
-            height: 36.w,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(50.r),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 30,
-                  offset: const Offset(0, 0),
-                ),
-              ],
-            ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(50.r),
-              child: Image.asset(
-                PngAssets.beautyNear,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSearchBar() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: Container(
-        height: 48.h,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(38.r),
-          border: Border.all(color: AppColors.strokeColor),
-        ),
-        child: Row(
-          children: [
-            SizedBox(width: 16.w),
-            Icon(
-              Icons.search,
-              size: 20.w,
-              color: AppColors.greyColor,
-            ),
-            SizedBox(width: 12.w),
-            Expanded(
-              child: Text(
-                'Search',
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w400,
+                suffixIcon: Icon(
+                  Iconsax.sort,
+                  size: 20.sp,
                   color: AppColors.greyColor,
                 ),
               ),
             ),
-            SizedBox(width: 16.w),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildMyServicesSection() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Section Header
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'My Services',
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 8.h),
-                decoration: BoxDecoration(
-                  color: AppColors.kPrimaryColor,
-                  borderRadius: BorderRadius.circular(48.r),
-                ),
-                child: Text(
-                  'Add Service',
+          ),
+          SizedBox(height: 30.h),
+          Padding(
+            padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'My Services',
                   style: TextStyle(
-                    fontSize: 14.sp,
                     fontWeight: FontWeight.w500,
-                    color: Colors.white,
+                    fontSize: 16.sp,
+                    color: AppColors.textPrimaryColor,
                   ),
                 ),
-              ),
-            ],
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20.w,
+                    vertical: 9.5.h,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.kPrimaryColor,
+                    borderRadius: BorderRadius.circular(48.r),
+                  ),
+                  child: Text(
+                    'Add Service',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14.sp,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          SizedBox(height: 20.h),
-          
+          SizedBox(height: 15.h),
           // Services Grid
           Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  // First Row
-                  Row(
-                    children: [
-                      Expanded(child: _buildServiceCard('Haircut', '\$20', '60 min session')),
-                      SizedBox(width: 20.w),
-                      Expanded(child: _buildServiceCard('Shaving', '\$20', '60 min session')),
-                    ],
-                  ),
-                  SizedBox(height: 15.h),
-                  
-                  // Second Row
-                  Row(
-                    children: [
-                      Expanded(child: _buildServiceCard('Haircut', '\$20', '60 min session')),
-                      SizedBox(width: 20.w),
-                      Expanded(child: _buildServiceCard('Shaving', '\$20', '60 min session')),
-                    ],
-                  ),
-                  SizedBox(height: 15.h),
-                  
-                  // Third Row
-                  Row(
-                    children: [
-                      Expanded(child: _buildServiceCard('Haircut', '\$20', '60 min session')),
-                      SizedBox(width: 20.w),
-                      Expanded(child: _buildServiceCard('Shaving', '\$20', '60 min session')),
-                    ],
-                  ),
-                  SizedBox(height: 15.h),
-                  
-                  // Fourth Row
-                  Row(
-                    children: [
-                      Expanded(child: _buildServiceCard('Haircut', '\$20', '60 min session')),
-                      SizedBox(width: 20.w),
-                      Expanded(child: _buildServiceCard('Shaving', '\$20', '60 min session')),
-                    ],
-                  ),
-                ],
+            child: GridView.builder(
+              padding: EdgeInsetsGeometry.symmetric(
+                horizontal: 20.w,
+                vertical: 20.h,
               ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 15.w,
+                mainAxisSpacing: 15.h,
 
-  Widget _buildServiceCard(String title, String price, String duration) {
-    return Container(
-      width: 168.w,
-      padding: EdgeInsets.all(10.w),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.08),
-            blurRadius: 16,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        children: [
-          // Service Icon
-          Container(
-            width: 45.w,
-            height: 45.w,
-            decoration: BoxDecoration(
-              color: const Color(0xFFF7E6EC),
-              borderRadius: BorderRadius.circular(8.r),
-            ),
-            child: Icon(
-              Icons.content_cut,
-              size: 24.w,
-              color: AppColors.kPrimaryColor,
-            ),
-          ),
-          SizedBox(height: 10.h),
-          
-          // Service Details
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.textPrimaryColor,
-                ),
+                // childAspectRatio: 0.85,
               ),
-              SizedBox(height: 3.h),
-              Text(
-                duration,
-                style: TextStyle(
-                  fontSize: 12.sp,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.darkGreyColor,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 10.h),
-          
-          // Price
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              price,
-              style: TextStyle(
-                fontSize: 17.sp,
-                fontWeight: FontWeight.w500,
-                color: AppColors.kPrimaryColor,
-              ),
+              itemCount: services.length,
+              itemBuilder: (context, index) {
+                return ServiceCard(service: services[index]);
+              },
             ),
           ),
         ],
