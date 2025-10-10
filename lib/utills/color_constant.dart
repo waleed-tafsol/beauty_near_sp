@@ -7,7 +7,6 @@ class AppColors {
   static const Color textPrimaryColor = Color(0xff1C1C1C);
   static const Color greyColor = Color(0xffCCCCCC);
   static const Color darkGreyColor = Color(0xff4A4A4A);
-  static const Color darkGreyColor = Color(0xff4A4A4A);
   static const Color strokeColor = Color(0xffF3F3F3);
   static const Color kBlackText = Color(0xff000000);
   static const LinearGradient primaryGradient = LinearGradient(

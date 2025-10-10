@@ -6,7 +6,6 @@ import 'package:beauty_points/screens/home_screen.dart';
 import 'package:beauty_points/screens/account_settings.dart';
 import 'package:beauty_points/screens/chat_screen.dart';
 import 'package:beauty_points/screens/languages_screen.dart';
-import 'package:beauty_points/screens/bot_nav_bar.dart';
 import 'package:beauty_points/screens/location_screen.dart';
 import 'package:beauty_points/screens/login_screen.dart';
 import 'package:beauty_points/screens/otp_screen.dart';
