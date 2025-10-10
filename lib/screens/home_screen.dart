@@ -1,8 +1,7 @@
+import 'package:beauty_points/utills/assets.dart';
+import 'package:beauty_points/utills/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:beauty_points/utills/color_constant.dart';
-import 'package:beauty_points/utills/assets.dart';
-import 'package:beauty_points/screens/bot_nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,84 +9,78 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.kScaffoldColor,
-      body: SafeArea(
-        child: Column(
-          children: [
-            // Header Section
-            _buildHeader(),
-            SizedBox(height: 20.h),
-            
-            // Search Bar
-            _buildSearchBar(),
-            SizedBox(height: 20.h),
-            
-            // My Services Section
-            Expanded(
-              child: _buildMyServicesSection(),
-            ),
-          ],
-        ),
+      body: Column(
+        children: [
+          // Header Section
+          _buildHeader(),
+          // SizedBox(height: 20.h),
+
+          // Search Bar
+          _buildSearchBar(),
+          SizedBox(height: 20.h),
+
+          // My Services Section
+          Expanded(child: _buildMyServicesSection()),
+        ],
       ),
       // bottomNavigationBar: const BotNavBar(),
     );
   }
 
   Widget _buildHeader() {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          // Greeting Text
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Hello Kelly',
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                  color: AppColors.textPrimaryColor,
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            // Greeting Text
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Hello Kelly',
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.textPrimaryColor,
+                  ),
                 ),
-              ),
-              SizedBox(height: 8.h),
-              Text(
-                'Good Morning!',
-                style: TextStyle(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-            ],
-          ),
-          
-          // Profile Image
-          Container(
-            width: 36.w,
-            height: 36.w,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(50.r),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  blurRadius: 30,
-                  offset: const Offset(0, 0),
+                SizedBox(height: 8.h),
+                Text(
+                  'Good Morning!',
+                  style: TextStyle(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.textPrimaryColor,
+                  ),
                 ),
               ],
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(50.r),
-              child: Image.asset(
-                PngAssets.beautyNear,
-                fit: BoxFit.cover,
+
+            // Profile Image
+            Container(
+              width: 36.w,
+              height: 36.w,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50.r),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.1),
+                    blurRadius: 30,
+                    offset: const Offset(0, 0),
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(50.r),
+                child: Image.asset(PngAssets.beautyNear, fit: BoxFit.cover),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -105,11 +98,7 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(width: 16.w),
-            Icon(
-              Icons.search,
-              size: 20.w,
-              color: AppColors.greyColor,
-            ),
+            Icon(Icons.search, size: 20.w, color: AppColors.greyColor),
             SizedBox(width: 12.w),
             Expanded(
               child: Text(
@@ -164,7 +153,7 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           SizedBox(height: 20.h),
-          
+
           // Services Grid
           Expanded(
             child: SingleChildScrollView(
@@ -173,41 +162,90 @@ class HomeScreen extends StatelessWidget {
                   // First Row
                   Row(
                     children: [
-                      Expanded(child: _buildServiceCard('Haircut', '\$20', '60 min session')),
+                      Expanded(
+                        child: _buildServiceCard(
+                          'Haircut',
+                          '\$20',
+                          '60 min session',
+                        ),
+                      ),
                       SizedBox(width: 20.w),
-                      Expanded(child: _buildServiceCard('Shaving', '\$20', '60 min session')),
+                      Expanded(
+                        child: _buildServiceCard(
+                          'Shaving',
+                          '\$20',
+                          '60 min session',
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 15.h),
-                  
+
                   // Second Row
                   Row(
                     children: [
-                      Expanded(child: _buildServiceCard('Haircut', '\$20', '60 min session')),
+                      Expanded(
+                        child: _buildServiceCard(
+                          'Haircut',
+                          '\$20',
+                          '60 min session',
+                        ),
+                      ),
                       SizedBox(width: 20.w),
-                      Expanded(child: _buildServiceCard('Shaving', '\$20', '60 min session')),
+                      Expanded(
+                        child: _buildServiceCard(
+                          'Shaving',
+                          '\$20',
+                          '60 min session',
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 15.h),
-                  
+
                   // Third Row
                   Row(
                     children: [
-                      Expanded(child: _buildServiceCard('Haircut', '\$20', '60 min session')),
+                      Expanded(
+                        child: _buildServiceCard(
+                          'Haircut',
+                          '\$20',
+                          '60 min session',
+                        ),
+                      ),
                       SizedBox(width: 20.w),
-                      Expanded(child: _buildServiceCard('Shaving', '\$20', '60 min session')),
+                      Expanded(
+                        child: _buildServiceCard(
+                          'Shaving',
+                          '\$20',
+                          '60 min session',
+                        ),
+                      ),
                     ],
                   ),
                   SizedBox(height: 15.h),
-                  
+
                   // Fourth Row
                   Row(
                     children: [
-                      Expanded(child: _buildServiceCard('Haircut', '\$20', '60 min session')),
+                      Expanded(
+                        child: _buildServiceCard(
+                          'Haircut',
+                          '\$20',
+                          '60 min session',
+                        ),
+                      ),
                       SizedBox(width: 20.w),
-                      Expanded(child: _buildServiceCard('Shaving', '\$20', '60 min session')),
+                      Expanded(
+                        child: _buildServiceCard(
+                          'Shaving',
+                          '\$20',
+                          '60 min session',
+                        ),
+                      ),
                     ],
                   ),
+                  SizedBox(height: 80.h),
                 ],
               ),
             ),
@@ -226,7 +264,7 @@ class HomeScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: Colors.black.withValues(alpha: 0.08),
             blurRadius: 16,
             offset: const Offset(0, 2),
           ),
@@ -249,7 +287,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10.h),
-          
+
           // Service Details
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -274,7 +312,7 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           SizedBox(height: 10.h),
-          
+
           // Price
           Align(
             alignment: Alignment.centerLeft,
