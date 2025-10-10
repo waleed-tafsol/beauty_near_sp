@@ -17,12 +17,13 @@ class AppTheme {
       // primaryColor: AppColors.kPrimaryColor,
       scaffoldBackgroundColor: AppColors.kScaffoldColor,
       appBarTheme: AppBarTheme(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.kScaffoldColor,
         foregroundColor: Colors.white,
         titleTextStyle: GoogleFonts.montserrat(
           textStyle: TextStyle(
             color: AppColors.textPrimaryColor,
-            fontSize: 16.sp,
+            fontSize: 19.sp,
+            fontWeight: FontWeight.w500,
           ),
         ),
         elevation: 0,

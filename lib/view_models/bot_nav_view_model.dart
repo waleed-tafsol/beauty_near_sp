@@ -7,7 +7,7 @@ class BotNavViewModel extends ChangeNotifier {
   int _currentPage = 0;
 
   final List<Widget> _children = [
-    const HomeScreen(),
+    HomeScreen(),
     Placeholder(),
     MyWalletScreen(),
     Placeholder(),

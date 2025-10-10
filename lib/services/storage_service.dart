@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class StorageService {
-  late SharedPreferences _prefs;
+  SharedPreferences? _prefs;
 
   static const String _themeModeKey = 'theme-mode';
   static const String _accessTokenKey = 'access-token';
@@ -11,8 +11,11 @@ class StorageService {
     _prefs = await SharedPreferences.getInstance();
   }
 
-  ThemeMode getThemeMode() {
-    final int? index = _prefs.getInt(_themeModeKey);
+  Future<ThemeMode> getThemeMode() async {
+    if (_prefs == null) {
+      await init();
+    }
+    final int? index = _prefs!.getInt(_themeModeKey);
     if (index == null) {
       return ThemeMode.system;
     }
@@ -23,16 +26,25 @@ class StorageService {
     if (mode == null) {
       return;
     }
-    await _prefs.setInt(_themeModeKey, mode.index);
+    if (_prefs == null) {
+      await init();
+    }
+    await _prefs!.setInt(_themeModeKey, mode.index);
   }
 
   Future<void> saveAccessToken(String? token) async {
     if (token != null) {
-      await _prefs.setString(_accessTokenKey, token);
+      if (_prefs == null) {
+        await init();
+      }
+      await _prefs!.setString(_accessTokenKey, token);
     }
   }
 
-  String? getAccessToken() {
-    return _prefs.getString(_accessTokenKey);
+  Future<String?> getAccessToken() async {
+    if (_prefs == null) {
+      await init();
+    }
+    return _prefs!.getString(_accessTokenKey);
   }
 }

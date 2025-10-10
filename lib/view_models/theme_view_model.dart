@@ -12,7 +12,7 @@ class ThemeViewModel extends ChangeNotifier {
   }
 
   void _loadTheme() async {
-    _themeMode = _storageService.getThemeMode();
+    _themeMode = await _storageService.getThemeMode();
     notifyListeners();
   }
 

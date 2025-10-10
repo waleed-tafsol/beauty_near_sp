@@ -19,4 +19,9 @@ class AppColors {
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
   );
+  static const LinearGradient kPrimaryGradient = LinearGradient(
+    colors: [AppColors.kPrimaryColor, Color(0xffDE6C75)],
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
+  );
 }

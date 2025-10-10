@@ -1,0 +1,174 @@
+import 'package:beauty_points/utills/assets.dart';
+import 'package:beauty_points/utills/color_constant.dart';
+import 'package:beauty_points/widgets/account_tile.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+class AccountSettings extends StatelessWidget {
+  const AccountSettings({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        alignment: Alignment.center,
+        clipBehavior: Clip.none,
+        children: [
+          Positioned.fill(
+            top: 0,
+            bottom: MediaQuery.sizeOf(context).height - 178.h,
+            child: Container(
+              height: 178.h,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                gradient: AppColors.kPrimaryGradient,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(50.r),
+                  bottomRight: Radius.circular(50.r),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 68.h,
+            child: Text(
+              'Account Settings',
+              style: TextStyle(
+                fontSize: 19.sp,
+                fontWeight: FontWeight.w600,
+                color: AppColors.kScaffoldColor,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 121.h,
+            child: Container(
+              height: 108.h,
+              width: 108.w,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage(PngAssets.person),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          ),
+          Positioned.fill(
+            top: 250.h,
+            left: 0,
+            right: 0,
+            // bottom: 0,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              // mainAxisAlignment: MainAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  'John Doe',
+                  style: TextStyle(
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.textPrimaryColor,
+                  ),
+                ),
+                SizedBox(height: 4.h),
+                Text(
+                  'john.doe@example.com',
+                  style: TextStyle(
+                    fontSize: 15.sp,
+                    color: AppColors.textPrimaryColor,
+                  ),
+                ),
+                SizedBox(height: 40.h),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: Column(
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'General',
+                              style: TextStyle(
+                                fontSize: 15.sp,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.textPrimaryColor,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10.h),
+                          AccountTile(
+                            title: 'Personal Information',
+                            iconPath: SvgAssets.pi,
+                          ),
+                          SizedBox(height: 10.h),
+                          AccountTile(
+                            title: 'Support',
+                            iconPath: SvgAssets.support,
+                          ),
+                          SizedBox(height: 10.h),
+                          AccountTile(
+                            title: 'Language',
+                            iconPath: SvgAssets.lang,
+                          ),
+                          SizedBox(height: 30.h),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Help & Support',
+                              style: TextStyle(
+                                fontSize: 15.sp,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.textPrimaryColor,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10.h),
+                          AccountTile(
+                            title: 'About Us',
+                            iconPath: SvgAssets.about,
+                          ),
+                          SizedBox(height: 10.h),
+                          AccountTile(
+                            title: 'Privacy Policy',
+                            iconPath: SvgAssets.pp,
+                          ),
+                          SizedBox(height: 10.h),
+                          AccountTile(
+                            title: 'Terms & Conditions',
+                            iconPath: SvgAssets.tc,
+                          ),
+                          SizedBox(height: 30.h),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Logout',
+                              style: TextStyle(
+                                fontSize: 15.sp,
+                                fontWeight: FontWeight.w600,
+                                color: AppColors.textPrimaryColor,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 10.h),
+                          AccountTile(
+                            title: 'Logout',
+                            iconPath: SvgAssets.logout,
+                          ),
+                          SizedBox(height: 100.h),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
