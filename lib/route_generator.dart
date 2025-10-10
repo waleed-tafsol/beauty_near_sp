@@ -1,9 +1,13 @@
 import 'package:beauty_points/screens/Gender_service_screen.dart';
+import 'package:beauty_points/screens/add_service_screen.dart';
 import 'package:beauty_points/screens/bot_nav_bar.dart';
 import 'package:beauty_points/screens/location_screen.dart';
 import 'package:beauty_points/screens/home_screen.dart';
 import 'package:beauty_points/screens/login_screen.dart';
+import 'package:beauty_points/screens/my_booking_detail_screen.dart';
+import 'package:beauty_points/screens/my_booking_screen.dart';
 import 'package:beauty_points/screens/otp_screen.dart';
+import 'package:beauty_points/screens/personal_information_screen.dart';
 import 'package:beauty_points/screens/signup_screen.dart';
 import 'package:beauty_points/screens/splash_screen.dart';
 import 'package:beauty_points/screens/upload_image_screen.dart';
@@ -25,6 +29,10 @@ const String availabilityScreen = '/availability';
 const String paymentMethodScreen = '/payment_method';
 const String cardDetailsScreen = '/card_details';
 const String botNavBar = '/bot_nav_bar';
+const String addServiceScreen = '/add_service';
+const String myBookingScreen = '/my_booking';
+const String myBookingDetailsScreen = '/my_booking_details';
+const String personalInformationScreen = "/personal_information_screen";
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -86,12 +94,31 @@ class RouteGenerator {
           settings: RouteSettings(name: cardDetailsScreen),
           builder: (_) => CardDetailsScreen(),
         );
+      case addServiceScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: addServiceScreen),
+          builder: (_) => AddServiceScreen(),
+        );
+      case myBookingScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: myBookingScreen),
+          builder: (_) => MyBookingScreen(),
+        );
+      case myBookingDetailsScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: myBookingDetailsScreen),
+          builder: (_) => MyBookingDetailScreen(),
+        );
+        case personalInformationScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: personalInformationScreen),
+          builder: (_) => PersonalInformationScreen(),
+        );
       // case botNavBar:
       //   return MaterialPageRoute(
       //     settings: RouteSettings(name: botNavBar),
       //     builder: (_) => BotNavBar(),
       //   );
-    
 
       default:
         return _errorRoute();
