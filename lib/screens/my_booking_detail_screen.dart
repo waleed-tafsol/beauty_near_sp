@@ -1,3 +1,4 @@
+import 'package:beauty_points/route_generator.dart';
 import 'package:beauty_points/utills/assets.dart';
 import 'package:beauty_points/utills/color_constant.dart';
 import 'package:beauty_points/widgets/custom_app_bar.dart';
@@ -123,17 +124,22 @@ class MyBookingDetailScreen extends StatelessWidget {
                     ),
                   ),
                   Spacer(),
-                  Container(
-                    width: 40.w,
-                    height: 40.h,
-                    decoration: BoxDecoration(
-                      color: AppColors.kPrimaryColor.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(20.r),
-                    ),
-                    child: Icon(
-                      Iconsax.message5,
-                      color: AppColors.kPrimaryColor,
-                      size: 20.sp,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, chatScreen);
+                    },
+                    child: Container(
+                      width: 40.w,
+                      height: 40.h,
+                      decoration: BoxDecoration(
+                        color: AppColors.kPrimaryColor.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(20.r),
+                      ),
+                      child: Icon(
+                        Iconsax.message5,
+                        color: AppColors.kPrimaryColor,
+                        size: 20.sp,
+                      ),
                     ),
                   ),
                 ],
