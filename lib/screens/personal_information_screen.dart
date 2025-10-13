@@ -32,7 +32,9 @@ class PersonalInformationScreen extends StatelessWidget {
               color: Color(0xffFFFFFF),
             ),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
               child: Icon(
                 Icons.chevron_left,
                 color: Color(0xff292D32),
