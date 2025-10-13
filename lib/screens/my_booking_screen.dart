@@ -134,17 +134,6 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                       margin: EdgeInsets.only(right: 10.w),
                       height: 35.h,
                       width: 110.w,
-                      child: Center(
-                        child: Text(
-                          tabName,
-                          style: TextStyle(
-                            color: isSelected
-                                ? Colors.white
-                                : AppColors.darkGreyColor,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(70.r),
                         gradient: isSelected
@@ -159,6 +148,17 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
                             : null,
                         color: isSelected ? null : Colors.white,
                       ),
+                      child: Center(
+                        child: Text(
+                          tabName,
+                          style: TextStyle(
+                            color: isSelected
+                                ? Colors.white
+                                : AppColors.darkGreyColor,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
                     ),
                   );
                 }).toList(),
@@ -167,6 +167,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
             SizedBox(height: 20.h),
             Expanded(
               child: ListView.builder(
+                padding: EdgeInsets.only(bottom: 160.h),
                 itemCount: _getItemCount(),
                 itemBuilder: (context, index) {
                   return _buildBookingCard(context, index);

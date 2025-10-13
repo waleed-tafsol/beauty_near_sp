@@ -23,6 +23,7 @@ Future<void> main() async {
       child: ScreenUtilInit(
         designSize: getDesignSize(),
         minTextAdapt: true,
+        ensureScreenSize: true,
         splitScreenMode: true,
         child: AppInit(),
       ),

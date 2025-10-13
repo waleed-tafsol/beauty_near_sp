@@ -1,6 +1,8 @@
 import 'package:beauty_points/route_generator.dart';
-import 'package:beauty_points/utills/color_constant.dart';
 import 'package:beauty_points/utills/assets.dart';
+import 'package:beauty_points/utills/color_constant.dart';
+import 'package:beauty_points/utills/enums.dart';
+import 'package:beauty_points/utills/screen_size.dart';
 import 'package:beauty_points/widgets/service_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -117,7 +119,7 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50.r),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black.withValues(alpha: 0.1),
                       blurRadius: 30,
                       offset: Offset(0, 0),
                     ),
@@ -135,90 +137,99 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(height: 30.h),
-          Padding(
-            padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Search',
-                prefixIcon: Icon(
-                  Iconsax.search_normal,
-                  size: 20.sp,
-                  color: AppColors.greyColor,
-                ),
-                suffixIcon: Icon(
-                  Iconsax.sort,
-                  size: 20.sp,
-                  color: AppColors.greyColor,
-                ),
-              ),
-            ),
-          ),
-          SizedBox(height: 30.h),
-          Padding(
-            padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'My Services',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16.sp,
-                    color: AppColors.textPrimaryColor,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, addServiceScreen);
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20.w,
-                      vertical: 9.5.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: AppColors.kPrimaryColor,
-                      borderRadius: BorderRadius.circular(48.r),
-                    ),
-                    child: Text(
-                      'Add Service',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14.sp,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 15.h),
-          // Services Grid
-          Expanded(
-            child: GridView.builder(
-              padding: EdgeInsetsGeometry.symmetric(
-                horizontal: 20.w,
-                vertical: 20.h,
-              ),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 15.w,
-                mainAxisSpacing: 15.h,
+      body: _buildBody(context),
+    );
+  }
 
-                // childAspectRatio: 0.85,
+  Column _buildBody(BuildContext context) {
+    final screenSize = screenNotifier.value;
+    return Column(
+      children: [
+        SizedBox(height: 30.h),
+        Padding(
+          padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: 'Search',
+              prefixIcon: Icon(
+                Iconsax.search_normal,
+                size: 20.sp,
+                color: AppColors.greyColor,
               ),
-              itemCount: services.length,
-              itemBuilder: (context, index) {
-                return ServiceCard(service: services[index]);
-              },
+              suffixIcon: Icon(
+                Iconsax.sort,
+                size: 20.sp,
+                color: AppColors.greyColor,
+              ),
             ),
           ),
-        ],
-      ),
+        ),
+        SizedBox(height: 30.h),
+        Padding(
+          padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'My Services',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16.sp,
+                  color: AppColors.textPrimaryColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, addServiceScreen);
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20.w,
+                    vertical: 9.5.h,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.kPrimaryColor,
+                    borderRadius: BorderRadius.circular(48.r),
+                  ),
+                  child: Text(
+                    'Add Service',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14.sp,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        SizedBox(height: 15.h),
+        // Services Grid
+        Expanded(
+          child: GridView.builder(
+            padding: EdgeInsetsGeometry.only(
+              left: 20.w,
+              right: 20.w,
+              top: 20.h,
+              bottom: 170.h,
+            ),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount:
+                  screenSize == ScreenSize.large ||
+                      screenSize == ScreenSize.medium
+                  ? 3
+                  : 2,
+              crossAxisSpacing: 15.w,
+              mainAxisSpacing: 15.h,
+            ),
+            itemCount: services.length,
+            itemBuilder: (context, index) {
+              return ServiceCard(service: services[index]);
+            },
+          ),
+        ),
+      ],
     );
   }
 }

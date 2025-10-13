@@ -17,20 +17,35 @@ class BotNavPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final BotNavViewModel viewModel = context.watch<BotNavViewModel>();
     return Scaffold(
-      body: viewModel.currentChild,
-      floatingActionButton: Transform.rotate(
-        angle: pi / 4,
-        child: Container(
-          width: 60.h,
-          height: 60.h,
-          decoration: BoxDecoration(
-            border: Border.all(color: AppColors.kPrimaryColor),
-            gradient: AppColors.primaryGradient,
-            borderRadius: BorderRadius.circular(14.r),
+      body: Stack(
+        children: [
+          viewModel.currentChild,
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 62.5.h,
+            child: Center(
+              child: Transform.rotate(
+                angle: pi / 4,
+                child: Container(
+                  width: 60.h,
+                  height: 60.h,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: AppColors.kPrimaryColor,
+                      width: 1.h,
+                    ),
+                    gradient: AppColors.primaryGradient,
+                    borderRadius: BorderRadius.circular(14.r),
+                  ),
+                  child: Icon(Icons.close, color: Colors.white, size: 24.sp),
+                ),
+              ),
+            ),
           ),
-          child: Icon(Icons.close, color: Colors.white, size: 24.sp),
-        ),
+        ],
       ),
+      floatingActionButton: SizedBox(),
       extendBody: true,
       extendBodyBehindAppBar: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

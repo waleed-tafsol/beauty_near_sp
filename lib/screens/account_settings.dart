@@ -60,11 +60,8 @@ class AccountSettings extends StatelessWidget {
             top: 250.h,
             left: 0,
             right: 0,
-            // bottom: 0,
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              // mainAxisAlignment: MainAxisAlignment.center,
-              // crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   'John Doe',
@@ -85,111 +82,113 @@ class AccountSettings extends StatelessWidget {
                 SizedBox(height: 40.h),
                 Expanded(
                   child: SingleChildScrollView(
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              'General',
-                              style: TextStyle(
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.textPrimaryColor,
-                              ),
+                    padding: EdgeInsets.only(
+                      left: 20.w,
+                      right: 20.w,
+                      bottom: 140.h,
+                    ),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'General',
+                            style: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.textPrimaryColor,
                             ),
                           ),
-                          SizedBox(height: 10.h),
-                          AccountTile(
-                            onTap: () {
-                              Navigator.pushNamed(
-                                context,
-                                personalInformationScreen,
-                              );
-                            },
-                            title: 'Personal Information',
-                            iconPath: SvgAssets.pi,
-                          ),
-                          SizedBox(height: 10.h),
-                          AccountTile(
-                            onTap: () {
-                              Navigator.pushNamed(context, support);
-                            },
-                            title: 'Support',
-                            iconPath: SvgAssets.support,
-                          ),
-                          SizedBox(height: 10.h),
-                          AccountTile(
-                            onTap: () {
-                              Navigator.pushNamed(context, languagesScreen);
-                            },
-                            title: 'Language',
-                            iconPath: SvgAssets.lang,
-                          ),
-                          SizedBox(height: 30.h),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              'Help & Support',
-                              style: TextStyle(
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.textPrimaryColor,
-                              ),
+                        ),
+                        SizedBox(height: 10.h),
+                        AccountTile(
+                          onTap: () {
+                            Navigator.pushNamed(
+                              context,
+                              personalInformationScreen,
+                            );
+                          },
+                          title: 'Personal Information',
+                          iconPath: SvgAssets.pi,
+                        ),
+                        SizedBox(height: 10.h),
+                        AccountTile(
+                          onTap: () {
+                            Navigator.pushNamed(context, support);
+                          },
+                          title: 'Support',
+                          iconPath: SvgAssets.support,
+                        ),
+                        SizedBox(height: 10.h),
+                        AccountTile(
+                          onTap: () {
+                            Navigator.pushNamed(context, languagesScreen);
+                          },
+                          title: 'Language',
+                          iconPath: SvgAssets.lang,
+                        ),
+                        SizedBox(height: 30.h),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Help & Support',
+                            style: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.textPrimaryColor,
                             ),
                           ),
-                          SizedBox(height: 10.h),
-                          AccountTile(
-                            onTap: () {
-                              Navigator.pushNamed(context, aboutUs);
-                            },
-                            title: 'About Us',
-                            iconPath: SvgAssets.about,
-                          ),
-                          SizedBox(height: 10.h),
-                          AccountTile(
-                            onTap: () {
-                              Navigator.pushNamed(context, privacyPolicy);
-                            },
-                            title: 'Privacy Policy',
-                            iconPath: SvgAssets.pp,
-                          ),
-                          SizedBox(height: 10.h),
-                          AccountTile(
-                            onTap: () {
-                              Navigator.pushNamed(context, termsAndConditions);
-                            },
-                            title: 'Terms & Conditions',
-                            iconPath: SvgAssets.tc,
-                          ),
-                          SizedBox(height: 30.h),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              'Logout',
-                              style: TextStyle(
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w600,
-                                color: AppColors.textPrimaryColor,
-                              ),
+                        ),
+                        SizedBox(height: 10.h),
+                        AccountTile(
+                          onTap: () {
+                            Navigator.pushNamed(context, aboutUs);
+                          },
+                          title: 'About Us',
+                          iconPath: SvgAssets.about,
+                        ),
+                        SizedBox(height: 10.h),
+                        AccountTile(
+                          onTap: () {
+                            Navigator.pushNamed(context, privacyPolicy);
+                          },
+                          title: 'Privacy Policy',
+                          iconPath: SvgAssets.pp,
+                        ),
+                        SizedBox(height: 10.h),
+                        AccountTile(
+                          onTap: () {
+                            Navigator.pushNamed(context, termsAndConditions);
+                          },
+                          title: 'Terms & Conditions',
+                          iconPath: SvgAssets.tc,
+                        ),
+                        SizedBox(height: 30.h),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Logout',
+                            style: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w600,
+                              color: AppColors.textPrimaryColor,
                             ),
                           ),
-                          SizedBox(height: 10.h),
-                          AccountTile(
-                            onTap: () {
-                              Navigator.pushNamedAndRemoveUntil(
-                                context,
-                                loginScreen,
-                                (route) => false,
-                              );
-                            },
-                            title: 'Logout',
-                            iconPath: SvgAssets.logout,
-                          ),
-                          SizedBox(height: 100.h),
-                        ],
-                      ),
+                        ),
+                        SizedBox(height: 10.h),
+                        AccountTile(
+                          onTap: () {
+                            Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              loginScreen,
+                              (route) => false,
+                            );
+                          },
+                          title: 'Logout',
+                          iconPath: SvgAssets.logout,
+                        ),
+                        SizedBox(height: 100.h),
+                      ],
                     ),
                   ),
                 ),

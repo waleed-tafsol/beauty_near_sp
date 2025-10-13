@@ -54,11 +54,10 @@ class StatsGraph extends StatelessWidget {
                       ),
                     );
                   } else {
-                    return Container(); // Return an empty container if the index is out of range
+                    return SizedBox.shrink();
                   }
                 },
-                interval:
-                    1, // Ensure the interval is set to 1 to avoid duplicates
+                interval: 1,
               ),
             ),
           ),

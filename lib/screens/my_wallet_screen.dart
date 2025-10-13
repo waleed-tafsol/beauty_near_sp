@@ -93,7 +93,7 @@ class MyWalletScreen extends StatelessWidget {
                     SizedBox(height: 20.h),
                     Expanded(
                       child: ListView.builder(
-                        padding: EdgeInsets.only(top: 2.h, bottom: 150.h),
+                        padding: EdgeInsets.only(top: 2.h, bottom: 160.h),
                         itemCount: 20,
                         itemBuilder: (context, index) {
                           return const TransactionTile();
