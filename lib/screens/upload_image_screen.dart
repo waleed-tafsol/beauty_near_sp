@@ -98,20 +98,25 @@ class UploadImageScreen extends StatelessWidget {
             ),
           ),
           SizedBox(width: 10.w),
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 22.w),
-            decoration: BoxDecoration(
-              color: const Color(0xffFCE2E7),
-              borderRadius: BorderRadius.circular(48.r),
-              border: Border.all(color: AppColors.kPrimaryColor, width: 1),
-            ),
-            child: Center(
-              child: Text(
-                'Skip',
-                style: GoogleFonts.montserrat(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.kPrimaryColor,
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, availabilityScreen);
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 22.w),
+              decoration: BoxDecoration(
+                color: const Color(0xffFCE2E7),
+                borderRadius: BorderRadius.circular(48.r),
+                border: Border.all(color: AppColors.kPrimaryColor, width: 1),
+              ),
+              child: Center(
+                child: Text(
+                  'Skip',
+                  style: GoogleFonts.montserrat(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.kPrimaryColor,
+                  ),
                 ),
               ),
             ),

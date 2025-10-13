@@ -171,7 +171,7 @@ class CustomBookingCard extends StatelessWidget {
               ),
               SizedBox(width: 12.w),
               // Action buttons based on tab and status
-              ..._buildActionButtons(),
+              ..._buildActionButtons(context),
             ],
           ),
         ],
@@ -179,7 +179,7 @@ class CustomBookingCard extends StatelessWidget {
     );
   }
 
-  List<Widget> _buildActionButtons() {
+  List<Widget> _buildActionButtons(BuildContext context) {
     switch (selectedTabIndex) {
       case 0: // Request tab
         return [
@@ -255,17 +255,22 @@ class CustomBookingCard extends StatelessWidget {
           case 'accepted':
             return [
               // Chat icon
-              Container(
-                width: 40.w,
-                height: 40.h,
-                decoration: BoxDecoration(
-                  color: AppColors.kPrimaryColor.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(20.r),
-                ),
-                child: Icon(
-                  Iconsax.message5,
-                  color: AppColors.kPrimaryColor,
-                  size: 20.sp,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, chatScreen);
+                },
+                child: Container(
+                  width: 40.w,
+                  height: 40.h,
+                  decoration: BoxDecoration(
+                    color: AppColors.kPrimaryColor.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(20.r),
+                  ),
+                  child: Icon(
+                    Iconsax.message5,
+                    color: AppColors.kPrimaryColor,
+                    size: 20.sp,
+                  ),
                 ),
               ),
               SizedBox(width: 8.w),
@@ -273,7 +278,6 @@ class CustomBookingCard extends StatelessWidget {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
                 decoration: BoxDecoration(
-                  
                   color: Color(0xff00A12B).withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(20.r),
                 ),

@@ -1,3 +1,4 @@
+import 'package:beauty_points/route_generator.dart';
 import 'package:beauty_points/utills/color_constant.dart';
 import 'package:beauty_points/utills/assets.dart';
 import 'package:beauty_points/widgets/service_card.dart';
@@ -104,25 +105,30 @@ class HomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              width: 36.w,
-              height: 36.h,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(50.r),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 30,
-                    offset: Offset(0, 0),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, notification);
+              },
+              child: Container(
+                width: 36.w,
+                height: 36.h,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(50.r),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 30,
+                      offset: Offset(0, 0),
+                    ),
+                  ],
+                ),
+                child: Center(
+                  child: Icon(
+                    Iconsax.notification,
+                    size: 18.sp,
+                    color: AppColors.textPrimaryColor,
                   ),
-                ],
-              ),
-              child: Center(
-                child: Icon(
-                  Iconsax.notification,
-                  size: 18.sp,
-                  color: AppColors.textPrimaryColor,
                 ),
               ),
             ),
@@ -164,21 +170,26 @@ class HomeScreen extends StatelessWidget {
                     color: AppColors.textPrimaryColor,
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 20.w,
-                    vertical: 9.5.h,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.kPrimaryColor,
-                    borderRadius: BorderRadius.circular(48.r),
-                  ),
-                  child: Text(
-                    'Add Service',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.sp,
-                      color: Colors.white,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, addServiceScreen);
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 20.w,
+                      vertical: 9.5.h,
+                    ),
+                    decoration: BoxDecoration(
+                      color: AppColors.kPrimaryColor,
+                      borderRadius: BorderRadius.circular(48.r),
+                    ),
+                    child: Text(
+                      'Add Service',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.sp,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),

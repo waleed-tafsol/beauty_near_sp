@@ -1,4 +1,5 @@
 import 'package:beauty_points/route_generator.dart';
+import 'package:beauty_points/screens/bot_nav_bar_page.dart';
 import 'package:beauty_points/utills/assets.dart';
 import 'package:beauty_points/utills/color_constant.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +76,16 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: 24.h),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(onPressed: () {}, child: Text('Login')),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      BotNavPage.routeName,
+                      (_) => false,
+                    );
+                  },
+                  child: Text('Login'),
+                ),
               ),
             ],
           ),

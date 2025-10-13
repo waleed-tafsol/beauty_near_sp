@@ -103,7 +103,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        forceMaterialTransparency: true,
         backgroundColor: AppColors.kScaffoldColor,
         centerTitle: true,
         title: Text(

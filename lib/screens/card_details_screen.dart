@@ -1,4 +1,5 @@
 import 'package:beauty_points/route_generator.dart';
+import 'package:beauty_points/screens/bot_nav_bar_page.dart';
 import 'package:beauty_points/utills/assets.dart';
 import 'package:beauty_points/utills/color_constant.dart';
 import 'package:beauty_points/widgets/custom_back_button.dart';
@@ -209,7 +210,7 @@ class CardDetailsScreen extends StatelessWidget {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, botNavBar);
+                  Navigator.pushNamedAndRemoveUntil(context, BotNavPage.routeName,(route)=> false);
                 },
                 child: Text('Pay Now'),
               ),

@@ -1,3 +1,5 @@
+import 'package:beauty_points/screens/account_settings.dart';
+import 'package:beauty_points/screens/my_booking_screen.dart';
 import 'package:beauty_points/screens/my_wallet_screen.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -8,9 +10,9 @@ class BotNavViewModel extends ChangeNotifier {
 
   final List<Widget> _children = [
     HomeScreen(),
-    Placeholder(),
+    MyBookingScreen(),
     MyWalletScreen(),
-    Placeholder(),
+    AccountSettings()
   ];
 
   int get currentPage => _currentPage;

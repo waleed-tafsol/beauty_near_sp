@@ -1,3 +1,4 @@
+import 'package:beauty_points/route_generator.dart';
 import 'package:beauty_points/utills/assets.dart';
 import 'package:beauty_points/utills/color_constant.dart';
 import 'package:beauty_points/widgets/account_tile.dart';
@@ -101,16 +102,28 @@ class AccountSettings extends StatelessWidget {
                           ),
                           SizedBox(height: 10.h),
                           AccountTile(
+                            onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                personalInformationScreen,
+                              );
+                            },
                             title: 'Personal Information',
                             iconPath: SvgAssets.pi,
                           ),
                           SizedBox(height: 10.h),
                           AccountTile(
+                            onTap: () {
+                              Navigator.pushNamed(context, support);
+                            },
                             title: 'Support',
                             iconPath: SvgAssets.support,
                           ),
                           SizedBox(height: 10.h),
                           AccountTile(
+                            onTap: () {
+                              Navigator.pushNamed(context, languagesScreen);
+                            },
                             title: 'Language',
                             iconPath: SvgAssets.lang,
                           ),
@@ -128,16 +141,25 @@ class AccountSettings extends StatelessWidget {
                           ),
                           SizedBox(height: 10.h),
                           AccountTile(
+                            onTap: () {
+                              Navigator.pushNamed(context, aboutUs);
+                            },
                             title: 'About Us',
                             iconPath: SvgAssets.about,
                           ),
                           SizedBox(height: 10.h),
                           AccountTile(
+                            onTap: () {
+                              Navigator.pushNamed(context, privacyPolicy);
+                            },
                             title: 'Privacy Policy',
                             iconPath: SvgAssets.pp,
                           ),
                           SizedBox(height: 10.h),
                           AccountTile(
+                            onTap: () {
+                              Navigator.pushNamed(context, termsAndConditions);
+                            },
                             title: 'Terms & Conditions',
                             iconPath: SvgAssets.tc,
                           ),
@@ -155,6 +177,13 @@ class AccountSettings extends StatelessWidget {
                           ),
                           SizedBox(height: 10.h),
                           AccountTile(
+                            onTap: () {
+                              Navigator.pushNamedAndRemoveUntil(
+                                context,
+                                loginScreen,
+                                (route) => false,
+                              );
+                            },
                             title: 'Logout',
                             iconPath: SvgAssets.logout,
                           ),

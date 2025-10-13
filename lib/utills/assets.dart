@@ -5,7 +5,6 @@ class PngAssets {
   static const String beautyNear = '${_assets}beauty_near.png';
   static const String map = '${_assets}map.png';
   static const String person = '${_assets}person.png';
-  
   static const String personEdit = '${_assets}person_edit.png';
 }
 
@@ -36,8 +35,10 @@ class SvgAssets {
   static const String us = '${_assets}us.svg';
   static const String french = '${_assets}french.svg';
   static const String spanish = '${_assets}spanish.svg';
-
+  static const String emojiIcon = '${_assets}emoji_icon.svg';
   static const String person = '${_assets}person.svg';
+  static const String paperClip = '${_assets}paperclip.svg';
+  static const String sendButton = '${_assets}send_button.svg';
 }
 
 class LottieAssets {

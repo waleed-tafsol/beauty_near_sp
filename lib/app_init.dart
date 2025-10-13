@@ -15,7 +15,7 @@ class AppInit extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Beauty Points',
-      initialRoute: BotNavPage.routeName,
+      initialRoute: loginScreen,
       onGenerateRoute: RouteGenerator.generateRoute,
       themeMode: themeMode,
       theme: AppTheme.lightTheme,

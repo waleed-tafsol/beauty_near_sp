@@ -1,4 +1,5 @@
 import 'package:beauty_points/screens/Gender_service_screen.dart';
+import 'package:beauty_points/screens/about_us_screen.dart';
 import 'package:beauty_points/screens/availability_screen.dart';
 import 'package:beauty_points/screens/bot_nav_bar_page.dart';
 import 'package:beauty_points/screens/card_details_screen.dart';
@@ -11,11 +12,15 @@ import 'package:beauty_points/screens/location_screen.dart';
 import 'package:beauty_points/screens/login_screen.dart';
 import 'package:beauty_points/screens/my_booking_detail_screen.dart';
 import 'package:beauty_points/screens/my_booking_screen.dart';
+import 'package:beauty_points/screens/notification_screen.dart';
 import 'package:beauty_points/screens/otp_screen.dart';
 import 'package:beauty_points/screens/payment_method_screen.dart';
 import 'package:beauty_points/screens/personal_information_screen.dart';
+import 'package:beauty_points/screens/privacy_policy_screen.dart';
 import 'package:beauty_points/screens/signup_screen.dart';
 import 'package:beauty_points/screens/splash_screen.dart';
+import 'package:beauty_points/screens/support_screen.dart';
+import 'package:beauty_points/screens/terms_and_condition_screen.dart';
 import 'package:beauty_points/screens/upload_image_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -38,6 +43,11 @@ const String addServiceScreen = '/add_service';
 const String myBookingScreen = '/my_booking';
 const String myBookingDetailsScreen = '/my_booking_details';
 const String personalInformationScreen = "/personal_information_screen";
+const String termsAndConditions = '/terms_and_conditions';
+const String privacyPolicy = '/privacy_policy';
+const String aboutUs = '/about_us';
+const String support = '/support';
+const String notification = '/notification';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -119,10 +129,40 @@ class RouteGenerator {
           settings: RouteSettings(name: myBookingDetailsScreen),
           builder: (_) => MyBookingDetailScreen(),
         );
-        case personalInformationScreen:
+      case personalInformationScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: personalInformationScreen),
           builder: (_) => PersonalInformationScreen(),
+        );
+      case termsAndConditions:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: termsAndConditions),
+          builder: (_) => TermsAndConditionsScreen(),
+        );
+      case privacyPolicy:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: privacyPolicy),
+          builder: (_) => PrivacyPolicyScreen(),
+        );
+      case aboutUs:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: aboutUs),
+          builder: (_) => AboutUsScreen(),
+        );
+      case support:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: support),
+          builder: (_) => SupportScreen(),
+        );
+         case notification:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: support),
+          builder: (_) => NotificationScreen(),
+        );
+          case chatScreen:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: support),
+          builder: (_) => ChatScreen(),
         );
       // case botNavBar:
       //   return MaterialPageRoute(
