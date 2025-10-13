@@ -2,7 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../utills/color_constant.dart';
+import '../utils/color_constant.dart';
 
 class StatsGraph extends StatelessWidget {
   const StatsGraph({super.key});

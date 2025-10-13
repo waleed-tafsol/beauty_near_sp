@@ -1,7 +1,8 @@
-import 'package:beauty_points/route_generator.dart';
-import 'package:beauty_points/utills/assets.dart';
-import 'package:beauty_points/utills/color_constant.dart';
-import 'package:beauty_points/widgets/account_tile.dart';
+import 'package:beauty_near_sp/route_generator.dart';
+import 'package:beauty_near_sp/utils/assets.dart';
+import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
+import 'package:beauty_near_sp/widgets/account_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -85,7 +86,7 @@ class AccountSettings extends StatelessWidget {
                     padding: EdgeInsets.only(
                       left: 20.w,
                       right: 20.w,
-                      bottom: 140.h,
+                      bottom: context.notchAwareBottomPadding,
                     ),
                     child: Column(
                       children: [
@@ -187,7 +188,7 @@ class AccountSettings extends StatelessWidget {
                           title: 'Logout',
                           iconPath: SvgAssets.logout,
                         ),
-                        SizedBox(height: 100.h),
+                        SizedBox(height: 10.h),
                       ],
                     ),
                   ),

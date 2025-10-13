@@ -1,6 +1,5 @@
-import 'package:beauty_points/utills/color_constant.dart';
-import 'package:beauty_points/widgets/custom_app_bar.dart';
-import 'package:beauty_points/widgets/notification_tile.dart';
+import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/widgets/notification_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

@@ -1,9 +1,10 @@
-import 'package:beauty_points/route_generator.dart';
-import 'package:beauty_points/utills/assets.dart';
-import 'package:beauty_points/utills/color_constant.dart';
-import 'package:beauty_points/utills/enums.dart';
-import 'package:beauty_points/utills/screen_size.dart';
-import 'package:beauty_points/widgets/service_card.dart';
+import 'package:beauty_near_sp/route_generator.dart';
+import 'package:beauty_near_sp/utils/assets.dart';
+import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/utils/enums.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
+import 'package:beauty_near_sp/utils/screen_size.dart';
+import 'package:beauty_near_sp/widgets/service_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -212,7 +213,7 @@ class HomeScreen extends StatelessWidget {
               left: 20.w,
               right: 20.w,
               top: 20.h,
-              bottom: 170.h,
+              bottom: context.notchAwareBottomPadding,
             ),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount:

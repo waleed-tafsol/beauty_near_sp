@@ -1,7 +1,6 @@
-import 'package:beauty_points/utills/color_constant.dart';
+import 'package:beauty_near_sp/utils/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconsax/iconsax.dart';
 
 class NotificationTile extends StatelessWidget {
   final String? title;

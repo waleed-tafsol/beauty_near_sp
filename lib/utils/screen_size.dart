@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:beauty_points/utills/enums.dart';
+import 'package:beauty_near_sp/utils/enums.dart';
 import 'package:flutter/material.dart';
 
 final screenNotifier = ValueNotifier(ScreenSize.none);

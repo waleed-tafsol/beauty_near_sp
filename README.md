@@ -1,4 +1,4 @@
-# beauty_points
+# beauty_near_sp
 
 A new Flutter project.
 

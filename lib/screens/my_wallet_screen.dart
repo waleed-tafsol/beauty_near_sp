@@ -1,8 +1,9 @@
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../utills/color_constant.dart';
+import '../utils/color_constant.dart';
 import '../widgets/stats_graph.dart';
 import '../widgets/transaction_tile.dart';
 
@@ -93,7 +94,10 @@ class MyWalletScreen extends StatelessWidget {
                     SizedBox(height: 20.h),
                     Expanded(
                       child: ListView.builder(
-                        padding: EdgeInsets.only(top: 2.h, bottom: 160.h),
+                        padding: EdgeInsets.only(
+                          top: 2.h,
+                          bottom: context.notchAwareBottomPadding,
+                        ),
                         itemCount: 20,
                         itemBuilder: (context, index) {
                           return const TransactionTile();

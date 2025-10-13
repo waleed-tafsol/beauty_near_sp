@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../utills/color_constant.dart';
+import '../utils/color_constant.dart';
 
 class TransactionTile extends StatelessWidget {
   const TransactionTile({super.key});

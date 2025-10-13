@@ -1,5 +1,6 @@
-import 'package:beauty_points/utills/color_constant.dart';
-import 'package:beauty_points/widgets/custom_booking_card.dart';
+import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
+import 'package:beauty_near_sp/widgets/custom_booking_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -167,7 +168,9 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
             SizedBox(height: 20.h),
             Expanded(
               child: ListView.builder(
-                padding: EdgeInsets.only(bottom: 160.h),
+                padding: EdgeInsets.only(
+                  bottom: context.notchAwareBottomPadding,
+                ),
                 itemCount: _getItemCount(),
                 itemBuilder: (context, index) {
                   return _buildBookingCard(context, index);

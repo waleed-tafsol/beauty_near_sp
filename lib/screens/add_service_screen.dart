@@ -1,8 +1,9 @@
-import 'package:beauty_points/utills/color_constant.dart';
-import 'package:beauty_points/widgets/custom_app_bar.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
+
+import '../utils/color_constant.dart';
+import '../widgets/custom_app_bar.dart';
 
 class AddServiceScreen extends StatefulWidget {
   const AddServiceScreen({super.key});
@@ -199,7 +200,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                             color: Colors.white,
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
+                                color: Colors.black.withValues(alpha: 0.1),
                                 blurRadius: 10,
                                 offset: Offset(0, 5),
                               ),

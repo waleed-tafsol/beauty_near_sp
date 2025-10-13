@@ -1,7 +1,7 @@
-import 'package:beauty_points/route_generator.dart';
-import 'package:beauty_points/utills/assets.dart';
-import 'package:beauty_points/utills/color_constant.dart';
-import 'package:beauty_points/widgets/custom_app_bar.dart';
+import 'package:beauty_near_sp/route_generator.dart';
+import 'package:beauty_near_sp/utils/assets.dart';
+import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';

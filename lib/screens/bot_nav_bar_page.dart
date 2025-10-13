@@ -1,10 +1,11 @@
 import 'dart:math';
 
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-import '../utills/color_constant.dart';
+import '../utils/color_constant.dart';
 import '../view_models/bot_nav_view_model.dart';
 import '../widgets/bottom_nav_bar.dart';
 
@@ -23,7 +24,9 @@ class BotNavPage extends StatelessWidget {
           Positioned(
             left: 0,
             right: 0,
-            bottom: 62.5.h,
+            bottom: context.bottomNotch > 0
+                ? 62.5.h + context.bottomNotch
+                : 62.5.h,
             child: Center(
               child: Transform.rotate(
                 angle: pi / 4,

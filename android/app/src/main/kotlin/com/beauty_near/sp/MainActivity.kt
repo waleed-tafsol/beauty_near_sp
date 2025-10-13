@@ -1,4 +1,4 @@
-package com.beauty_points.beauty_points
+package com.beauty_near.sp
 
 import io.flutter.embedding.android.FlutterActivity
 

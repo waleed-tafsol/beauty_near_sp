@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../utills/bottom_nav_clipper.dart';
-import '../utills/color_constant.dart';
+import '../utils/bottom_nav_clipper.dart';
+import '../utils/color_constant.dart';
 
 class BottomNavBar extends StatelessWidget {
   final int currentIndex;
@@ -82,7 +82,7 @@ class BottomNavBar extends StatelessWidget {
       child: AnimatedContainer(
         height: 80.h,
         width: 65.w,
-        color: Colors.yellow,
+        color: kDebugMode ? Colors.yellow : null,
         duration: const Duration(milliseconds: 200),
         curve: Curves.easeInOut,
         child: Column(

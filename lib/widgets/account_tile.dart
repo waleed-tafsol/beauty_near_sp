@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../utills/color_constant.dart';
+
+import '../utils/color_constant.dart';
 
 class AccountTile extends StatelessWidget {
   final String title;

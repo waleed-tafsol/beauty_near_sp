@@ -1,10 +1,8 @@
-import 'package:beauty_points/route_generator.dart';
-import 'package:beauty_points/utills/theme.dart';
-import 'package:beauty_points/view_models/theme_view_model.dart';
+import 'package:beauty_near_sp/route_generator.dart';
+import 'package:beauty_near_sp/utils/theme.dart';
+import 'package:beauty_near_sp/view_models/theme_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'screens/bot_nav_bar_page.dart';
 
 class AppInit extends StatelessWidget {
   const AppInit({super.key});

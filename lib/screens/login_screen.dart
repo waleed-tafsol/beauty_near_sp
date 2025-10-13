@@ -1,10 +1,14 @@
-import 'package:beauty_points/route_generator.dart';
-import 'package:beauty_points/screens/bot_nav_bar_page.dart';
-import 'package:beauty_points/utills/assets.dart';
-import 'package:beauty_points/utills/color_constant.dart';
+import 'package:beauty_near_sp/route_generator.dart';
+import 'package:beauty_near_sp/screens/bot_nav_bar_page.dart';
+import 'package:beauty_near_sp/utils/assets.dart';
+import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/view_models/auth_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
+
+import '../utils/enums.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -39,6 +43,8 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 32.h),
+              // _buildUserTypeSelector(),
+              // SizedBox(height: 32.h),
               Text(
                 'Email Address',
                 textAlign: TextAlign.left,
@@ -87,6 +93,7 @@ class LoginScreen extends StatelessWidget {
                   child: Text('Login'),
                 ),
               ),
+              SizedBox(height: 20.h),
             ],
           ),
         ),
@@ -116,6 +123,48 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildUserTypeSelector() {
+    return Consumer<AuthViewModel>(
+      builder: (context, viewModel, _) {
+        final userType = viewModel.userType;
+        return Row(
+          spacing: 10.w,
+          children: [
+            Expanded(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: userType == UserType.customer
+                      ? null
+                      : Colors.white,
+                  foregroundColor: userType == UserType.customer
+                      ? null
+                      : AppColors.kBlackText,
+                ),
+                onPressed: () => viewModel.setUserType(UserType.customer),
+                child: Text('Customer'),
+              ),
+            ),
+            Expanded(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: userType == UserType.serviceProvider
+                      ? null
+                      : Colors.white,
+                  foregroundColor: userType == UserType.serviceProvider
+                      ? null
+                      : AppColors.kBlackText,
+                ),
+                onPressed: () =>
+                    viewModel.setUserType(UserType.serviceProvider),
+                child: Text('Service Provider'),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

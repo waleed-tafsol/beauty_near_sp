@@ -1,28 +1,29 @@
-import 'package:beauty_points/screens/Gender_service_screen.dart';
-import 'package:beauty_points/screens/about_us_screen.dart';
-import 'package:beauty_points/screens/availability_screen.dart';
-import 'package:beauty_points/screens/bot_nav_bar_page.dart';
-import 'package:beauty_points/screens/card_details_screen.dart';
-import 'package:beauty_points/screens/home_screen.dart';
-import 'package:beauty_points/screens/account_settings.dart';
-import 'package:beauty_points/screens/chat_screen.dart';
-import 'package:beauty_points/screens/languages_screen.dart';
-import 'package:beauty_points/screens/add_service_screen.dart';
-import 'package:beauty_points/screens/location_screen.dart';
-import 'package:beauty_points/screens/login_screen.dart';
-import 'package:beauty_points/screens/my_booking_detail_screen.dart';
-import 'package:beauty_points/screens/my_booking_screen.dart';
-import 'package:beauty_points/screens/notification_screen.dart';
-import 'package:beauty_points/screens/otp_screen.dart';
-import 'package:beauty_points/screens/payment_method_screen.dart';
-import 'package:beauty_points/screens/personal_information_screen.dart';
-import 'package:beauty_points/screens/privacy_policy_screen.dart';
-import 'package:beauty_points/screens/signup_screen.dart';
-import 'package:beauty_points/screens/splash_screen.dart';
-import 'package:beauty_points/screens/support_screen.dart';
-import 'package:beauty_points/screens/terms_and_condition_screen.dart';
-import 'package:beauty_points/screens/upload_image_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'screens/about_us_screen.dart';
+import 'screens/account_settings.dart';
+import 'screens/add_service_screen.dart';
+import 'screens/availability_screen.dart';
+import 'screens/bot_nav_bar_page.dart';
+import 'screens/card_details_screen.dart';
+import 'screens/chat_screen.dart';
+import 'screens/gender_service_screen.dart';
+import 'screens/home_screen.dart';
+import 'screens/languages_screen.dart';
+import 'screens/location_screen.dart';
+import 'screens/login_screen.dart';
+import 'screens/my_booking_detail_screen.dart';
+import 'screens/my_booking_screen.dart';
+import 'screens/notification_screen.dart';
+import 'screens/otp_screen.dart';
+import 'screens/payment_method_screen.dart';
+import 'screens/personal_information_screen.dart';
+import 'screens/privacy_policy_screen.dart';
+import 'screens/signup_screen.dart';
+import 'screens/splash_screen.dart';
+import 'screens/support_screen.dart';
+import 'screens/terms_and_condition_screen.dart';
+import 'screens/upload_image_screen.dart';
 
 const String splashScreen = '/splash_screen';
 const String homeScreen = '/home_screen';
@@ -154,21 +155,11 @@ class RouteGenerator {
           settings: RouteSettings(name: support),
           builder: (_) => SupportScreen(),
         );
-         case notification:
+      case notification:
         return MaterialPageRoute(
           settings: RouteSettings(name: support),
           builder: (_) => NotificationScreen(),
         );
-          case chatScreen:
-        return MaterialPageRoute(
-          settings: RouteSettings(name: support),
-          builder: (_) => ChatScreen(),
-        );
-      // case botNavBar:
-      //   return MaterialPageRoute(
-      //     settings: RouteSettings(name: botNavBar),
-      //     builder: (_) => BotNavBar(),
-      //   );
 
       case accountSettingsScreen:
         return MaterialPageRoute(

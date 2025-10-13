@@ -1,10 +1,11 @@
-import 'package:beauty_points/route_generator.dart';
-import 'package:beauty_points/utills/assets.dart';
-import 'package:beauty_points/widgets/custom_back_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:beauty_points/utills/color_constant.dart';
 import 'package:flutter_svg/svg.dart';
+
+import '../route_generator.dart';
+import '../utils/assets.dart';
+import '../utils/color_constant.dart';
+import '../widgets/custom_back_button.dart';
 
 class GenderServiceScreen extends StatelessWidget {
   const GenderServiceScreen({super.key});
@@ -82,7 +83,6 @@ class GenderServiceScreen extends StatelessWidget {
           ],
         ),
       ),
-      
     );
   }
 

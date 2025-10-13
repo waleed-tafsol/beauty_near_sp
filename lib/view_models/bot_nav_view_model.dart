@@ -1,6 +1,6 @@
-import 'package:beauty_points/screens/account_settings.dart';
-import 'package:beauty_points/screens/my_booking_screen.dart';
-import 'package:beauty_points/screens/my_wallet_screen.dart';
+import 'package:beauty_near_sp/screens/account_settings.dart';
+import 'package:beauty_near_sp/screens/my_booking_screen.dart';
+import 'package:beauty_near_sp/screens/my_wallet_screen.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../screens/home_screen.dart';
@@ -12,7 +12,7 @@ class BotNavViewModel extends ChangeNotifier {
     HomeScreen(),
     MyBookingScreen(),
     MyWalletScreen(),
-    AccountSettings()
+    AccountSettings(),
   ];
 
   int get currentPage => _currentPage;
