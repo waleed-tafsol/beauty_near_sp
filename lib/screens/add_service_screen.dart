@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../utils/color_constant.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/dialog box/select_duration_dialog_box.dart';
+import '../widgets/dialog box/success_dialog_box.dart';
 
 class AddServiceScreen extends StatefulWidget {
   const AddServiceScreen({super.key});
@@ -279,7 +280,11 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
       bottomNavigationBar: Container(
         padding: EdgeInsets.only(bottom: 12.h, left: 20.w, right: 20.w),
         width: double.infinity,
-        child: ElevatedButton(onPressed: () {}, child: Text("Create")),
+        child: ElevatedButton(onPressed: () {
+          showSuccessDialog(screenContext: context,desc: 'Your Service Successfully\nCreated',onSuccess:(){
+            Navigator.pop(context);
+          });
+        }, child: Text("Create")),
       ),
     );
   }

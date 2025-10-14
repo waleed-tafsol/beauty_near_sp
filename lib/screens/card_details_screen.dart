@@ -258,10 +258,8 @@ class CardDetailsScreen extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              offset: Offset(
-                                0,
-                                -(200.h + 60.h),
-                              ), // ✅ maxHeight + button height + spacing
+                              offset: Offset(0, -(200.h + 60.h)),
+                              // ✅ maxHeight + button height + spacing
                               scrollbarTheme: ScrollbarThemeData(
                                 radius: Radius.circular(40),
                                 thickness: WidgetStateProperty.all(6),
@@ -296,7 +294,17 @@ class CardDetailsScreen extends StatelessWidget {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  showSuccessDialog(context);
+                  showSuccessDialog(
+                    screenContext: context,
+                    desc: 'Your Account Successfully\nCreated',
+                    onSuccess: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        BotNavPage.routeName,
+                        (route) => false,
+                      );
+                    },
+                  );
                 },
                 child: Text('Pay Now'),
               ),

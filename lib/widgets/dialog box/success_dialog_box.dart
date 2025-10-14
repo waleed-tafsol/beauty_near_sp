@@ -3,20 +3,16 @@ import 'package:beauty_near_sp/utils/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void showSuccessDialog(BuildContext context) {
+void showSuccessDialog({required BuildContext screenContext, required String desc, required Function onSuccess}) {
   showDialog(
-    context: context,
+    context: screenContext,
     barrierDismissible: true,
     builder: (BuildContext context) {
       // Auto close after 3 seconds
       Future.delayed(Duration(seconds: 3), () {
         if (Navigator.canPop(context)) {
           Navigator.pop(context);
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            BotNavPage.routeName,
-            (route) => false,
-          );
+        onSuccess();
         }
       });
 
@@ -56,7 +52,7 @@ void showSuccessDialog(BuildContext context) {
               SizedBox(height: 30.h),
               // Text
               Text(
-                'Your Account Successfully\nCreated',
+                desc,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 19.sp,
