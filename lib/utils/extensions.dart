@@ -17,7 +17,7 @@ extension ContextUtils on BuildContext {
     if (bottomNotch > 0) {
       return 25.h + bottomNotch;
     } else {
-      return 150.h;
+      return 25.h;
     }
   }
 }

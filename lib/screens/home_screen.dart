@@ -81,6 +81,11 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: false,
         toolbarHeight: 80.h,
+        leadingWidth: 70.w,
+        leading: Padding(
+          padding: EdgeInsets.only(left: 20.w),
+          child: Center(child: ClipOval(child: Image.asset(PngAssets.person))),
+        ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,

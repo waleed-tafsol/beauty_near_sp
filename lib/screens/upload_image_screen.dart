@@ -81,48 +81,50 @@ class UploadImageScreen extends StatelessWidget {
   }
 
   Widget _buildBottomNavigation(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.only(bottom: 24.h),
-      child: Row(
-        children: [
-          CustomBackButton(),
+    return SafeArea(
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.only(bottom: 24.h),
+        child: Row(
+          children: [
+            CustomBackButton(),
 
-          SizedBox(width: 10.w),
+            SizedBox(width: 10.w),
 
-          Expanded(
-            child: ElevatedButton(
-              onPressed: () {
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, availabilityScreen);
+                },
+                child: Text('Next'),
+              ),
+            ),
+            SizedBox(width: 10.w),
+            GestureDetector(
+              onTap: () {
                 Navigator.pushNamed(context, availabilityScreen);
               },
-              child: Text('Next'),
-            ),
-          ),
-          SizedBox(width: 10.w),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, availabilityScreen);
-            },
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 22.w),
-              decoration: BoxDecoration(
-                color: const Color(0xffFCE2E7),
-                borderRadius: BorderRadius.circular(48.r),
-                border: Border.all(color: AppColors.kPrimaryColor, width: 1),
-              ),
-              child: Center(
-                child: Text(
-                  'Skip',
-                  style: GoogleFonts.montserrat(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.kPrimaryColor,
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 22.w),
+                decoration: BoxDecoration(
+                  color: const Color(0xffFCE2E7),
+                  borderRadius: BorderRadius.circular(48.r),
+                  border: Border.all(color: AppColors.kPrimaryColor, width: 1),
+                ),
+                child: Center(
+                  child: Text(
+                    'Skip',
+                    style: GoogleFonts.montserrat(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.kPrimaryColor,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -19,7 +19,7 @@ class AccountSettings extends StatelessWidget {
         children: [
           Positioned.fill(
             top: 0,
-            bottom: MediaQuery.sizeOf(context).height - 178.h,
+            bottom: MediaQuery.sizeOf(context).height - 300.h,
             child: Container(
               height: 178.h,
               width: double.infinity,

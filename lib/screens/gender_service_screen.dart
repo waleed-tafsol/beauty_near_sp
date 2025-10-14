@@ -20,74 +20,77 @@ class _GenderServiceScreenState extends State<GenderServiceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: Column(
-          children: [
-            SizedBox(height: 77.h),
+      body: SafeArea(
+        top: false,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: Column(
+            children: [
+              SizedBox(height: 77.h),
 
-            Expanded(
-              child: Column(
+              Expanded(
+                child: Column(
+                  children: [
+                    Text(
+                      'Target Gender for Services',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20.sp,
+                        color: AppColors.textPrimaryColor,
+                        height: 1.22,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 10.h),
+                    Text(
+                      'Enter the OTP code we just sent you on your registered Email/ Phone Number',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14.sp,
+                        color: AppColors.darkGreyColor,
+                        height: 1.5,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+
+                    SizedBox(height: 30.h),
+
+                    _buildGenderCard(
+                      title: "Men's Services",
+                      icon: SvgAssets.men,
+                      isSelected: false,
+                      id: 1,
+                    ),
+                    SizedBox(height: 15.h),
+                    _buildGenderCard(
+                      title: "Women's Services",
+                      icon: SvgAssets.women,
+                      isSelected: false,
+                      id: 2,
+                    ),
+                  ],
+                ),
+              ),
+
+              Row(
                 children: [
-                  Text(
-                    'Target Gender for Services',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20.sp,
-                      color: AppColors.textPrimaryColor,
-                      height: 1.22,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 10.h),
-                  Text(
-                    'Enter the OTP code we just sent you on your registered Email/ Phone Number',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14.sp,
-                      color: AppColors.darkGreyColor,
-                      height: 1.5,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
+                  CustomBackButton(),
 
-                  SizedBox(height: 30.h),
+                  SizedBox(width: 10.w),
 
-                  _buildGenderCard(
-                    title: "Men's Services",
-                    icon: SvgAssets.men,
-                    isSelected: false,
-                    id: 1,
-                  ),
-                  SizedBox(height: 15.h),
-                  _buildGenderCard(
-                    title: "Women's Services",
-                    icon: SvgAssets.women,
-                    isSelected: false,
-                    id: 2,
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, locationScreen);
+                      },
+                      child: Text('Next'),
+                    ),
                   ),
                 ],
               ),
-            ),
-
-            Row(
-              children: [
-                CustomBackButton(),
-
-                SizedBox(width: 10.w),
-
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, locationScreen);
-                    },
-                    child: Text('Next'),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 20.h),
-          ],
+              SizedBox(height: 20.h),
+            ],
+          ),
         ),
       ),
     );

@@ -74,23 +74,25 @@ class LocationScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 24.h, left: 20.w, right: 20.w),
-        child: Row(
-          children: [
-            CustomBackButton(),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(bottom: 24.h, left: 20.w, right: 20.w),
+          child: Row(
+            children: [
+              CustomBackButton(),
 
-            SizedBox(width: 10.w),
+              SizedBox(width: 10.w),
 
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, uploadImageScreen);
-                },
-                child: Text('Next'),
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, uploadImageScreen);
+                  },
+                  child: Text('Next'),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

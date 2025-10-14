@@ -21,7 +21,7 @@ class BotNavPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          viewModel.currentChild,
+          SafeArea(child: viewModel.currentChild),
           Positioned(
             left: 0,
             right: 0,

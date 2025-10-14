@@ -9,7 +9,7 @@ void showSuccessDialog({required BuildContext screenContext, required String des
     barrierDismissible: true,
     builder: (BuildContext context) {
       // Auto close after 3 seconds
-      Future.delayed(Duration(seconds: 3), () {
+      Future.delayed(Duration(seconds: 2), () {
         if (Navigator.canPop(context)) {
           Navigator.pop(context);
         onSuccess();

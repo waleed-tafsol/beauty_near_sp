@@ -94,6 +94,7 @@ class CardDetailsScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 8.h),
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintText: '1234 5678 9012 3456',
                       suffixIcon: Icon(
@@ -157,6 +158,7 @@ class CardDetailsScreen extends StatelessWidget {
                             ),
                             SizedBox(height: 8.h),
                             TextFormField(
+                              keyboardType: TextInputType.number,
                               decoration: InputDecoration(hintText: 'CVC'),
                             ),
                           ],
@@ -175,13 +177,14 @@ class CardDetailsScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 8.h),
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintText: 'Zip Code',
-                      suffixIcon: Icon(
-                        Iconsax.arrow_down_1,
-                        size: 18.sp,
-                        color: AppColors.greyColor,
-                      ),
+                      // suffixIcon: Icon(
+                      //   Iconsax.arrow_down_1,
+                      //   size: 18.sp,
+                      //   color: AppColors.greyColor,
+                      // ),
                     ),
                   ),
                   SizedBox(height: 20.h),
@@ -293,33 +296,35 @@ class CardDetailsScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 24.h, left: 20.w, right: 20.w),
-        child: Row(
-          children: [
-            CustomBackButton(),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.only(bottom: 24.h, left: 20.w, right: 20.w),
+          child: Row(
+            children: [
+              CustomBackButton(),
 
-            SizedBox(width: 10.w),
+              SizedBox(width: 10.w),
 
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  showSuccessDialog(
-                    screenContext: context,
-                    desc: 'Your Account Successfully\nCreated',
-                    onSuccess: () {
-                      Navigator.pushNamedAndRemoveUntil(
-                        context,
-                        BotNavPage.routeName,
-                        (route) => false,
-                      );
-                    },
-                  );
-                },
-                child: Text('Pay Now'),
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {
+                    showSuccessDialog(
+                      screenContext: context,
+                      desc: 'Your Account Successfully\nCreated',
+                      onSuccess: () {
+                        Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          BotNavPage.routeName,
+                          (route) => false,
+                        );
+                      },
+                    );
+                  },
+                  child: Text('Pay Now'),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
