@@ -21,7 +21,10 @@ class BotNavPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          SafeArea(child: viewModel.currentChild),
+          SafeArea(
+            top: viewModel.currentPage == 3 ? false : true,
+            child: viewModel.currentChild,
+          ),
           Positioned(
             left: 0,
             right: 0,
@@ -29,9 +32,8 @@ class BotNavPage extends StatelessWidget {
                 ? 62.5.h + context.bottomNotch
                 : 62.5.h,
             child: InkWell(
-              onTap: (){
+              onTap: () {
                 Navigator.pushNamed(context, addServiceScreen);
-
               },
               child: Center(
                 child: Transform.rotate(
