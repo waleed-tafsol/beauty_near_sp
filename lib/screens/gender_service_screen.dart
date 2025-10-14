@@ -7,8 +7,15 @@ import '../utils/assets.dart';
 import '../utils/color_constant.dart';
 import '../widgets/custom_back_button.dart';
 
-class GenderServiceScreen extends StatelessWidget {
+class GenderServiceScreen extends StatefulWidget {
   const GenderServiceScreen({super.key});
+
+  @override
+  State<GenderServiceScreen> createState() => _GenderServiceScreenState();
+}
+
+class _GenderServiceScreenState extends State<GenderServiceScreen> {
+  List<int> selectedServices = [];
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +57,14 @@ class GenderServiceScreen extends StatelessWidget {
                     title: "Men's Services",
                     icon: SvgAssets.men,
                     isSelected: false,
-                    onTap: () {},
+                    id: 1,
                   ),
                   SizedBox(height: 15.h),
                   _buildGenderCard(
                     title: "Women's Services",
                     icon: SvgAssets.women,
                     isSelected: false,
-                    onTap: () {},
+                    id: 2,
                   ),
                 ],
               ),
@@ -87,18 +94,31 @@ class GenderServiceScreen extends StatelessWidget {
   }
 
   Widget _buildGenderCard({
+    required int id,
     required String title,
     required String icon,
     required bool isSelected,
-    required VoidCallback onTap,
+    //required VoidCallback onTap,
   }) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        if (selectedServices.contains(id)) {
+          setState(() {
+            selectedServices.remove(id);
+          });
+        } else {
+          setState(() {
+            selectedServices.add(id);
+          });
+        }
+      },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 24.h),
         width: double.infinity,
         decoration: BoxDecoration(
-          color: const Color(0xffFBE9EA),
+          color: selectedServices.contains(id)
+              ? const Color(0xffFBE9EA)
+              : Colors.white,
           borderRadius: BorderRadius.circular(10.r),
         ),
         child: Column(
@@ -106,7 +126,6 @@ class GenderServiceScreen extends StatelessWidget {
           children: [
             SvgPicture.asset(icon, height: 32.h, width: 32.w),
             SizedBox(height: 10.h),
-
             Text(
               title,
               style: TextStyle(

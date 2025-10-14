@@ -98,6 +98,7 @@ class PersonalInformationScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               TextFormField(
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(hintText: "John1Dow@example.com"),
               ),
               SizedBox(height: 15.h),
@@ -107,6 +108,7 @@ class PersonalInformationScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               TextFormField(
+                keyboardType: TextInputType.phone,
                 decoration: InputDecoration(hintText: "+123 4569 9630 0258"),
               ),
               SizedBox(height: 15.h),
@@ -187,6 +189,7 @@ class PersonalInformationScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               TextFormField(
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   hintText: '1234 5678 9012 3456',
                   suffixIcon: Icon(
@@ -212,15 +215,25 @@ class PersonalInformationScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 8.h),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'MM/DD/YYYY',
-                            suffixIcon: Icon(
-                              Iconsax.calendar_1,
-                              size: 18.sp,
-                              color: AppColors.greyColor,
-                            ),
-                          ),
+                        Consumer<PersonalInformationViewModel>(
+                          builder: (context, viewModel, child) {
+                            return GestureDetector(
+                              onTap: () => viewModel.selectDate(context),
+                              child: AbsorbPointer(
+                                child: TextFormField(
+                                  controller: viewModel.dateController,
+                                  decoration: InputDecoration(
+                                    hintText: 'MM/DD/YYYY',
+                                    suffixIcon: Icon(
+                                      Iconsax.calendar_1,
+                                      size: 18.sp,
+                                      color: AppColors.greyColor,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ),
@@ -258,13 +271,14 @@ class PersonalInformationScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               TextFormField(
+                keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   hintText: 'Zip Code',
-                  suffixIcon: Icon(
-                    Iconsax.arrow_down_1,
-                    size: 18.sp,
-                    color: AppColors.greyColor,
-                  ),
+                  // suffixIcon: Icon(
+                  //   Iconsax.arrow_down_1,
+                  //   size: 18.sp,
+                  //   color: AppColors.greyColor,
+                  // ),
                 ),
               ),
               SizedBox(height: 20.h),

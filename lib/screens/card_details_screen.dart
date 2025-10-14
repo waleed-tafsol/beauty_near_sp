@@ -119,15 +119,25 @@ class CardDetailsScreen extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: 8.h),
-                            TextFormField(
-                              decoration: InputDecoration(
-                                hintText: 'MM/DD/YYYY',
-                                suffixIcon: Icon(
-                                  Iconsax.calendar_1,
-                                  size: 18.sp,
-                                  color: AppColors.greyColor,
-                                ),
-                              ),
+                            Consumer<PersonalInformationViewModel>(
+                              builder: (context, viewModel, child) {
+                                return GestureDetector(
+                                  onTap: () => viewModel.selectDate(context),
+                                  child: AbsorbPointer(
+                                    child: TextFormField(
+                                      controller: viewModel.dateController,
+                                      decoration: InputDecoration(
+                                        hintText: 'MM/DD/YYYY',
+                                        suffixIcon: Icon(
+                                          Iconsax.calendar_1,
+                                          size: 18.sp,
+                                          color: AppColors.greyColor,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
                             ),
                           ],
                         ),

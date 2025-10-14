@@ -4,32 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../widgets/custom_app_bar.dart';
+
 class LanguagesScreen extends StatelessWidget {
   const LanguagesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Center(
-          child: Container(
-            padding: EdgeInsets.all(9.r),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-            ),
-            child: Icon(
-              Icons.chevron_left_rounded,
-              color: AppColors.darkGreyColor,
-              size: 18.sp,
-            ),
-          ),
-        ),
-        centerTitle: true,
-        title: Text('Languages'),
-      ),
+         appBar: CustomAppBar(title: "Languages"),
 
-      body: Padding(
+
+    body: Padding(
         padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

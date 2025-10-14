@@ -61,6 +61,7 @@ class SignupScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               TextFormField(
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(hintText: 'Your Email'),
               ),
               SizedBox(height: 20.h),
@@ -74,6 +75,7 @@ class SignupScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               TextFormField(
+                keyboardType: TextInputType.phone,
                 decoration: InputDecoration(hintText: 'Phone Number'),
               ),
               SizedBox(height: 20.h),
