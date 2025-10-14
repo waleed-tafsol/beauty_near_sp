@@ -6,6 +6,7 @@ import 'package:beauty_near_sp/view_models/auth_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/enums.dart';
@@ -67,7 +68,9 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 8.h),
-              TextFormField(decoration: InputDecoration(hintText: 'Password')),
+              TextFormField(decoration: InputDecoration(hintText: 'Password',
+              suffixIcon: Icon(Iconsax.eye)
+              )),
               SizedBox(height: 8.h),
               Align(
                 alignment: Alignment.centerRight,

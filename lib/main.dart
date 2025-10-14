@@ -1,6 +1,7 @@
 import 'package:beauty_near_sp/app_init.dart';
 import 'package:beauty_near_sp/utils/screen_size.dart';
 import 'package:beauty_near_sp/view_models/bot_nav_view_model.dart';
+import 'package:beauty_near_sp/view_models/personal_information_view_model.dart';
 import 'package:beauty_near_sp/view_models/theme_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,6 +23,8 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => ThemeViewModel()),
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
         ChangeNotifierProvider(create: (context) => BotNavViewModel()),
+         ChangeNotifierProvider(create: (context) => PersonalInformationViewModel()),
+
       ],
       child: ScreenUtilInit(
         designSize: getDesignSize(),

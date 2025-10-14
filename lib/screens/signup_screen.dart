@@ -5,6 +5,7 @@ import 'package:beauty_near_sp/widgets/social_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:iconsax/iconsax.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -85,7 +86,12 @@ class SignupScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 8.h),
-              TextFormField(decoration: InputDecoration(hintText: 'Password')),
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                  suffixIcon: Icon(Iconsax.eye),
+                ),
+              ),
               SizedBox(height: 20.h),
               Text(
                 'Confirm Password',
@@ -97,7 +103,10 @@ class SignupScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               TextFormField(
-                decoration: InputDecoration(hintText: 'Confirm Password'),
+                decoration: InputDecoration(
+                  hintText: 'Confirm Password',
+                  suffixIcon: Icon(Iconsax.eye),
+                ),
               ),
 
               SizedBox(height: 24.h),

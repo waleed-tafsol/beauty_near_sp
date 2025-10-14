@@ -1,11 +1,15 @@
 import 'package:beauty_near_sp/screens/bot_nav_bar_page.dart';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/view_models/personal_information_view_model.dart';
 import 'package:beauty_near_sp/widgets/custom_back_button.dart';
+import 'package:beauty_near_sp/widgets/dialog%20box/success_dialog_box.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:provider/provider.dart';
 
 class CardDetailsScreen extends StatelessWidget {
   const CardDetailsScreen({super.key});
@@ -180,15 +184,98 @@ class CardDetailsScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 8.h),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: 'Select',
-                      suffixIcon: Icon(
-                        Iconsax.arrow_down_1,
-                        size: 18.sp,
-                        color: AppColors.greyColor,
-                      ),
-                    ),
+                  // TextFormField(
+                  //   decoration: InputDecoration(
+                  //     hintText: 'Select',
+                  //     suffixIcon: Icon(
+                  //       Iconsax.arrow_down_1,
+                  //       size: 18.sp,
+                  //       color: AppColors.greyColor,
+                  //     ),
+                  //   ),
+                  // ),
+                  Consumer<PersonalInformationViewModel>(
+                    builder: (context, viewModel, child) {
+                      return Container(
+                        width: double.infinity,
+                        height: 50.h,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: AppColors.strokeColor),
+                          borderRadius: BorderRadius.circular(38.r),
+                          color: Colors.white,
+                        ),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton2<String>(
+                            isExpanded: true,
+                            hint: Text(
+                              'Select Country',
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: AppColors.greyColor,
+                              ),
+                            ),
+                            items: viewModel.countries.map((String country) {
+                              return DropdownMenuItem<String>(
+                                value: country,
+                                child: Text(
+                                  country,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    color: AppColors.textPrimaryColor,
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                            value: viewModel.selectedCountry,
+                            onChanged: (String? newValue) {
+                              viewModel.setSelectedCountry(newValue);
+                            },
+                            buttonStyleData: ButtonStyleData(
+                              padding: EdgeInsets.symmetric(horizontal: 16.w),
+                              height: 50.h,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.r),
+                              ),
+                            ),
+                            iconStyleData: IconStyleData(
+                              icon: Icon(
+                                Iconsax.arrow_down_1,
+                                size: 18.sp,
+                                color: AppColors.greyColor,
+                              ),
+                            ),
+                            dropdownStyleData: DropdownStyleData(
+                              maxHeight: 200.h,
+                              width: MediaQuery.of(context).size.width - 40.w,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12.r),
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withValues(alpha: 0.1),
+                                    blurRadius: 10,
+                                    offset: Offset(0, 5),
+                                  ),
+                                ],
+                              ),
+                              offset: Offset(
+                                0,
+                                -(200.h + 60.h),
+                              ), // ✅ maxHeight + button height + spacing
+                              scrollbarTheme: ScrollbarThemeData(
+                                radius: Radius.circular(40),
+                                thickness: WidgetStateProperty.all(6),
+                                thumbVisibility: WidgetStateProperty.all(true),
+                              ),
+                            ),
+                            menuItemStyleData: MenuItemStyleData(
+                              height: 40.h,
+                              padding: EdgeInsets.symmetric(horizontal: 16.w),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -209,11 +296,7 @@ class CardDetailsScreen extends StatelessWidget {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    BotNavPage.routeName,
-                    (route) => false,
-                  );
+                  showSuccessDialog(context);
                 },
                 child: Text('Pay Now'),
               ),
