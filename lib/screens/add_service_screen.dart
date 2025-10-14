@@ -1,9 +1,11 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../utils/color_constant.dart';
 import '../widgets/custom_app_bar.dart';
+import '../widgets/dialog box/select_duration_dialog_box.dart';
 
 class AddServiceScreen extends StatefulWidget {
   const AddServiceScreen({super.key});
@@ -14,6 +16,13 @@ class AddServiceScreen extends StatefulWidget {
 
 class _AddServiceScreenState extends State<AddServiceScreen> {
   List<String> selectedGenders = [];
+  final TextEditingController _durationController = TextEditingController();
+
+  @override
+  void dispose() {
+    _durationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -227,7 +236,10 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     ),
                   ),
                   SizedBox(height: 6.h),
-                  TextFormField(decoration: InputDecoration(hintText: "0")),
+                  TextFormField(
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(hintText: "0"),
+                  ),
                   SizedBox(height: 20.h),
                   Text(
                     "Service Duration",
@@ -238,13 +250,23 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     ),
                   ),
                   SizedBox(height: 6.h),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: "HH/MM",
-                      suffixIcon: Icon(
-                        Icons.access_time,
-                        size: 18.sp,
-                        color: AppColors.darkGreyColor,
+                  GestureDetector(
+                    onTap: () async {
+                      _durationController.text = await selectDurationDialogBox(
+                        screenContext: context,
+                      );
+                    },
+                    child: AbsorbPointer(
+                      child: TextFormField(
+                        controller: _durationController,
+                        decoration: InputDecoration(
+                          hintText: "HH/MM",
+                          suffixIcon: Icon(
+                            Icons.access_time,
+                            size: 18.sp,
+                            color: AppColors.darkGreyColor,
+                          ),
+                        ),
                       ),
                     ),
                   ),
