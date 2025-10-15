@@ -277,14 +277,16 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.only(bottom: 12.h, left: 20.w, right: 20.w),
-        width: double.infinity,
-        child: ElevatedButton(onPressed: () {
-          showSuccessDialog(screenContext: context,desc: 'Your Service Successfully\nCreated',onSuccess:(){
-            Navigator.pop(context);
-          });
-        }, child: Text("Create")),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          padding: EdgeInsets.only(bottom: 12.h, left: 20.w, right: 20.w),
+          width: double.infinity,
+          child: ElevatedButton(onPressed: () {
+            showSuccessDialog(screenContext: context,desc: 'Your Service Successfully\nCreated',onSuccess:(){
+              Navigator.pop(context);
+            });
+          }, child: Text("Create")),
+        ),
       ),
     );
   }
