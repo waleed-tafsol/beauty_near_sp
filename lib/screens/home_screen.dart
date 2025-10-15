@@ -211,30 +211,41 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         SizedBox(height: 15.h),
-        // Services Grid
         Expanded(
-          child: GridView.builder(
-            padding: EdgeInsetsGeometry.only(
-              left: 20.w,
-              right: 20.w,
-              top: 20.h,
-              bottom: context.notchAwareBottomPadding,
+          child: SingleChildScrollView(
+            child: Wrap(
+              spacing: 10.0, // Horizontal spacing
+              runSpacing: 10.0, // Vertical spacing
+              children: List.generate(8, (index) {
+                return ServiceCard(service: services[index]);
+              }),
             ),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount:
-                  screenSize == ScreenSize.large ||
-                      screenSize == ScreenSize.medium
-                  ? 3
-                  : 2,
-              crossAxisSpacing: 15.w,
-              mainAxisSpacing: 15.h,
-            ),
-            itemCount: services.length,
-            itemBuilder: (context, index) {
-              return ServiceCard(service: services[index]);
-            },
           ),
         ),
+        // Services Grid
+        // Expanded(
+        //   child: GridView.builder(
+        //     padding: EdgeInsetsGeometry.only(
+        //       left: 20.w,
+        //       right: 20.w,
+        //       top: 20.h,
+        //       bottom: context.notchAwareBottomPadding,
+        //     ),
+        //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        //       crossAxisCount:
+        //           screenSize == ScreenSize.large ||
+        //               screenSize == ScreenSize.medium
+        //           ? 3
+        //           : 2,
+        //       crossAxisSpacing: 15.w,
+        //       mainAxisSpacing: 15.h,
+        //     ),
+        //     itemCount: services.length,
+        //     itemBuilder: (context, index) {
+        //       return ServiceCard(service: services[index]);
+        //     },
+        //   ),
+        // ),
       ],
     );
   }
