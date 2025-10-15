@@ -19,19 +19,21 @@ class BotNavPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final BotNavViewModel viewModel = context.watch<BotNavViewModel>();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           SafeArea(
             top: viewModel.currentPage == 3 ? false : true,
             child: viewModel.currentChild,
           ),
+
           Positioned(
             left: 0,
             right: 0,
             bottom: context.bottomNotch > 0
                 ? 62.5.h + context.bottomNotch
                 : 62.5.h,
-            child: InkWell(
+            child: GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, addServiceScreen);
               },

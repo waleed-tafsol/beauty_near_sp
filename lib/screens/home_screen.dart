@@ -1,13 +1,13 @@
 import 'package:beauty_near_sp/route_generator.dart';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
-import 'package:beauty_near_sp/utils/enums.dart';
 import 'package:beauty_near_sp/utils/extensions.dart';
-import 'package:beauty_near_sp/utils/screen_size.dart';
 import 'package:beauty_near_sp/widgets/service_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../widgets/custom_search_bar.dart';
 
 // Service Model
 
@@ -143,32 +143,18 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
       body: _buildBody(context),
     );
   }
 
   Column _buildBody(BuildContext context) {
-    final screenSize = screenNotifier.value;
     return Column(
       children: [
         SizedBox(height: 30.h),
         Padding(
           padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
-          child: TextField(
-            decoration: InputDecoration(
-              hintText: 'Search',
-              prefixIcon: Icon(
-                Iconsax.search_normal,
-                size: 20.sp,
-                color: AppColors.greyColor,
-              ),
-              suffixIcon: Icon(
-                Iconsax.sort,
-                size: 20.sp,
-                color: AppColors.greyColor,
-              ),
-            ),
-          ),
+          child: CustomSearchBar(),
         ),
         SizedBox(height: 30.h),
         Padding(
@@ -222,30 +208,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        // Services Grid
-        // Expanded(
-        //   child: GridView.builder(
-        //     padding: EdgeInsetsGeometry.only(
-        //       left: 20.w,
-        //       right: 20.w,
-        //       top: 20.h,
-        //       bottom: context.notchAwareBottomPadding,
-        //     ),
-        //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        //       crossAxisCount:
-        //           screenSize == ScreenSize.large ||
-        //               screenSize == ScreenSize.medium
-        //           ? 3
-        //           : 2,
-        //       crossAxisSpacing: 15.w,
-        //       mainAxisSpacing: 15.h,
-        //     ),
-        //     itemCount: services.length,
-        //     itemBuilder: (context, index) {
-        //       return ServiceCard(service: services[index]);
-        //     },
-        //   ),
-        // ),
+        SizedBox(height: context.notchAwareBottomPadding),
       ],
     );
   }
