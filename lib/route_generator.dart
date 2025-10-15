@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'screens/about_us_screen.dart';
 import 'screens/account_settings.dart';
@@ -24,6 +25,7 @@ import 'screens/splash_screen.dart';
 import 'screens/support_screen.dart';
 import 'screens/terms_and_condition_screen.dart';
 import 'screens/upload_image_screen.dart';
+import 'view_models/bot_nav_view_model.dart';
 
 const String splashScreen = '/splash_screen';
 const String homeScreen = '/home_screen';
@@ -63,7 +65,10 @@ class RouteGenerator {
       case BotNavPage.routeName:
         return MaterialPageRoute(
           settings: RouteSettings(name: BotNavPage.routeName),
-          builder: (_) => BotNavPage(),
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => BotNavViewModel(),
+            child: BotNavPage(),
+          ),
         );
       case homeScreen:
         return MaterialPageRoute(
