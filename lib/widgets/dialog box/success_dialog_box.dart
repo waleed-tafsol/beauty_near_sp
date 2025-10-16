@@ -3,16 +3,23 @@ import 'package:beauty_near_sp/utils/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void showSuccessDialog({required BuildContext screenContext, required String desc, required Function onSuccess}) {
+void showSuccessDialog({
+  required BuildContext screenContext,
+  required String desc,
+  required Function onSuccess,
+}) {
   showDialog(
     context: screenContext,
     barrierDismissible: true,
     builder: (BuildContext context) {
       // Auto close after 3 seconds
       Future.delayed(Duration(seconds: 2), () {
+        if (!context.mounted) {
+          return;
+        }
         if (Navigator.canPop(context)) {
           Navigator.pop(context);
-        onSuccess();
+          onSuccess();
         }
       });
 
