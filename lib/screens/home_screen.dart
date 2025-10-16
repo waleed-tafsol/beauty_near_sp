@@ -199,6 +199,7 @@ class HomeScreen extends StatelessWidget {
         SizedBox(height: 15.h),
         Expanded(
           child: SingleChildScrollView(
+            padding: EdgeInsets.only(bottom: context.notchAwareBottomPadding),
             child: Wrap(
               spacing: 10.0, // Horizontal spacing
               runSpacing: 10.0, // Vertical spacing
@@ -208,7 +209,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: context.notchAwareBottomPadding),
       ],
     );
   }

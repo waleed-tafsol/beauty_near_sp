@@ -22,10 +22,7 @@ class BotNavPage extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
-          SafeArea(
-            top: viewModel.currentPage == 3 ? false : true,
-            child: viewModel.currentChild,
-          ),
+          viewModel.currentChild,
 
           Positioned(
             left: 0,
