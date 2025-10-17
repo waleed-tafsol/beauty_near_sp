@@ -1,12 +1,16 @@
+import 'dart:io';
+import 'package:beauty_near_sp/view_models/auth_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
 import '../widgets/custom_back_button.dart';
+import '../widgets/bottom_sheets/image_selection_bottom_sheet.dart';
 
 class UploadImageScreen extends StatelessWidget {
   const UploadImageScreen({super.key});
@@ -43,31 +47,62 @@ class UploadImageScreen extends StatelessWidget {
             ),
             SizedBox(height: 30.h),
 
-            Container(
-              width: double.infinity,
-
-              padding: EdgeInsets.symmetric(vertical: 40.h),
-              decoration: BoxDecoration(
-                color: AppColors.kScaffoldColor,
-                border: Border.all(color: const Color(0xffEFEFEF), width: 1),
-                borderRadius: BorderRadius.circular(16.r),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SvgPicture.asset(SvgAssets.upload, height: 35.h, width: 35.w),
-                  SizedBox(height: 15.h),
-
-                  Text(
-                    'Upload Image',
-                    style: GoogleFonts.montserrat(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w400,
-                      color: AppColors.darkGreyColor,
-                      height: 1.22,
-                    ),
-                  ),
-                ],
+            GestureDetector(
+              onTap: () async {
+                await context.read<AuthViewModel>().setProfileImagePath(context: context);
+              },
+              child: Container(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(vertical: 40.h),
+                decoration: BoxDecoration(
+                  color: AppColors.kScaffoldColor,
+                  border: Border.all(color: const Color(0xffEFEFEF), width: 1),
+                  borderRadius: BorderRadius.circular(16.r),
+                ),
+                child: context.read<AuthViewModel>().getProfileImagePath != null
+                    ? Column(
+                        children: [
+                          ClipOval(
+                            child: Container(
+                              width: 200.w,
+                              height: 200.h,
+                              decoration: BoxDecoration(
+                              //  borderRadius: BorderRadius.circular(12.r),
+                                image: DecorationImage(
+                                  image: FileImage(File(context.watch<AuthViewModel>().getProfileImagePath!)),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 15.h),
+                          Text(
+                            'Change Image',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.darkGreyColor,
+                              height: 1.22,
+                            ),
+                          ),
+                        ],
+                      )
+                    : Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(SvgAssets.upload, height: 35.h, width: 35.w),
+                          SizedBox(height: 15.h),
+                          Text(
+                            'Upload Image',
+                            style: GoogleFonts.montserrat(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w400,
+                              color: AppColors.darkGreyColor,
+                              height: 1.22,
+                            ),
+                          ),
+                        ],
+                      ),
               ),
             ),
 
