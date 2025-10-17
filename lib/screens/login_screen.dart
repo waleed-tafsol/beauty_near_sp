@@ -18,92 +18,93 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       appBar: LanguageAppBar(),
       extendBodyBehindAppBar: true,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(height: 50.h),
-              Center(
-                child: SvgPicture.asset(
-                  SvgAssets.logo,
-                  width: 145.w,
-                  height: 130.h,
-                  fit: BoxFit.cover,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: SvgPicture.asset(
+                    SvgAssets.logo,
+                    width: 145.w,
+                    height: 130.h,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              SizedBox(height: 50.h),
-              Center(
-                child: Text(
-                  context.localization.loginToYourAccount,
+                SizedBox(height: 50.h),
+                Center(
+                  child: Text(
+                    context.localization.loginToYourAccount,
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.textPrimaryColor,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 32.h),
+                // _buildUserTypeSelector(),
+                // SizedBox(height: 32.h),
+                Text(
+                  context.localization.emailAddress,
+                  textAlign: TextAlign.left,
                   style: TextStyle(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
+                    fontSize: 14.sp,
                     color: AppColors.textPrimaryColor,
                   ),
                 ),
-              ),
-              SizedBox(height: 32.h),
-              // _buildUserTypeSelector(),
-              // SizedBox(height: 32.h),
-              Text(
-                context.localization.emailAddress,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: AppColors.textPrimaryColor,
+                SizedBox(height: 8.h),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: context.localization.yourEmail,
+                  ),
                 ),
-              ),
-              SizedBox(height: 8.h),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: context.localization.yourEmail,
-                ),
-              ),
-              SizedBox(height: 20.h),
-              Text(
-                context.localization.password,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-              SizedBox(height: 8.h),
-              TextFormField(
-                decoration: InputDecoration(
-                  hintText: context.localization.password,
-                  suffixIcon: Icon(Iconsax.eye),
-                ),
-              ),
-              SizedBox(height: 8.h),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  context.localization.forgotPassword,
+                SizedBox(height: 20.h),
+                Text(
+                  context.localization.password,
+                  textAlign: TextAlign.left,
                   style: TextStyle(
-                    fontSize: 11.sp,
+                    fontSize: 14.sp,
                     color: AppColors.textPrimaryColor,
                   ),
                 ),
-              ),
-              SizedBox(height: 24.h),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      BotNavPage.routeName,
-                      (_) => false,
-                    );
-                  },
-                  child: Text(context.localization.login),
+                SizedBox(height: 8.h),
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: context.localization.password,
+                    suffixIcon: Icon(Iconsax.eye),
+                  ),
                 ),
-              ),
-              SizedBox(height: 20.h),
-            ],
+                SizedBox(height: 8.h),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    context.localization.forgotPassword,
+                    style: TextStyle(
+                      fontSize: 11.sp,
+                      color: AppColors.textPrimaryColor,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 24.h),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        BotNavPage.routeName,
+                        (_) => false,
+                      );
+                    },
+                    child: Text(context.localization.login),
+                  ),
+                ),
+                SizedBox(height: 20.h),
+              ],
+            ),
           ),
         ),
       ),

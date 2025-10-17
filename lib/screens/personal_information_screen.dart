@@ -1,13 +1,14 @@
 import 'dart:io';
+
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
 import 'package:beauty_near_sp/widgets/custom_app_bar.dart';
-import 'package:beauty_near_sp/widgets/bottom_sheets/image_selection_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
+import '../route_generator.dart';
 import '../view_models/auth_view_model.dart';
 
 class PersonalInformationScreen extends StatefulWidget {
@@ -122,36 +123,39 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                       decoration: InputDecoration(hintText: 'Phone Number'),
                     ),
                     SizedBox(height: 15.h),
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 20.w,
-                        vertical: 12.h,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(70.r),
-                        border: Border.all(
-                          color: AppColors.kPrimaryColor,
-                          // Set the border color here
-                          width: 1.sp, // Optional: Set the border width
+                    GestureDetector(
+                      onTap: () => Navigator.pushNamed(context, changePassword),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 20.w,
+                          vertical: 12.h,
                         ),
-                      ),
-                      child: Row(
-                        children: [
-                          Text(
-                            "Change Password",
-                            style: TextStyle(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w500,
-                              color: AppColors.kPrimaryColor,
-                            ),
-                          ),
-                          Spacer(),
-                          Icon(
-                            Icons.arrow_forward,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(70.r),
+                          border: Border.all(
                             color: AppColors.kPrimaryColor,
-                            size: 20.sp,
+                            // Set the border color here
+                            width: 1.sp, // Optional: Set the border width
                           ),
-                        ],
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Change Password",
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.kPrimaryColor,
+                              ),
+                            ),
+                            Spacer(),
+                            Icon(
+                              Icons.arrow_forward,
+                              color: AppColors.kPrimaryColor,
+                              size: 20.sp,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(height: 30.h),

@@ -8,6 +8,7 @@ class LanguageAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      surfaceTintColor: Colors.transparent,
       backgroundColor: Colors.transparent,
       scrolledUnderElevation: 0,
       automaticallyImplyLeading: false,

@@ -1,3 +1,4 @@
+import 'package:beauty_near_sp/screens/change_password_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -51,6 +52,7 @@ const String privacyPolicy = '/privacy_policy';
 const String aboutUs = '/about_us';
 const String support = '/support';
 const String notification = '/notification';
+const String changePassword = '/change_password';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -180,6 +182,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: RouteSettings(name: chatScreen),
           builder: (_) => ChatScreen(),
+        );
+      case changePassword:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: changePassword),
+          builder: (_) => ChangePasswordScreen(),
         );
       default:
         return _errorRoute();
