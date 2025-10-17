@@ -98,7 +98,7 @@ class RouteGenerator {
       case locationScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: locationScreen),
-          builder: (_) => LocationScreen(onSuccess: args!['onSuccess']),
+          builder: (_) => LocationScreen(),
         );
       case uploadImageScreen:
         return MaterialPageRoute(

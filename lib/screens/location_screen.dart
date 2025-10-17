@@ -1,14 +1,13 @@
-
 import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
 
 class LocationScreen extends StatelessWidget {
-  final VoidCallback onSuccess;
-  const LocationScreen({super.key, required this.onSuccess});
+  const LocationScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +86,12 @@ class LocationScreen extends StatelessWidget {
         ),
         child: SizedBox(
           width: double.infinity,
-          child: ElevatedButton(onPressed: onSuccess, child: Text('Next')),
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.pushNamed(context, uploadImageScreen);
+            },
+            child: Text('Next'),
+          ),
         ),
       ),
     );
