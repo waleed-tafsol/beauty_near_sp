@@ -135,7 +135,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 8.h),
                 Text(
-                  'Good Morning!',
+                  'Kelly Johnson!',
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 18.sp,
