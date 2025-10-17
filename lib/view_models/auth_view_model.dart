@@ -10,14 +10,73 @@ class AuthViewModel extends ChangeNotifier {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
 
+  String _selectedPaymentType = '';
   String? _profileImagePath;
 
+  bool _intracWithEmail = true;
+  bool _isInteracEditable = false;
 
+  bool _isVoidChequeEditable = false;
+
+
+
+  final TextEditingController _interacEmailPhoneController = TextEditingController();
   final TextEditingController _interacNameController = TextEditingController();
-  final TextEditingController _interacEmailController = TextEditingController();
-  final TextEditingController _interacPhoneController = TextEditingController();
 
   String? get getProfileImagePath => _profileImagePath;
+
+  TextEditingController get getNameController => _nameController;
+
+  TextEditingController get getEmailController => _emailController;
+
+  TextEditingController get getPhoneController => _phoneController;
+
+
+  TextEditingController get getInteracEmailPhoneController => _interacEmailPhoneController;
+
+  TextEditingController get getInteracNameController => _interacNameController;
+
+
+  bool get getIntracWithEmail => _intracWithEmail;
+
+  bool get getIsInteracEditable => _isInteracEditable;
+
+  bool get getIsVoidChequeEditable => _isVoidChequeEditable;
+
+
+  String get getSelectedPaymentType => _selectedPaymentType;
+
+
+  void setSelectedPaymentType ({required String value}){
+    if (_selectedPaymentType == value) {
+      _selectedPaymentType = '';
+    }
+    else{
+      _selectedPaymentType = value;
+    }
+    notifyListeners();
+  }
+
+  void setIsVoidChequeEditable (){
+    _isVoidChequeEditable = !_isVoidChequeEditable;
+    if(_isVoidChequeEditable){
+      _isInteracEditable = false;
+    }
+    notifyListeners();
+  }
+  void setIsInteracEditable (){
+    _isInteracEditable = !_isInteracEditable;
+    if(_isInteracEditable){
+      _isVoidChequeEditable = false;
+    }
+    notifyListeners();
+  }
+
+  void setIntracWithEmail (){
+    _intracWithEmail = !_intracWithEmail;
+    notifyListeners();
+  }
+
 
   Future<void> setProfileImagePath({required BuildContext context}) async {
     final String? imagePath = await ImageSelectionBottomSheet.show(
@@ -26,29 +85,11 @@ class AuthViewModel extends ChangeNotifier {
     );
 
     if (imagePath != null) {
-        _profileImagePath = imagePath;
+      _profileImagePath = imagePath;
     }
     notifyListeners();
 
   }
-  TextEditingController get getNameController => _nameController;
-
-  TextEditingController get getEmailController => _emailController;
-
-  TextEditingController get getPhoneController => _phoneController;
-
-  TextEditingController get getInteracNameController => _interacNameController;
-
-  TextEditingController get getInteracEmailController => _interacEmailController;
-
-  TextEditingController get getInteracPhoneController => _interacPhoneController;
-
-  void setSignUpDetailsToInterac(){
-    _interacNameController.text = _nameController.text;
-    _interacEmailController.text = _emailController.text;
-    _interacPhoneController.text = _phoneController.text;
-  }
-
 
 
 

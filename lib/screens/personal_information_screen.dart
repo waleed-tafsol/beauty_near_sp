@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
+import '../utils/enums.dart';
 import '../view_models/auth_view_model.dart';
 
 class PersonalInformationScreen extends StatefulWidget {
@@ -19,6 +20,8 @@ class PersonalInformationScreen extends StatefulWidget {
 }
 
 class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
+  bool _isInteracSelected = true;
+
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthViewModel>(
@@ -162,30 +165,290 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                         child: Text("Edit Profile"),
                       ),
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.blue, // Border color
-                          width: 2.0, // Border width
-                          style: BorderStyle.solid, // Border style
+                    SizedBox(height: 20.h),
+                    Card(
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: AppColors.kPrimaryColor, // Border color
+                          width: 1.0.w, // Border width
                         ),
+                        borderRadius: BorderRadius.circular(
+                          12.0.r,
+                        ), // Rounded corners
                       ),
                       child: Column(
                         children: [
-                          Text(
-                            'Full Name',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              color: AppColors.textPrimaryColor,
+                          SizedBox(
+                            height: 50.h,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0,
+                              ),
+                              child: Row(
+                                children: [
+                                  Icon(Iconsax.activity1),
+                                  SizedBox(width: 5.w),
+                                  Text(
+                                    'Interac',
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  IconButton(
+                                    onPressed: () {
+                                      authViewModel.setIsInteracEditable();
+                                    },
+                                    icon: Icon(
+                                      Iconsax.edit5,
+                                      size: 25.sp,
+                                      color: authViewModel.getIsInteracEditable
+                                          ? AppColors.kPrimaryColor
+                                          : AppColors.iconColor,
+                                    ),
+                                  ),
+                                  Transform.scale(
+                                    scale: 0.8,
+                                    child: Switch(
+                                      activeTrackColor: AppColors.kPrimaryColor,
+                                      value: authViewModel.getSelectedPaymentType == PaymentType.interac.label,
+                                      onChanged: (value) {
+                                        authViewModel.setSelectedPaymentType(value: PaymentType.interac.label);
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                          SizedBox(height: 8.h),
-                          TextFormField(
-                            controller: authViewModel.getInteracNameController,
-                            decoration: InputDecoration(hintText: 'Your Name'),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: AppColors.kScaffoldColor,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(12.r),
+                                bottomRight: Radius.circular(12.r),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 10.w,
+                                vertical: 15.h,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      'Enter Full Name',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        color: AppColors.textPrimaryColor,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 8.h),
+                                  TextFormField(
+                                    keyboardType: TextInputType.name,
+                                    controller:
+                                        authViewModel.getInteracNameController,
+                                    decoration: InputDecoration(
+                                      hintText: 'Your Name',
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.h),
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      authViewModel.getIntracWithEmail
+                                          ? 'Enter Email'
+                                          : 'Enter Phone',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        color: AppColors.textPrimaryColor,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 8.h),
+                                  TextFormField(
+                                    keyboardType:
+                                        authViewModel.getIntracWithEmail
+                                        ? TextInputType.emailAddress
+                                        : TextInputType.phone,
+                                    controller: authViewModel
+                                        .getInteracEmailPhoneController,
+                                    decoration: InputDecoration(
+                                      hintText: authViewModel.getIntracWithEmail
+                                          ? 'Your Email'
+                                          : 'Your Phone',
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.h),
+                                  Text(
+                                    'Or',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: AppColors.textPrimaryColor,
+                                    ),
+                                  ),
+                                  SizedBox(height: 10.h),
+                                  TextButton(
+                                    onPressed: () {
+                                      authViewModel.setIntracWithEmail();
+                                    },
+                                    child: Text(
+                                      authViewModel.getIntracWithEmail
+                                          ? 'Use Phone Number'
+                                          : 'Use Email Address',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        color: AppColors.kPrimaryColor,
+                                      ),
+                                    ),
+                                  ),
+                                  Visibility(
+                                    visible: authViewModel.getIsInteracEditable,
+                                    child: Column(
+                                      children: [
+                                        SizedBox(height: 20.h),
+
+                                        SizedBox(
+                                          width: double.infinity,
+                                          child: ElevatedButton(
+                                            onPressed: () {},
+                                            child: Text("Submit"),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                          SizedBox(height: 20.h),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 20.h),
+                    Card(
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: AppColors.kPrimaryColor, // Border color
+                          width: 1.0.w, // Border width
+                        ),
+                        borderRadius: BorderRadius.circular(
+                          12.0.r,
+                        ), // Rounded corners
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 50.h,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10.0,
+                              ),
+                              child: Row(
+                                children: [
+                                  Icon(Iconsax.activity1),
+                                  SizedBox(width: 5.w),
+                                  Text(
+                                    'Void cheque',
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  IconButton(
+                                    onPressed: () {
+                                      authViewModel.setIsVoidChequeEditable();
+                                    },
+                                    icon: Icon(
+                                      Iconsax.edit5,
+                                      size: 25.sp,
+                                      color: authViewModel.getIsVoidChequeEditable
+                                          ? AppColors.kPrimaryColor
+                                          : AppColors.iconColor,
+                                    ),
+                                  ),
+                                  Transform.scale(
+                                    scale: 0.8,
+                                    child: Switch(
+                                      activeTrackColor: AppColors.kPrimaryColor,
+                                      value: authViewModel.getSelectedPaymentType == PaymentType.voidCheque.label,
+                                      onChanged: (value) {
+                                        authViewModel.setSelectedPaymentType(value: PaymentType.voidCheque.label);
+
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: AppColors.kScaffoldColor,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(12.r),
+                                bottomRight: Radius.circular(12.r),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 10.w,
+                                vertical: 15.h,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      'Enter Bank Details',
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        color: AppColors.textPrimaryColor,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 8.h),
+                                  TextFormField(
+                                    keyboardType: TextInputType.text,
+                                    controller: authViewModel
+                                        .getInteracEmailPhoneController,
+                                    decoration: InputDecoration(
+                                      hintText:  'Your Bank Details',
+                                    ),
+                                  ),
+                                  Visibility(
+                                    visible: authViewModel.getIsVoidChequeEditable,
+                                    child: Column(
+                                      children: [
+                                        SizedBox(height: 20.h),
+                                        SizedBox(
+                                          width: double.infinity,
+                                          child: ElevatedButton(
+                                            onPressed: () {},
+                                            child: Text("Submit"),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
