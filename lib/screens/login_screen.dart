@@ -3,16 +3,12 @@ import 'package:beauty_near_sp/screens/bot_nav_bar_page.dart';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
 import 'package:beauty_near_sp/utils/extensions.dart';
-import 'package:beauty_near_sp/view_models/auth_view_model.dart';
-import 'package:beauty_near_sp/view_models/language_view_model.dart';
-import 'package:beauty_near_sp/widgets/language_drop_down.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:provider/provider.dart';
 
-import '../utils/enums.dart';
+import '../widgets/language_app_bar.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -20,7 +16,8 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [LanguageDropDown()]),
+      appBar: LanguageAppBar(),
+      extendBodyBehindAppBar: true,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -139,7 +136,7 @@ class LoginScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),/*
+      ) /*
   Widget _buildUserTypeSelector() {
     return Consumer<AuthViewModel>(
       builder: (context, viewModel, _) {
@@ -181,9 +178,7 @@ class LoginScreen extends StatelessWidget {
       },
     );
   }
-*/
-
+*/,
     );
   }
-
 }

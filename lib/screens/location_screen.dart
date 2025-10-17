@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
+import '../widgets/custom_back_button.dart';
 
 class LocationScreen extends StatelessWidget {
   const LocationScreen({super.key});
@@ -86,11 +87,20 @@ class LocationScreen extends StatelessWidget {
         ),
         child: SizedBox(
           width: double.infinity,
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, uploadImageScreen);
-            },
-            child: Text('Next'),
+          child: Row(
+            spacing: 10.w,
+            children: [
+              CustomBackButton(),
+
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, uploadImageScreen);
+                  },
+                  child: Text('Next'),
+                ),
+              ),
+            ],
           ),
         ),
       ),

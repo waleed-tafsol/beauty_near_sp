@@ -1,6 +1,7 @@
 import 'package:beauty_near_sp/route_generator.dart';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/widgets/language_app_bar.dart';
 import 'package:beauty_near_sp/widgets/social_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,6 +19,8 @@ class SignupScreen extends StatelessWidget {
     return Consumer<AuthViewModel>(
       builder: (context, authViewModel, _) {
         return Scaffold(
+          appBar: LanguageAppBar(),
+          extendBodyBehindAppBar: true,
           body: SafeArea(
             top: false,
             child: SingleChildScrollView(
