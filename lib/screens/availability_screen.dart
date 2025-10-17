@@ -220,18 +220,18 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    showSuccessDialog(
-                      screenContext: context,
-                      desc: 'Your Account Successfully\nCreated',
-                      onSuccess: () {
-                        Navigator.pushNamedAndRemoveUntil(
-                          context,
-                          BotNavPage.routeName,
-                              (route) => false,
-                        );
-                      },
-                    );
-                   // Navigator.pushNamed(context, paymentMethodScreen);
+                    // showSuccessDialog(
+                    //   screenContext: context,
+                    //   desc: 'Your Account Successfully\nCreated',
+                    //   onSuccess: () {
+                    //     Navigator.pushNamedAndRemoveUntil(
+                    //       context,
+                    //       BotNavPage.routeName,
+                    //           (route) => false,
+                    //     );
+                    //   },
+                    // );
+                    Navigator.pushNamed(context, cardDetailsScreen);
                   },
                   child: Text('Next'),
                 ),
