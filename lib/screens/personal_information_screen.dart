@@ -1,17 +1,25 @@
+import 'dart:io';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
-import 'package:beauty_near_sp/view_models/personal_information_view_model.dart';
 import 'package:beauty_near_sp/widgets/custom_app_bar.dart';
+import 'package:beauty_near_sp/widgets/bottom_sheets/image_selection_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:provider/provider.dart';
 
 import '../view_models/auth_view_model.dart';
 
-class PersonalInformationScreen extends StatelessWidget {
+class PersonalInformationScreen extends StatefulWidget {
   const PersonalInformationScreen({super.key});
+
+  @override
+  State<PersonalInformationScreen> createState() => _PersonalInformationScreenState();
+}
+
+class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -27,37 +35,42 @@ class PersonalInformationScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 30.h),
-                    Center(
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: 94.w,
-                            height: 94.h,
-                            decoration: BoxDecoration(shape: BoxShape.circle),
-                            child: CircleAvatar(
-                              radius: 38.r,
-                              backgroundColor: Colors.pink,
-                              // You can replace with actual image:
-                              backgroundImage: AssetImage(PngAssets.person),
-                            ),
-                          ),
-                          Positioned(
-                            bottom: 1,
-                            right: 1,
-                            child: CircleAvatar(
-                              radius: 12.r,
-                              backgroundColor: Color(0xffEFC2C8),
-
-                              child: Icon(
-                                Iconsax.edit,
-                                color: AppColors.kPrimaryColor,
-                                size: 12.w,
+                      Center(
+                        child: GestureDetector(
+                          onTap: () async {
+                           await authViewModel.setProfileImagePath(context: context);
+                          },
+                          child: Stack(
+                            children: [
+                              Container(
+                                width: 94.w,
+                                height: 94.h,
+                                decoration: BoxDecoration(shape: BoxShape.circle),
+                                child: CircleAvatar(
+                                  radius: 38.r,
+                                  backgroundColor: Colors.pink,
+                                  backgroundImage: authViewModel.getProfileImagePath != null
+                                      ? FileImage(File(authViewModel.getProfileImagePath!))
+                                      : AssetImage(PngAssets.person) as ImageProvider,
+                                ),
                               ),
-                            ),
+                              Positioned(
+                                bottom: 1,
+                                right: 1,
+                                child: CircleAvatar(
+                                  radius: 12.r,
+                                  backgroundColor: Color(0xffEFC2C8),
+                                  child: Icon(
+                                    Iconsax.edit,
+                                    color: AppColors.kPrimaryColor,
+                                    size: 12.w,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
-                    ),
                     SizedBox(height: 30.h),
                     Text(
                       'Full Name',
