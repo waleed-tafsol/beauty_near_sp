@@ -2,7 +2,10 @@ import 'package:beauty_near_sp/route_generator.dart';
 import 'package:beauty_near_sp/screens/bot_nav_bar_page.dart';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:beauty_near_sp/view_models/auth_view_model.dart';
+import 'package:beauty_near_sp/view_models/language_view_model.dart';
+import 'package:beauty_near_sp/widgets/language_drop_down.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,14 +20,14 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(actions: [LanguageDropDown()]),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              
-              SizedBox(height: 100.h),
+              SizedBox(height: 50.h),
               Center(
                 child: SvgPicture.asset(
                   SvgAssets.logo,
@@ -36,7 +39,7 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: 50.h),
               Center(
                 child: Text(
-                  'Login to Your Account',
+                  context.localization.loginToYourAccount,
                   style: TextStyle(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w500,
@@ -48,7 +51,7 @@ class LoginScreen extends StatelessWidget {
               // _buildUserTypeSelector(),
               // SizedBox(height: 32.h),
               Text(
-                'Email Address',
+                context.localization.emailAddress,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 14.sp,
@@ -57,11 +60,13 @@ class LoginScreen extends StatelessWidget {
               ),
               SizedBox(height: 8.h),
               TextFormField(
-                decoration: InputDecoration(hintText: 'Your Email'),
+                decoration: InputDecoration(
+                  hintText: context.localization.yourEmail,
+                ),
               ),
               SizedBox(height: 20.h),
               Text(
-                'Password',
+                context.localization.password,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 14.sp,
@@ -69,14 +74,17 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 8.h),
-              TextFormField(decoration: InputDecoration(hintText: 'Password',
-              suffixIcon: Icon(Iconsax.eye)
-              )),
+              TextFormField(
+                decoration: InputDecoration(
+                  hintText: context.localization.password,
+                  suffixIcon: Icon(Iconsax.eye),
+                ),
+              ),
               SizedBox(height: 8.h),
               Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  'Forgot Password?',
+                  context.localization.forgotPassword,
                   style: TextStyle(
                     fontSize: 11.sp,
                     color: AppColors.textPrimaryColor,
@@ -94,7 +102,7 @@ class LoginScreen extends StatelessWidget {
                       (_) => false,
                     );
                   },
-                  child: Text('Login'),
+                  child: Text(context.localization.login),
                 ),
               ),
               SizedBox(height: 20.h),
@@ -109,15 +117,18 @@ class LoginScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Don\'t have an account ?',
-                style: TextStyle(fontSize: 14.sp, color: AppColors.darkGreyColor),
+                context.localization.dontHavAccount,
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: AppColors.darkGreyColor,
+                ),
               ),
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, signupScreen);
                 },
                 child: Text(
-                  ' Sign Up',
+                  context.localization.signUp,
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w500,

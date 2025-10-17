@@ -54,7 +54,7 @@ const String notification = '/notification';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    final args = settings.arguments as Map<String, dynamic>?;
 
     switch (settings.name) {
       case splashScreen:
@@ -98,7 +98,7 @@ class RouteGenerator {
       case locationScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: locationScreen),
-          builder: (_) => LocationScreen(),
+          builder: (_) => LocationScreen(onSuccess: args!['onSuccess']),
         );
       case uploadImageScreen:
         return MaterialPageRoute(

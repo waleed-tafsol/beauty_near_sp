@@ -2,6 +2,7 @@ import 'package:beauty_near_sp/route_generator.dart';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
 import 'package:beauty_near_sp/utils/extensions.dart';
+import 'package:beauty_near_sp/widgets/language_drop_down.dart';
 import 'package:beauty_near_sp/widgets/service_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -77,6 +78,36 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, notification);
+            },
+            child: Container(
+              width: 36.w,
+              height: 36.h,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50.r),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.1),
+                    blurRadius: 30,
+                    offset: Offset(0, 0),
+                  ),
+                ],
+              ),
+              child: Center(
+                child: Icon(
+                  Iconsax.notification,
+                  size: 18.sp,
+                  color: AppColors.textPrimaryColor,
+                ),
+              ),
+            ),
+          ),
+          LanguageDropDown(),
+        ],
         forceMaterialTransparency: true,
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -112,33 +143,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, notification);
-              },
-              child: Container(
-                width: 36.w,
-                height: 36.h,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(50.r),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withValues(alpha: 0.1),
-                      blurRadius: 30,
-                      offset: Offset(0, 0),
-                    ),
-                  ],
-                ),
-                child: Center(
-                  child: Icon(
-                    Iconsax.notification,
-                    size: 18.sp,
-                    color: AppColors.textPrimaryColor,
-                  ),
-                ),
-              ),
             ),
           ],
         ),

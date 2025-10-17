@@ -1,8 +1,10 @@
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/view_models/language_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/custom_app_bar.dart';
 
@@ -97,48 +99,53 @@ class LanguagesScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18.r),
                 color: Colors.white,
               ),
-              child: Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 12.w,
-                      vertical: 12.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color(0xffEFC2C8),
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                    child: SvgPicture.asset(
-                      SvgAssets.french,
-                      width: 32.w,
-                      height: 20,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  SizedBox(width: 12.w),
-                  Text(
-                    'French',
-                    style: TextStyle(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.textPrimaryColor,
-                    ),
-                  ),
-                  Spacer(),
-                  SizedBox(
-                    width: 18.w,
-                    height: 18.h,
-                    child: Checkbox(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6.r),
+              child: GestureDetector(
+                 onTap: () => Provider.of<LanguageViewModel>(
+                  context,
+                ).changeLocale(Locale('fr')),
+                child: Row(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 12.w,
+                        vertical: 12.h,
                       ),
-                      value: false,
-                      onChanged: (value) {},
-                      activeColor: AppColors.textPrimaryColor,
-                      checkColor: AppColors.kPrimaryColor,
+                      decoration: BoxDecoration(
+                        color: Color(0xffEFC2C8),
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                      child: SvgPicture.asset(
+                        SvgAssets.french,
+                        width: 32.w,
+                        height: 20,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                ],
+                    SizedBox(width: 12.w),
+                    Text(
+                      'French',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.textPrimaryColor,
+                      ),
+                    ),
+                    Spacer(),
+                    SizedBox(
+                      width: 18.w,
+                      height: 18.h,
+                      child: Checkbox(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6.r),
+                        ),
+                        value: false,
+                        onChanged: (value) {},
+                        activeColor: AppColors.textPrimaryColor,
+                        checkColor: AppColors.kPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
 
@@ -149,48 +156,53 @@ class LanguagesScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18.r),
                 color: Colors.white,
               ),
-              child: Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 12.w,
-                      vertical: 12.h,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color(0xffEFC2C8),
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                    child: SvgPicture.asset(
-                      SvgAssets.spanish,
-                      width: 32.w,
-                      height: 20,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  SizedBox(width: 12.w),
-                  Text(
-                    'Spanish',
-                    style: TextStyle(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w500,
-                      color: AppColors.textPrimaryColor,
-                    ),
-                  ),
-                  Spacer(),
-                  SizedBox(
-                    width: 18.w,
-                    height: 18.h,
-                    child: Checkbox(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(6.r),
+              child: GestureDetector(
+                  onTap: () => context.read<LanguageViewModel>().changeLocale(
+                  Locale('fr'),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 12.w,
+                        vertical: 12.h,
                       ),
-                      value: false,
-                      onChanged: (value) {},
-                      activeColor: AppColors.textPrimaryColor,
-                      checkColor: AppColors.kPrimaryColor,
+                      decoration: BoxDecoration(
+                        color: Color(0xffEFC2C8),
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                      child: SvgPicture.asset(
+                        SvgAssets.spanish,
+                        width: 32.w,
+                        height: 20,
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                ],
+                    SizedBox(width: 12.w),
+                    Text(
+                      'Spanish',
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.textPrimaryColor,
+                      ),
+                    ),
+                    Spacer(),
+                    SizedBox(
+                      width: 18.w,
+                      height: 18.h,
+                      child: Checkbox(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(6.r),
+                        ),
+                        value: false,
+                        onChanged: (value) {},
+                        activeColor: AppColors.textPrimaryColor,
+                        checkColor: AppColors.kPrimaryColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
