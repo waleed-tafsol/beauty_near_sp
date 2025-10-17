@@ -43,7 +43,7 @@ class _GenderServiceScreenState extends State<GenderServiceScreen> {
                     ),
                     SizedBox(height: 10.h),
                     Text(
-                      'Enter the OTP code we just sent you on your registered Email/ Phone Number',
+                      '',
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 14.sp,

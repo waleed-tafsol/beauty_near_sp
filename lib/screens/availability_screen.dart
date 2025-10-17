@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../route_generator.dart';
 import '../utils/color_constant.dart';
 import '../widgets/custom_back_button.dart';
+import '../widgets/dialog box/success_dialog_box.dart';
+import 'bot_nav_bar_page.dart';
 
 class AvailabilityScreen extends StatefulWidget {
   const AvailabilityScreen({super.key});
@@ -131,7 +133,7 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
               SizedBox(height: 10.h),
               Center(
                 child: Text(
-                  'Enter the OTP code we just sent you on your registered Email/ Phone Number',
+                  '',
                   style: TextStyle(
                     fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
@@ -218,7 +220,18 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
               Expanded(
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, paymentMethodScreen);
+                    showSuccessDialog(
+                      screenContext: context,
+                      desc: 'Your Account Successfully\nCreated',
+                      onSuccess: () {
+                        Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          BotNavPage.routeName,
+                              (route) => false,
+                        );
+                      },
+                    );
+                   // Navigator.pushNamed(context, paymentMethodScreen);
                   },
                   child: Text('Next'),
                 ),

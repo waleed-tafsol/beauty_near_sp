@@ -32,7 +32,7 @@ class UploadImageScreen extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             Text(
-              'Enter the OTP code we just sent you on your registered Email/ Phone Number',
+              '',
               style: GoogleFonts.montserrat(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
