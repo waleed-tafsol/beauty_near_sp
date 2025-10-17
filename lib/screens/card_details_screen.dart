@@ -75,7 +75,7 @@ class CardDetailsScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 8.h),
                       TextFormField(
-                        controller: authViewModel.getInteracNameController,
+                      //  controller: authViewModel.getInteracNameController,
                           decoration: InputDecoration(hintText: 'Your Name')),
                       SizedBox(height: 20.h),
                       Text(
@@ -89,7 +89,7 @@ class CardDetailsScreen extends StatelessWidget {
                       SizedBox(height: 8.h),
                       TextFormField(
                         keyboardType: TextInputType.emailAddress,
-                        controller: authViewModel.getInteracEmailController,
+                    //    controller: authViewModel.getInteracEmailController,
                         decoration: InputDecoration(hintText: 'Your Email'),
                       ),
                       SizedBox(height: 20.h),
@@ -104,7 +104,7 @@ class CardDetailsScreen extends StatelessWidget {
                       SizedBox(height: 8.h),
                       TextFormField(
                         keyboardType: TextInputType.phone,
-                        controller: authViewModel.getInteracPhoneController,
+                      //  controller: authViewModel.getInteracPhoneController,
                         decoration: InputDecoration(hintText: 'Phone Number'),
                       ),
                  /*     Text(

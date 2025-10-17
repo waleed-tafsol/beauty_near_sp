@@ -131,7 +131,6 @@ class SignupScreen extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          authViewModel.setSignUpDetailsToInterac();
                           Navigator.pushNamed(context, otpScreen);
                         },
                         child: Text('Next'),
