@@ -11,6 +11,8 @@ class PngAssets {
 class SvgAssets {
   static const String _assets = 'assets/svg/';
   static const String logo = '${_assets}logo.svg';
+  static const String payment = '${_assets}payment.svg';
+
   static const String or = '${_assets}or.svg';
   static const String google = '${_assets}google.svg';
   static const String facebook = '${_assets}facebook.svg';

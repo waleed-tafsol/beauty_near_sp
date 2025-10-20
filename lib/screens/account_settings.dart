@@ -117,6 +117,17 @@ class AccountSettings extends StatelessWidget {
                           SizedBox(height: 10.h),
                           AccountTile(
                             onTap: () {
+                              Navigator.pushNamed(
+                                context,
+                                paymentMethodScreen,
+                              );
+                            },
+                            title: 'Payment',
+                            iconPath: SvgAssets.payment,
+                          ),
+                          SizedBox(height: 10.h),
+                          AccountTile(
+                            onTap: () {
                               Navigator.pushNamed(context, support);
                             },
                             title: 'Support',
