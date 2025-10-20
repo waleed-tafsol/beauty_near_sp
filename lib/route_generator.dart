@@ -54,6 +54,8 @@ const String support = '/support';
 const String notification = '/notification';
 const String changePassword = '/change_password';
 
+final navigatorKey = GlobalKey<NavigatorState>();
+
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     final args = settings.arguments as Map<String, dynamic>?;

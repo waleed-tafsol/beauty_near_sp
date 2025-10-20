@@ -942,6 +942,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All Services'**
   String get allServices;
+
+  /// No description provided for @payment.
+  ///
+  /// In en, this message translates to:
+  /// **'Payment'**
+  String get payment;
+
+  /// No description provided for @selectYourAvailability.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Your Availability'**
+  String get selectYourAvailability;
+
+  /// No description provided for @startTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Time'**
+  String get startTime;
+
+  /// No description provided for @endTime.
+  ///
+  /// In en, this message translates to:
+  /// **'End Time'**
+  String get endTime;
+
+  /// No description provided for @addService.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Service'**
+  String get addService;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -35,6 +35,7 @@ class _AppInitState extends State<AppInit> {
       initialRoute: loginScreen,
       onGenerateRoute: RouteGenerator.generateRoute,
       themeMode: themeMode,
+      navigatorKey: navigatorKey,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       locale: currentLocale,

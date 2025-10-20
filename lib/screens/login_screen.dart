@@ -25,6 +25,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                
                 Center(
                   child: SvgPicture.asset(
                     SvgAssets.logo,

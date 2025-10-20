@@ -96,8 +96,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get congratulations => '¡Felicidades!';
 
   @override
-  String get accountCreatedSuccessfully =>
-      'Tu cuenta se ha creado exitosamente';
+  String get accountCreatedSuccessfully => 'Tu cuenta se ha creado exitosamente';
 
   @override
   String get proceedToApp => 'Continuar a la aplicación';
@@ -106,8 +105,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get fillThisForm => 'Completa este formulario';
 
   @override
-  String get pleaseFillThisForm =>
-      'Por favor completa este formulario para continuar';
+  String get pleaseFillThisForm => 'Por favor completa este formulario para continuar';
 
   @override
   String get noOfAdults => 'Número de adultos';
@@ -158,8 +156,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get selectLocation => 'Seleccionar ubicación';
 
   @override
-  String get selectYourLocationToFindBarber =>
-      'Selecciona tu ubicación para encontrar barberos cercanos';
+  String get selectYourLocationToFindBarber => 'Selecciona tu ubicación para encontrar barberos cercanos';
 
   @override
   String get enterLocation => 'Ingresar ubicación';
@@ -285,12 +282,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get taxes => 'Impuestos';
 
   @override
-  String get cancelPaymentAcknowledgement =>
-      'Si cancelas la reserva con menos de 1 hora antes del horario del servicio, tu pago no será reembolsado.';
+  String get cancelPaymentAcknowledgement => 'Si cancelas la reserva con menos de 1 hora antes del horario del servicio, tu pago no será reembolsado.';
 
   @override
-  String get bookingPlacedSuccessfully =>
-      '¡Tu reserva se ha realizado exitosamente!';
+  String get bookingPlacedSuccessfully => '¡Tu reserva se ha realizado exitosamente!';
 
   @override
   String get payNow => 'Pagar ahora';
@@ -338,8 +333,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get payOnlineStripe => 'Pagar en línea (Stripe)';
 
   @override
-  String get upfrontDepositDescription =>
-      'Para confirmar la reserva debes pagar el 25% de la tarifa del servicio como depósito inicial.';
+  String get upfrontDepositDescription => 'Para confirmar la reserva debes pagar el 25% de la tarifa del servicio como depósito inicial.';
 
   @override
   String get enterName => 'Ingresar nombre';
@@ -454,4 +448,19 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get allServices => 'Todos los servicios';
+
+  @override
+  String get payment => 'Payment';
+
+  @override
+  String get selectYourAvailability => 'Select Your Availability';
+
+  @override
+  String get startTime => 'Start Time';
+
+  @override
+  String get endTime => 'End Time';
+
+  @override
+  String get addService => 'Add Service';
 }

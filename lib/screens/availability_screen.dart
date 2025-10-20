@@ -1,5 +1,8 @@
+import 'package:beauty_near_sp/utils/date_time_utils.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 
 import '../route_generator.dart';
 import '../utils/color_constant.dart';
@@ -52,11 +55,12 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
         );
       },
     );
-    
+
     if (picked != null && picked != _selectedStartTime) {
       setState(() {
         _selectedStartTime = picked;
-        _startTimeController.text = '${picked.hour.toString().padLeft(2, '0')}:${picked.minute.toString().padLeft(2, '0')}';
+        _startTimeController.text =
+            '${picked.hour.toString().padLeft(2, '0')}:${picked.minute.toString().padLeft(2, '0')}';
       });
     }
   }
@@ -91,11 +95,12 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
         );
       },
     );
-    
+
     if (picked != null && picked != _selectedEndTime) {
       setState(() {
         _selectedEndTime = picked;
-        _endTimeController.text = '${picked.hour.toString().padLeft(2, '0')}:${picked.minute.toString().padLeft(2, '0')}';
+        _endTimeController.text =
+            '${picked.hour.toString().padLeft(2, '0')}:${picked.minute.toString().padLeft(2, '0')}';
       });
     }
   }
@@ -120,7 +125,7 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
 
               Center(
                 child: Text(
-                  'Select Your Availability',
+                  context.localization.selectYourAvailability,
                   style: TextStyle(
                     fontSize: 20.sp,
                     fontWeight: FontWeight.w500,
@@ -151,7 +156,7 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
               SizedBox(height: 20.h),
 
               Text(
-                'Start Time',
+                context.localization.startTime,
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
@@ -179,7 +184,7 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
               SizedBox(height: 20.h),
 
               Text(
-                'End Time',
+                context.localization.endTime,
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w400,
@@ -227,11 +232,11 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
                         Navigator.pushNamedAndRemoveUntil(
                           context,
                           BotNavPage.routeName,
-                              (route) => false,
+                          (route) => false,
                         );
                       },
                     );
-                   // Navigator.pushNamed(context, cardDetailsScreen);
+                    // Navigator.pushNamed(context, cardDetailsScreen);
                   },
                   child: Text('Next'),
                 ),
@@ -264,7 +269,7 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
             _buildDayTab('Mon'),
             _buildDayTab('Tue'),
             _buildDayTab('Wed'),
-            _buildDayTab('Thurs'),
+            _buildDayTab('Thu'),
             _buildDayTab('Fri'),
             _buildDayTab('Sat'),
             _buildDayTab('Sun'),
@@ -276,13 +281,12 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
 
   Widget _buildDayTab(String day) {
     return GestureDetector(
-      onTap: (){
-        if(selectedDays.contains(day)){
+      onTap: () {
+        if (selectedDays.contains(day)) {
           setState(() {
             selectedDays.remove(day);
           });
-        }
-        else{
+        } else {
           setState(() {
             selectedDays.add(day);
           });
@@ -305,11 +309,13 @@ class _AvailabilityScreenState extends State<AvailabilityScreen> {
         ),
         child: Center(
           child: Text(
-            day,
+            translateWeekday(day),
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w400,
-              color: selectedDays.contains(day) ? Colors.white : AppColors.darkGreyColor,
+              color: selectedDays.contains(day)
+                  ? Colors.white
+                  : AppColors.darkGreyColor,
               height: 1.22,
             ),
           ),

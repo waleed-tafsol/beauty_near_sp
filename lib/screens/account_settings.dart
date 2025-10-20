@@ -35,7 +35,7 @@ class AccountSettings extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    'Account Settings',
+                    context.localization.accountSettings,
                     style: TextStyle(
                       fontSize: 19.sp,
                       fontWeight: FontWeight.w600,
@@ -95,7 +95,7 @@ class AccountSettings extends StatelessWidget {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'General',
+                              context.localization.general,
                               style: TextStyle(
                                 fontSize: 15.sp,
                                 fontWeight: FontWeight.w600,
@@ -111,18 +111,15 @@ class AccountSettings extends StatelessWidget {
                                 personalInformationScreen,
                               );
                             },
-                            title: 'Personal Information',
+                            title: context.localization.personalInfo,
                             iconPath: SvgAssets.pi,
                           ),
                           SizedBox(height: 10.h),
                           AccountTile(
                             onTap: () {
-                              Navigator.pushNamed(
-                                context,
-                                paymentMethodScreen,
-                              );
+                              Navigator.pushNamed(context, paymentMethodScreen);
                             },
-                            title: 'Payment',
+                            title: context.localization.payment,
                             iconPath: SvgAssets.payment,
                           ),
                           SizedBox(height: 10.h),
@@ -130,7 +127,7 @@ class AccountSettings extends StatelessWidget {
                             onTap: () {
                               Navigator.pushNamed(context, support);
                             },
-                            title: 'Support',
+                            title: context.localization.support,
                             iconPath: SvgAssets.support,
                           ),
                           SizedBox(height: 10.h),
@@ -138,14 +135,14 @@ class AccountSettings extends StatelessWidget {
                             onTap: () {
                               Navigator.pushNamed(context, languagesScreen);
                             },
-                            title: 'Language',
+                            title: context.localization.language,
                             iconPath: SvgAssets.lang,
                           ),
                           SizedBox(height: 30.h),
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'Help & Support',
+                              context.localization.helpAndSupport,
                               style: TextStyle(
                                 fontSize: 15.sp,
                                 fontWeight: FontWeight.w600,
@@ -158,7 +155,7 @@ class AccountSettings extends StatelessWidget {
                             onTap: () {
                               Navigator.pushNamed(context, aboutUs);
                             },
-                            title: 'About Us',
+                            title: context.localization.aboutUs,
                             iconPath: SvgAssets.about,
                           ),
                           SizedBox(height: 10.h),
@@ -166,7 +163,7 @@ class AccountSettings extends StatelessWidget {
                             onTap: () {
                               Navigator.pushNamed(context, privacyPolicy);
                             },
-                            title: 'Privacy Policy',
+                            title: context.localization.privacyPolicy,
                             iconPath: SvgAssets.pp,
                           ),
                           SizedBox(height: 10.h),
@@ -174,14 +171,14 @@ class AccountSettings extends StatelessWidget {
                             onTap: () {
                               Navigator.pushNamed(context, termsAndConditions);
                             },
-                            title: 'Terms & Conditions',
+                            title: context.localization.termsAndCondition,
                             iconPath: SvgAssets.tc,
                           ),
                           SizedBox(height: 30.h),
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'Logout',
+                              context.localization.logout,
                               style: TextStyle(
                                 fontSize: 15.sp,
                                 fontWeight: FontWeight.w600,
@@ -198,7 +195,7 @@ class AccountSettings extends StatelessWidget {
                                 (route) => false,
                               );
                             },
-                            title: 'Logout',
+                            title: context.localization.logout,
                             iconPath: SvgAssets.logout,
                           ),
                           SizedBox(height: 10.h),

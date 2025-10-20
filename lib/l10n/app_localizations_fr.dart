@@ -448,4 +448,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get allServices => 'Tous les services';
+
+  @override
+  String get payment => 'Payment';
+
+  @override
+  String get selectYourAvailability => 'Select Your Availability';
+
+  @override
+  String get startTime => 'Start Time';
+
+  @override
+  String get endTime => 'End Time';
+
+  @override
+  String get addService => 'Add Service';
 }

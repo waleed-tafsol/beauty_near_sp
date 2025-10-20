@@ -139,5 +139,13 @@
   "minsAgo": "{min} mins ago",
   "minsSession": "{mins} min session",
   "languages": "Languages",
-  "allServices": "All Services"
+  "allServices": "All Services",
+  "payment": "Payment",
+  "selectYourAvailability": "Select Your Availability",
+  "startTime": "Start Time",
+  "endTime": "End Time",
+  "addService": "Add Service"
+
+
+
 }
