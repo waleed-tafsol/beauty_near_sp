@@ -39,7 +39,7 @@ class _AppInitState extends State<AppInit> {
       onGenerateRoute: RouteGenerator.generateRoute,
       themeMode: themeMode,
       theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
+      darkTheme: AppTheme.lightTheme,
       locale: currentLocale,
       localizationsDelegates: const [
         AppLocalizations.delegate,
