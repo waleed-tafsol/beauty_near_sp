@@ -31,49 +31,49 @@ class SupportScreen extends StatelessWidget {
               SizedBox(height: 35.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "Beauty Near",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "Beauty Near",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "Beauty Near",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "Beauty Near",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "Beauty Near",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "Beauty Near",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),
               SizedBox(height: 15.h),
               customExpansionCard(
                 context: context,
-                title: "Bitcoin Back",
+                title: "Beauty Near",
                 description:
                     "Lorem ipsum dolor sit amet consectetur. Purus sit pellentesque ac arcu aenean vel tortor. Dui scelerisque in massa velit urna erat. Massa aliquam metus neque nec purus ipsum nec neque a. Rhoncus sagittis nascetur a convallis in scelerisque vitae ullamcorper. Ipsum auctor in.",
               ),

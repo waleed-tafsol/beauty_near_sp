@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
+import '../route_generator.dart';
 import '../utils/color_constant.dart';
 import '../view_models/bot_nav_view_model.dart';
 import '../widgets/bottom_nav_bar.dart';
@@ -18,30 +19,44 @@ class BotNavPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final BotNavViewModel viewModel = context.watch<BotNavViewModel>();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           viewModel.currentChild,
+
           Positioned(
             left: 0,
             right: 0,
             bottom: context.bottomNotch > 0
                 ? 62.5.h + context.bottomNotch
                 : 62.5.h,
-            child: Center(
-              child: Transform.rotate(
-                angle: pi / 4,
-                child: Container(
-                  width: 60.h,
-                  height: 60.h,
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: AppColors.kPrimaryColor,
-                      width: 1.h,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, availabilityScreen);
+              },
+              child: Center(
+                child: Transform.rotate(
+                  angle: pi / 4,
+                  child: Container(
+                    width: 60.h,
+                    height: 60.h,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: AppColors.kPrimaryColor,
+                        width: 1.h,
+                      ),
+                      gradient: AppColors.primaryGradient,
+                      borderRadius: BorderRadius.circular(14.r),
                     ),
-                    gradient: AppColors.primaryGradient,
-                    borderRadius: BorderRadius.circular(14.r),
+                    child: Transform.rotate(
+                      angle: pi / -4,
+                      child: Icon(
+                        Icons.calendar_month,
+                        color: Colors.white,
+                        size: 24.sp,
+                      ),
+                    ),
                   ),
-                  child: Icon(Icons.close, color: Colors.white, size: 24.sp),
                 ),
               ),
             ),

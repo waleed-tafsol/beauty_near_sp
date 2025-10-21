@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:provider/provider.dart';
 
 import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
+import '../utils/enums.dart';
+import '../view_models/auth_view_model.dart';
+import '../widgets/custom_app_bar.dart';
 import '../widgets/custom_back_button.dart';
 
 class PaymentMethodScreen extends StatelessWidget {
@@ -12,126 +17,311 @@ class PaymentMethodScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w),
-        child: Column(
-          children: [
-            SizedBox(height: 77.h),
+      return Consumer<AuthViewModel>(
+        builder: (context, authViewModel, _) {
+        return Scaffold(
+          appBar: CustomAppBar(title: 'Payment'),
 
-            Text(
-              'Select a Payment Method',
-              style: TextStyle(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.w500,
-                color: AppColors.textPrimaryColor,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 10.h),
-            Text(
-              'Select a Payment Method that is feasible for you to purchase the subscription.',
-              style: TextStyle(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w400,
-                color: AppColors.darkGreyColor,
-                height: 1.5,
-              ),
-              textAlign: TextAlign.center,
-            ),
-
-            SizedBox(height: 30.h),
-
-            Expanded(
+          body: SafeArea(
+            top: false,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Column(
                 children: [
-                  _buildPaymentOption(
-                    icon: SvgPicture.asset(SvgAssets.paypal),
-                    title: 'Paypal',
-                    isSelected: false,
+                  SizedBox(height: 30.h),
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        color: AppColors.kPrimaryColor, // Border color
+                        width: 1.0.w, // Border width
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        12.0.r,
+                      ), // Rounded corners
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 50.h,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0,
+                            ),
+                            child: Row(
+                              children: [
+                                Icon(Iconsax.activity1),
+                                SizedBox(width: 5.w),
+                                Text(
+                                  'Interac',
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                Spacer(),
+                                IconButton(
+                                  onPressed: () {
+                                    authViewModel.setIsInteracEditable();
+                                  },
+                                  icon: Icon(
+                                    Iconsax.edit5,
+                                    size: 25.sp,
+                                    color: authViewModel.getIsInteracEditable
+                                        ? AppColors.kPrimaryColor
+                                        : AppColors.iconColor,
+                                  ),
+                                ),
+                                Transform.scale(
+                                  scale: 0.8,
+                                  child: Switch(
+                                    activeTrackColor: AppColors.kPrimaryColor,
+                                    value: authViewModel.getSelectedPaymentType == PaymentType.interac.label,
+                                    onChanged: (value) {
+                                      authViewModel.setSelectedPaymentType(value: PaymentType.interac.label);
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: AppColors.kScaffoldColor,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(12.r),
+                              bottomRight: Radius.circular(12.r),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 10.w,
+                              vertical: 15.h,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    'Enter Full Name',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: AppColors.textPrimaryColor,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 8.h),
+                                TextFormField(
+                                  keyboardType: TextInputType.name,
+                                  controller:
+                                  authViewModel.getInteracNameController,
+                                  decoration: InputDecoration(
+                                    hintText: 'Your Name',
+                                  ),
+                                ),
+                                SizedBox(height: 10.h),
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    authViewModel.getIntracWithEmail
+                                        ? 'Enter Email'
+                                        : 'Enter Phone',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: AppColors.textPrimaryColor,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 8.h),
+                                TextFormField(
+                                  keyboardType:
+                                  authViewModel.getIntracWithEmail
+                                      ? TextInputType.emailAddress
+                                      : TextInputType.phone,
+                                  controller: authViewModel
+                                      .getInteracEmailPhoneController,
+                                  decoration: InputDecoration(
+                                    hintText: authViewModel.getIntracWithEmail
+                                        ? 'Your Email'
+                                        : 'Your Phone',
+                                  ),
+                                ),
+                                SizedBox(height: 10.h),
+                                Text(
+                                  'Or',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    color: AppColors.textPrimaryColor,
+                                  ),
+                                ),
+                                SizedBox(height: 10.h),
+                                TextButton(
+                                  onPressed: () {
+                                    authViewModel.setIntracWithEmail();
+                                  },
+                                  child: Text(
+                                    authViewModel.getIntracWithEmail
+                                        ? 'Use Phone Number'
+                                        : 'Use Email Address',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: AppColors.kPrimaryColor,
+                                    ),
+                                  ),
+                                ),
+                                Visibility(
+                                  visible: authViewModel.getIsInteracEditable,
+                                  child: Column(
+                                    children: [
+                                      SizedBox(height: 20.h),
+
+                                      SizedBox(
+                                        width: double.infinity,
+                                        child: ElevatedButton(
+                                          onPressed: () {},
+                                          child: Text("Submit"),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  _buildDivider(),
-                  _buildPaymentOption(
-                    icon: SvgPicture.asset(SvgAssets.creditCard),
-                    title: 'Credit or Debit Card',
-                    isSelected: true,
-                  ),
-                  _buildDivider(),
-                  _buildPaymentOption(
-                    icon: SvgPicture.asset(SvgAssets.bank),
-                    title: 'Bank Account',
-                    isSelected: false,
-                  ),
-                  _buildDivider(),
-                  _buildPaymentOption(
-                    icon: SvgPicture.asset(SvgAssets.stripe),
-                    title: 'Stripe',
-                    isSelected: false,
+                  SizedBox(height: 20.h),
+                  Card(
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      side: BorderSide(
+                        color: AppColors.kPrimaryColor, // Border color
+                        width: 1.0.w, // Border width
+                      ),
+                      borderRadius: BorderRadius.circular(
+                        12.0.r,
+                      ), // Rounded corners
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 50.h,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0,
+                            ),
+                            child: Row(
+                              children: [
+                                Icon(Iconsax.activity1),
+                                SizedBox(width: 5.w),
+                                Text(
+                                  'Void cheque',
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                Spacer(),
+                                IconButton(
+                                  onPressed: () {
+                                    authViewModel.setIsVoidChequeEditable();
+                                  },
+                                  icon: Icon(
+                                    Iconsax.edit5,
+                                    size: 25.sp,
+                                    color: authViewModel.getIsVoidChequeEditable
+                                        ? AppColors.kPrimaryColor
+                                        : AppColors.iconColor,
+                                  ),
+                                ),
+                                Transform.scale(
+                                  scale: 0.8,
+                                  child: Switch(
+                                    activeTrackColor: AppColors.kPrimaryColor,
+                                    value: authViewModel.getSelectedPaymentType == PaymentType.voidCheque.label,
+                                    onChanged: (value) {
+                                      authViewModel.setSelectedPaymentType(value: PaymentType.voidCheque.label);
+
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: AppColors.kScaffoldColor,
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(12.r),
+                              bottomRight: Radius.circular(12.r),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 10.w,
+                              vertical: 15.h,
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    'Enter Bank Details',
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                      color: AppColors.textPrimaryColor,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 8.h),
+                                TextFormField(
+                                  keyboardType: TextInputType.text,
+                                  controller: authViewModel
+                                      .getInteracEmailPhoneController,
+                                  decoration: InputDecoration(
+                                    hintText:  'Your Bank Details',
+                                  ),
+                                ),
+                                Visibility(
+                                  visible: authViewModel.getIsVoidChequeEditable,
+                                  child: Column(
+                                    children: [
+                                      SizedBox(height: 20.h),
+                                      SizedBox(
+                                        width: double.infinity,
+                                        child: ElevatedButton(
+                                          onPressed: () {},
+                                          child: Text("Submit"),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
-
-            Row(
-              children: [
-                CustomBackButton(),
-
-                SizedBox(width: 10.w),
-
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, cardDetailsScreen);
-                    },
-                    child: Text('Next'),
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 20.h),
-          ],
-        ),
-      ),
+          ),
+        );
+      }
     );
   }
 
-  Widget _buildPaymentOption({
-    required Widget icon,
-    required String title,
-    required bool isSelected,
-  }) {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 15.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              icon,
-              SizedBox(width: 10.w),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.textPrimaryColor,
-                ),
-              ),
-            ],
-          ),
-          Icon(
-            isSelected
-                ? Icons.radio_button_checked
-                : Icons.radio_button_unchecked,
-            color: AppColors.kPrimaryColor,
-            size: 14.sp,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildDivider() {
-    return Container(height: 1.h, color: AppColors.greyColor);
-  }
 }

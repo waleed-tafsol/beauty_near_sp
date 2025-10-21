@@ -1,6 +1,9 @@
 import 'package:beauty_near_sp/app_init.dart';
+import 'package:beauty_near_sp/services/locator.dart';
 import 'package:beauty_near_sp/utils/screen_size.dart';
-import 'package:beauty_near_sp/view_models/bot_nav_view_model.dart';
+import 'package:beauty_near_sp/view_models/availability_view_model.dart';
+import 'package:beauty_near_sp/view_models/language_view_model.dart';
+import 'package:beauty_near_sp/view_models/personal_information_view_model.dart';
 import 'package:beauty_near_sp/view_models/theme_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,20 +18,25 @@ Future<void> main() async {
   await GoogleFonts.pendingFonts([GoogleFonts.montserratTextTheme()]);
   await ScreenUtil.ensureScreenSize();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await initializeServices();
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => ThemeViewModel()),
         ChangeNotifierProvider(create: (_) => AuthViewModel()),
-        ChangeNotifierProvider(create: (context) => BotNavViewModel()),
+        ChangeNotifierProvider(
+          create: (context) => PersonalInformationViewModel(),
+        ),
+        ChangeNotifierProvider(create: (_) => LanguageViewModel(), lazy: false),
+        ChangeNotifierProvider(create: (_) => AvailabilityViewModel())
       ],
       child: ScreenUtilInit(
         designSize: getDesignSize(),
         minTextAdapt: true,
         ensureScreenSize: true,
         splitScreenMode: true,
-        child: AppInit(),
+        child: const AppInit(),
       ),
     ),
   );

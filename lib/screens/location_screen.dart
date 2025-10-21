@@ -1,3 +1,4 @@
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,7 +21,7 @@ class LocationScreen extends StatelessWidget {
               SizedBox(height: 77.h),
 
               Text(
-                'Select Location',
+                context.localization.selectLocation,
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 20.sp,
@@ -30,7 +31,7 @@ class LocationScreen extends StatelessWidget {
               ),
               SizedBox(height: 6.h),
               Text(
-                'Select your Location to find nearby Barbers',
+                context.localization.selectYourLocationToFindBarber,
                 style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 14.sp,
@@ -58,7 +59,7 @@ class LocationScreen extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Enter Location',
+                  context.localization.enterLocation,
                   textAlign: TextAlign.left,
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
@@ -68,29 +69,39 @@ class LocationScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 8.h),
-              TextField(decoration: InputDecoration(hintText: 'Your Location')),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: context.localization.yourLocation,
+                ),
+              ),
               SizedBox(height: 20.h),
             ],
           ),
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.only(bottom: 24.h, left: 20.w, right: 20.w),
-        child: Row(
-          children: [
-            CustomBackButton(),
+        padding: EdgeInsets.only(
+          bottom: context.notchAwareBottomPadding,
+          left: 20.w,
+          right: 20.w,
+        ),
+        child: SizedBox(
+          width: double.infinity,
+          child: Row(
+            spacing: 10.w,
+            children: [
+              CustomBackButton(),
 
-            SizedBox(width: 10.w),
-
-            Expanded(
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, uploadImageScreen);
-                },
-                child: Text('Next'),
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, uploadImageScreen);
+                  },
+                  child: Text('Next'),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

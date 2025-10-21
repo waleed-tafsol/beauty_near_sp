@@ -1,4 +1,6 @@
+import 'package:beauty_near_sp/screens/change_password_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'screens/about_us_screen.dart';
 import 'screens/account_settings.dart';
@@ -24,10 +26,11 @@ import 'screens/splash_screen.dart';
 import 'screens/support_screen.dart';
 import 'screens/terms_and_condition_screen.dart';
 import 'screens/upload_image_screen.dart';
+import 'view_models/bot_nav_view_model.dart';
 
-const String splashScreen = '/splash_screen';
+const String splashScreen = '/';
 const String homeScreen = '/home_screen';
-const String loginScreen = '/';
+const String loginScreen = '/login_screen';
 const String signupScreen = '/signup_screen';
 const String otpScreen = '/otp';
 const String genderServiceScreen = '/gender_service';
@@ -49,10 +52,11 @@ const String privacyPolicy = '/privacy_policy';
 const String aboutUs = '/about_us';
 const String support = '/support';
 const String notification = '/notification';
+const String changePassword = '/change_password';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    final args = settings.arguments as Map<String, dynamic>?;
 
     switch (settings.name) {
       case splashScreen:
@@ -63,7 +67,10 @@ class RouteGenerator {
       case BotNavPage.routeName:
         return MaterialPageRoute(
           settings: RouteSettings(name: BotNavPage.routeName),
-          builder: (_) => BotNavPage(),
+          builder: (_) => ChangeNotifierProvider(
+            create: (context) => BotNavViewModel(),
+            child: BotNavPage(),
+          ),
         );
       case homeScreen:
         return MaterialPageRoute(
@@ -175,6 +182,11 @@ class RouteGenerator {
         return MaterialPageRoute(
           settings: RouteSettings(name: chatScreen),
           builder: (_) => ChatScreen(),
+        );
+      case changePassword:
+        return MaterialPageRoute(
+          settings: RouteSettings(name: changePassword),
+          builder: (_) => ChangePasswordScreen(),
         );
       default:
         return _errorRoute();

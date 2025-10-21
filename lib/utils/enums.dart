@@ -1,10 +1,26 @@
 enum ScreenSize { large, medium, small, none }
 
-enum UserType {
-  customer('Customer'),
-  serviceProvider('Service Provider');
+enum PaymentType {
+  interac('Interac'),
+  voidCheque('Void Cheque');
 
   final String label;
 
-  const UserType(this.label);
+  const PaymentType(this.label);
 }
+
+enum Days {
+  monday('Monday'),
+  tuesday('Tuesday'),
+  wednesday('Wednesday'),
+  thursday('Thursday'),
+  friday('Friday'),
+  saturday('Saturday'),
+  sunday('Sunday');
+
+  final String label;
+
+  const Days(this.label);
+}
+
+
