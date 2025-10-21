@@ -32,6 +32,7 @@ class _AppInitState extends State<AppInit> {
         .currentLocale;
 
     return MaterialApp(
+      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       title: 'Beauty Points',
       initialRoute: splashScreen,

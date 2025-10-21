@@ -1,4 +1,6 @@
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
+
 import '../screens/availability_screen.dart';
 import '../utils/enums.dart';
 
@@ -8,14 +10,16 @@ class AvailabilityViewModel extends ChangeNotifier {
   final Map<String, TimeOfDay?> _startTimes = {};
   final Map<String, TimeOfDay?> _endTimes = {};
   final List<AvailabilityEntry> _availabilityList = [];
-  int? _expandedTileIndex;
-
+  final List<DateTimeRange> offDayRanges = [];
   // Getters
   List<Days> get days => _days;
   Map<String, TimeOfDay?> get startTimes => _startTimes;
   Map<String, TimeOfDay?> get endTimes => _endTimes;
   List<AvailabilityEntry> get availabilityList => _availabilityList;
-  int? get expandedTileIndex => _expandedTileIndex;
+  List<ExpansibleController> controllers = List.generate(
+    Days.values.length,
+    (index) => ExpansibleController(),
+  );
 
   AvailabilityViewModel() {
     _initializeDays();
@@ -94,7 +98,35 @@ class AvailabilityViewModel extends ChangeNotifier {
   }
 
   void setExpandedTileIndex(int? index) {
-    _expandedTileIndex = index;
+    if (index == null) {
+      return;
+    }
+    for (int i = 0; i < controllers.length; i++) {
+      if (i == index) {
+        continue;
+      }
+      controllers[i].collapse();
+    }
+    // notifyListeners();
+  }
+
+  void setOffDay(DateTimeRange range) async {
+    if (offDayRanges.contains(range)) {
+      return;
+    }
+    final isInBetween = offDayRanges.any(
+      (r) => range.start.isAfter(r.start) && range.end.isBefore(r.end),
+    );
+    if (isInBetween) {
+      showError('Off days cannot overlap.');
+      return;
+    }
+    offDayRanges.add(range);
+    notifyListeners();
+  }
+
+  void removeOffDay(int index) {
+    offDayRanges.removeAt(index);
     notifyListeners();
   }
 
