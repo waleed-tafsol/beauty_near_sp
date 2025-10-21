@@ -13,6 +13,8 @@ class AccountSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(backgroundColor: Colors.transparent),
+      extendBodyBehindAppBar: true,
       body: SizedBox.fromSize(
         size: MediaQuery.sizeOf(context),
         child: Stack(
@@ -117,10 +119,7 @@ class AccountSettings extends StatelessWidget {
                           SizedBox(height: 10.h),
                           AccountTile(
                             onTap: () {
-                              Navigator.pushNamed(
-                                context,
-                                paymentMethodScreen,
-                              );
+                              Navigator.pushNamed(context, paymentMethodScreen);
                             },
                             title: 'Payment',
                             iconPath: SvgAssets.payment,
