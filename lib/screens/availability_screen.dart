@@ -35,7 +35,7 @@ class AvailabilityScreen extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(height: 20.h),
                   Text(
@@ -79,6 +79,17 @@ class AvailabilityScreen extends StatelessWidget {
               ),
             ),
           ),
+          bottomNavigationBar: SafeArea(
+            child: Padding(
+              padding: EdgeInsetsGeometry.symmetric(horizontal: 20.w),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('Submit'),
+              ),
+            ),
+          ),
         );
       },
     );
@@ -111,197 +122,221 @@ class AvailabilityScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.r),
             border: Border.all(color: AppColors.strokeColor, width: 1),
           ),
-          child: ExpansionTile(
-            key: ValueKey(index),
-            initiallyExpanded: viewModel.expandedTileIndex == index,
-            onExpansionChanged: (bool expanded) {
-              if (expanded) {
-                viewModel.setExpandedTileIndex(index);
-              } else {
-                viewModel.setExpandedTileIndex(null);
-              }
-            },
-            trailing: Icon(
-              Icons.add,
-              color: AppColors.kPrimaryColor,
-              size: 20.sp,
+          child: Theme(
+            data: Theme.of(context).copyWith(
+              splashColor: Colors.transparent,
+              highlightColor: Colors.transparent,
+              hoverColor: Colors.transparent,
             ),
-            title: Text(
-              day.label,
-              style: TextStyle(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w500,
-                color: AppColors.textPrimaryColor,
-              ),
-            ),
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
-                child: Column(
-                  children: [
-                    Row(
+            child: Material(
+              color: Colors.transparent,
+              child: ExpansionTile(
+                maintainState: true,
+                shape: Border.all(color: Colors.transparent),
+                key: ValueKey(index),
+                initiallyExpanded: viewModel.expandedTileIndex == index,
+                onExpansionChanged: (bool expanded) {
+                  if (expanded) {
+                    viewModel.setExpandedTileIndex(index);
+                  } else {
+                    viewModel.setExpandedTileIndex(null);
+                  }
+                },
+                trailing: Icon(
+                  Icons.add,
+                  color: AppColors.kPrimaryColor,
+                  size: 20.sp,
+                ),
+                title: Text(
+                  day.label,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.textPrimaryColor,
+                  ),
+                ),
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 8.h,
+                    ),
+                    child: Column(
                       children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Start Time',
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColors.textPrimaryColor,
-                                ),
-                              ),
-                              SizedBox(height: 4.h),
-                              GestureDetector(
-                                onTap: () => viewModel.selectStartTime(
-                                  day.label,
-                                  context,
-                                ),
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 12.w,
-                                    vertical: 8.h,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: AppColors.strokeColor,
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Start Time',
+                                    style: TextStyle(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColors.textPrimaryColor,
                                     ),
-                                    borderRadius: BorderRadius.circular(8.r),
                                   ),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          viewModel.startTimes[day.label] !=
-                                                  null
-                                              ? '${viewModel.startTimes[day.label]!.hour.toString().padLeft(2, '0')}:${viewModel.startTimes[day.label]!.minute.toString().padLeft(2, '0')}'
-                                              : 'Select Time',
-                                          style: TextStyle(
-                                            fontSize: 12.sp,
-                                            color:
-                                                viewModel.startTimes[day
-                                                        .label] !=
-                                                    null
-                                                ? AppColors.textPrimaryColor
-                                                : AppColors.darkGreyColor,
-                                          ),
+                                  SizedBox(height: 4.h),
+                                  GestureDetector(
+                                    onTap: () => viewModel.selectStartTime(
+                                      day.label,
+                                      context,
+                                    ),
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 12.w,
+                                        vertical: 8.h,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: AppColors.strokeColor,
+                                        ),
+                                        borderRadius: BorderRadius.circular(
+                                          8.r,
                                         ),
                                       ),
-                                      Icon(
-                                        Icons.access_time,
-                                        size: 16.sp,
-                                        color: AppColors.darkGreyColor,
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              viewModel.startTimes[day.label] !=
+                                                      null
+                                                  ? '${viewModel.startTimes[day.label]!.hour.toString().padLeft(2, '0')}:${viewModel.startTimes[day.label]!.minute.toString().padLeft(2, '0')}'
+                                                  : 'Select Time',
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
+                                                color:
+                                                    viewModel.startTimes[day
+                                                            .label] !=
+                                                        null
+                                                    ? AppColors.textPrimaryColor
+                                                    : AppColors.darkGreyColor,
+                                              ),
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.access_time,
+                                            size: 16.sp,
+                                            color: AppColors.darkGreyColor,
+                                          ),
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                            SizedBox(width: 10.w),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'End Time',
+                                    style: TextStyle(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColors.textPrimaryColor,
+                                    ),
+                                  ),
+                                  SizedBox(height: 4.h),
+                                  GestureDetector(
+                                    onTap: () => viewModel.selectEndTime(
+                                      day.label,
+                                      context,
+                                    ),
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 12.w,
+                                        vertical: 8.h,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: AppColors.strokeColor,
+                                        ),
+                                        borderRadius: BorderRadius.circular(
+                                          8.r,
+                                        ),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              viewModel.endTimes[day.label] !=
+                                                      null
+                                                  ? '${viewModel.endTimes[day.label]!.hour.toString().padLeft(2, '0')}:${viewModel.endTimes[day.label]!.minute.toString().padLeft(2, '0')}'
+                                                  : 'Select Time',
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
+                                                color:
+                                                    viewModel.endTimes[day
+                                                            .label] !=
+                                                        null
+                                                    ? AppColors.textPrimaryColor
+                                                    : AppColors.darkGreyColor,
+                                              ),
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.access_time,
+                                            size: 16.sp,
+                                            color: AppColors.darkGreyColor,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
-                        SizedBox(width: 10.w),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'End Time',
-                                style: TextStyle(
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w400,
-                                  color: AppColors.textPrimaryColor,
-                                ),
+                        SizedBox(height: 10.h),
+                        SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed:
+                                viewModel.startTimes[day.label] != null &&
+                                    viewModel.endTimes[day.label] != null
+                                ? () {
+                                    if (viewModel.hasEntryForDay(day.label)) {
+                                      viewModel.removeAvailability(day.label);
+                                    } else {
+                                      viewModel.addAvailability(day.label);
+                                    }
+                                  }
+                                : null,
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  viewModel.hasEntryForDay(day.label)
+                                  ? AppColors.kPrimaryColor
+                                  : AppColors.kPrimaryColor,
+                              disabledBackgroundColor: AppColors.darkGreyColor
+                                  .withOpacity(0.3),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8.r),
                               ),
-                              SizedBox(height: 4.h),
-                              GestureDetector(
-                                onTap: () =>
-                                    viewModel.selectEndTime(day.label, context),
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 12.w,
-                                    vertical: 8.h,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: AppColors.strokeColor,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.r),
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Expanded(
-                                        child: Text(
-                                          viewModel.endTimes[day.label] != null
-                                              ? '${viewModel.endTimes[day.label]!.hour.toString().padLeft(2, '0')}:${viewModel.endTimes[day.label]!.minute.toString().padLeft(2, '0')}'
-                                              : 'Select Time',
-                                          style: TextStyle(
-                                            fontSize: 12.sp,
-                                            color:
-                                                viewModel.endTimes[day.label] !=
-                                                    null
-                                                ? AppColors.textPrimaryColor
-                                                : AppColors.darkGreyColor,
-                                          ),
-                                        ),
-                                      ),
-                                      Icon(
-                                        Icons.access_time,
-                                        size: 16.sp,
-                                        color: AppColors.darkGreyColor,
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                              padding: EdgeInsets.symmetric(vertical: 8.h),
+                            ),
+                            child: Text(
+                              viewModel.hasEntryForDay(day.label)
+                                  ? 'Remove'
+                                  : 'Add',
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 10.h),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed:
-                            viewModel.startTimes[day.label] != null &&
-                                viewModel.endTimes[day.label] != null
-                            ? () {
-                                if (viewModel.hasEntryForDay(day.label)) {
-                                  viewModel.removeAvailability(day.label);
-                                } else {
-                                  viewModel.addAvailability(day.label);
-                                }
-                              }
-                            : null,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: viewModel.hasEntryForDay(day.label)
-                              ? AppColors.kPrimaryColor
-                              : AppColors.kPrimaryColor,
-                          disabledBackgroundColor: AppColors.darkGreyColor
-                              .withOpacity(0.3),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.r),
-                          ),
-                          padding: EdgeInsets.symmetric(vertical: 8.h),
-                        ),
-                        child: Text(
-                          viewModel.hasEntryForDay(day.label)
-                              ? 'Remove'
-                              : 'Add',
-                          style: TextStyle(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
         SizedBox(height: 8.h),
