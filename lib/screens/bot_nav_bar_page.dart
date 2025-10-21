@@ -32,7 +32,7 @@ class BotNavPage extends StatelessWidget {
                 : 62.5.h,
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, addServiceScreen);
+                Navigator.pushNamed(context, availabilityScreen);
               },
               child: Center(
                 child: Transform.rotate(
@@ -48,7 +48,14 @@ class BotNavPage extends StatelessWidget {
                       gradient: AppColors.primaryGradient,
                       borderRadius: BorderRadius.circular(14.r),
                     ),
-                    child: Icon(Icons.close, color: Colors.white, size: 24.sp),
+                    child: Transform.rotate(
+                      angle: pi / -4,
+                      child: Icon(
+                        Icons.calendar_month,
+                        color: Colors.white,
+                        size: 24.sp,
+                      ),
+                    ),
                   ),
                 ),
               ),
