@@ -30,9 +30,12 @@ class _SplashScreenState extends State<SplashScreen>
     _controller.forward(from: 0);
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await context.read<LanguageViewModel>().fetchInitialLocale();
-      _controller.addStatusListener((status) {
+      _controller.addStatusListener((status) async {
         if (status.isCompleted) {
-          Navigator.pushReplacementNamed(context, loginScreen);
+          await Future.delayed(Duration(milliseconds: 1500));
+          if (mounted) {
+            Navigator.pushReplacementNamed(context, loginScreen);
+          }
         }
       });
     });
