@@ -463,4 +463,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addService => 'Add Service';
+
+  @override
+  String get addServiceDetails => 'Add Service Details';
+
+  @override
+  String get serviceName => 'Service Name';
+
+  @override
+  String get targetGender => 'Target Gender';
+
+  @override
+  String get selectGender => 'Select Gender';
+
+  @override
+  String get male => 'Male';
+
+  @override
+  String get female => 'Female';
+
+  @override
+  String get servicePrice => 'Service Price';
+
+  @override
+  String get serviceDuration => 'Service Duration';
+
+  @override
+  String get yourServiceSuccessfullyCreated => 'Your Service Successfully Created';
+
+  @override
+  String get create => 'Create';
+
+  @override
+  String get addInteracAccountDetails => 'Add Interac Account Details';
+
+  @override
+  String get withdrawYourEarningsInterac => 'Withdraw your earnings directly to your bank account using Interac e-Transfer.';
+
+  @override
+  String get currentPassword => 'Current Password';
+
+  @override
+  String get newPassword => 'New Password';
+
+  @override
+  String get confirmNewPassword => 'Confirm New Password';
+
+  @override
+  String get iNeedYouToHelpMeWithTheFile => 'I need you to help me with the file.';
+
+  @override
+  String get whichOfTheFileTheOneYouGaveMeYesterday => 'Which of the file? The one you gave me yesterday?';
+
+  @override
+  String get targetGenderForServices => 'Target Gender for Services';
+
+  @override
+  String get minSession => '60 min session';
+
+  @override
+  String get hello => 'Hello';
+
+  @override
+  String get myServices => 'My Services';
 }

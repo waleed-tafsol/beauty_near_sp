@@ -144,8 +144,27 @@
   "selectYourAvailability": "Select Your Availability",
   "startTime": "Start Time",
   "endTime": "End Time",
-  "addService": "Add Service"
-
-
+  "addService": "Add Service",
+  "addServiceDetails": "Add Service Details",
+  "serviceName": "Service Name",
+  "targetGender": "Target Gender",
+  "selectGender": "Select Gender",
+  "male":"Male",
+  "female":"Female",
+  "servicePrice": "Service Price",
+  "serviceDuration": "Service Duration",
+  "yourServiceSuccessfullyCreated":"Your Service Successfully Created",
+  "create": "Create",
+  "addInteracAccountDetails": "Add Interac Account Details",
+  "withdrawYourEarningsInterac":"Withdraw your earnings directly to your bank account using Interac e-Transfer.",
+  "currentPassword":"Current Password",
+  "newPassword":"New Password",
+  "confirmNewPassword":"Confirm New Password",
+  "iNeedYouToHelpMeWithTheFile" :"I need you to help me with the file.",
+  "whichOfTheFileTheOneYouGaveMeYesterday":"Which of the file? The one you gave me yesterday?",
+ "targetGenderForServices":"Target Gender for Services",
+ "minSession":"60 min session",
+ "hello":"Hello",
+ "myServices":"My Services"
 
 }

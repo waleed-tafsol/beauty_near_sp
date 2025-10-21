@@ -42,7 +42,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                 children: [
                   Center(
                     child: Text(
-                      "Add Service Details",
+                      context.localization.addServiceDetails,
                       style: TextStyle(
                         color: AppColors.textPrimaryColor,
                         fontSize: 16.sp,
@@ -52,7 +52,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                   ),
                   SizedBox(height: 21.h),
                   Text(
-                    "Service Name",
+                    context.localization.serviceName,
                     style: TextStyle(
                       color: AppColors.textPrimaryColor,
                       fontSize: 14.sp,
@@ -61,11 +61,11 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                   ),
                   SizedBox(height: 8.h),
                   TextFormField(
-                    decoration: InputDecoration(hintText: "Head Massage"),
+                    decoration: InputDecoration(hintText: context.localization.headMassage),
                   ),
                   SizedBox(height: 20.h),
                   Text(
-                    "Target Gender",
+                    context.localization.targetGender,
                     style: TextStyle(
                       color: AppColors.textPrimaryColor,
                       fontSize: 14.sp,
@@ -90,7 +90,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                             ? Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 12.w),
                                 child: Text(
-                                  "Select Gender",
+                                  context.localization.selectGender,
                                   style: TextStyle(
                                     color: Color(0xff9CA3AF),
                                     fontSize: 14.sp,
@@ -135,7 +135,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                                   ],
                                 ),
                               ),
-                        items: ['Male', 'Female'].map((String value) {
+                        items: [context.localization.male, context.localization.female].map((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Container(
@@ -229,7 +229,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    "Service Price",
+                    context.localization.servicePrice,
 
                     style: TextStyle(
                       color: AppColors.textPrimaryColor,
@@ -244,7 +244,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                   ),
                   SizedBox(height: 20.h),
                   Text(
-                    "Service Duration",
+                    context.localization.serviceDuration,
                     style: TextStyle(
                       color: AppColors.textPrimaryColor,
                       fontSize: 14.sp,
@@ -283,10 +283,10 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
           padding: EdgeInsets.only(bottom: 12.h, left: 20.w, right: 20.w),
           width: double.infinity,
           child: ElevatedButton(onPressed: () {
-            showSuccessDialog(screenContext: context,desc: 'Your Service Successfully\nCreated',onSuccess:(){
+            showSuccessDialog(screenContext: context,desc: context.localization.yourServiceSuccessfullyCreated,onSuccess:(){
               Navigator.pop(context);
             });
-          }, child: Text("Create")),
+          }, child: Text(context.localization.create)),
         ),
       ),
     );

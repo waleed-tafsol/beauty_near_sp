@@ -1,3 +1,4 @@
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:beauty_near_sp/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +12,7 @@ class ChangePasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Change Password'),
+      appBar: CustomAppBar(title: context.localization.changePassword),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -20,7 +21,7 @@ class ChangePasswordScreen extends StatelessWidget {
             children: [
               SizedBox(height: 20.h),
               Text(
-                'Current Password',
+                context.localization.currentPassword,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 14.sp,
@@ -31,13 +32,13 @@ class ChangePasswordScreen extends StatelessWidget {
               TextFormField(
                 obscureText: true,
                 decoration: InputDecoration(
-                  hintText: 'Password',
+                  hintText: context.localization.password,
                   suffixIcon: Icon(Iconsax.eye),
                 ),
               ),
               SizedBox(height: 20.h),
               Text(
-                'New Password',
+                context.localization.newPassword,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 14.sp,
@@ -48,13 +49,13 @@ class ChangePasswordScreen extends StatelessWidget {
               TextFormField(
                 obscureText: true,
                 decoration: InputDecoration(
-                  hintText: 'Password',
+                  hintText: context.localization.password,
                   suffixIcon: Icon(Iconsax.eye),
                 ),
               ),
               SizedBox(height: 20.h),
               Text(
-                'Confirm New Password',
+                context.localization.confirmNewPassword,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 14.sp,
@@ -65,14 +66,14 @@ class ChangePasswordScreen extends StatelessWidget {
               TextFormField(
                 obscureText: true,
                 decoration: InputDecoration(
-                  hintText: 'Password',
+                  hintText: context.localization.password,
                   suffixIcon: Icon(Iconsax.eye),
                 ),
               ),
               Spacer(),
               ElevatedButton(
                 onPressed: () => Navigator.pop(context),
-                child: Text('Change Password'),
+                child: Text(context.localization.changePassword),
               ),
               SizedBox(height: 20.h),
             ],

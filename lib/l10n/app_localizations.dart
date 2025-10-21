@@ -972,6 +972,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Add Service'**
   String get addService;
+
+  /// No description provided for @addServiceDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Service Details'**
+  String get addServiceDetails;
+
+  /// No description provided for @serviceName.
+  ///
+  /// In en, this message translates to:
+  /// **'Service Name'**
+  String get serviceName;
+
+  /// No description provided for @targetGender.
+  ///
+  /// In en, this message translates to:
+  /// **'Target Gender'**
+  String get targetGender;
+
+  /// No description provided for @selectGender.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Gender'**
+  String get selectGender;
+
+  /// No description provided for @male.
+  ///
+  /// In en, this message translates to:
+  /// **'Male'**
+  String get male;
+
+  /// No description provided for @female.
+  ///
+  /// In en, this message translates to:
+  /// **'Female'**
+  String get female;
+
+  /// No description provided for @servicePrice.
+  ///
+  /// In en, this message translates to:
+  /// **'Service Price'**
+  String get servicePrice;
+
+  /// No description provided for @serviceDuration.
+  ///
+  /// In en, this message translates to:
+  /// **'Service Duration'**
+  String get serviceDuration;
+
+  /// No description provided for @yourServiceSuccessfullyCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Service Successfully Created'**
+  String get yourServiceSuccessfullyCreated;
+
+  /// No description provided for @create.
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get create;
+
+  /// No description provided for @addInteracAccountDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Interac Account Details'**
+  String get addInteracAccountDetails;
+
+  /// No description provided for @withdrawYourEarningsInterac.
+  ///
+  /// In en, this message translates to:
+  /// **'Withdraw your earnings directly to your bank account using Interac e-Transfer.'**
+  String get withdrawYourEarningsInterac;
+
+  /// No description provided for @currentPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Current Password'**
+  String get currentPassword;
+
+  /// No description provided for @newPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'New Password'**
+  String get newPassword;
+
+  /// No description provided for @confirmNewPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm New Password'**
+  String get confirmNewPassword;
+
+  /// No description provided for @iNeedYouToHelpMeWithTheFile.
+  ///
+  /// In en, this message translates to:
+  /// **'I need you to help me with the file.'**
+  String get iNeedYouToHelpMeWithTheFile;
+
+  /// No description provided for @whichOfTheFileTheOneYouGaveMeYesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'Which of the file? The one you gave me yesterday?'**
+  String get whichOfTheFileTheOneYouGaveMeYesterday;
+
+  /// No description provided for @targetGenderForServices.
+  ///
+  /// In en, this message translates to:
+  /// **'Target Gender for Services'**
+  String get targetGenderForServices;
+
+  /// No description provided for @minSession.
+  ///
+  /// In en, this message translates to:
+  /// **'60 min session'**
+  String get minSession;
+
+  /// No description provided for @hello.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello'**
+  String get hello;
+
+  /// No description provided for @myServices.
+  ///
+  /// In en, this message translates to:
+  /// **'My Services'**
+  String get myServices;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

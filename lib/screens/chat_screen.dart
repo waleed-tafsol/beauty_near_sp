@@ -1,5 +1,6 @@
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:beauty_near_sp/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,7 +12,7 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Chat"),
+      appBar: CustomAppBar(title: context.localization.chat),
       body: Column(
         children: [
           Expanded(
@@ -46,7 +47,7 @@ class ChatScreen extends StatelessWidget {
                   Divider(thickness: 0.h, color: AppColors.greyColor),
                   SizedBox(height: 15.h),
                   Text(
-                    "Today",
+                    context.localization.today,
                     style: TextStyle(
                       fontSize: 10.h,
                       fontWeight: FontWeight.w600,
@@ -54,13 +55,13 @@ class ChatScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 52.h),
-                  chatBubbleReceive(),
+                  chatBubbleReceive(context),
                   SizedBox(height: 12.h),
-                  chatBubbleReceive(),
+                  chatBubbleReceive(context),
                   SizedBox(height: 12.h),
-                  chatBubbleSent(),
+                  chatBubbleSent(context),
                   SizedBox(height: 12.h),
-                  chatBubbleSent(),
+                  chatBubbleSent(context),
                   SizedBox(height: 20.h),
                 ],
               ),
@@ -73,7 +74,7 @@ class ChatScreen extends StatelessWidget {
                 Expanded(
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: "Type a message",
+                      hintText: context.localization.typeMessage,
                       suffixIcon: Padding(
                         padding: EdgeInsets.only(right: 8.w),
                         child: SvgPicture.asset(
@@ -110,7 +111,7 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
-  chatBubbleReceive() {
+  chatBubbleReceive(BuildContext context, ) {
     return Align(
       alignment: AlignmentGeometry.topLeft,
       child: Column(
@@ -123,7 +124,7 @@ class ChatScreen extends StatelessWidget {
             ),
             padding: EdgeInsets.all(10.h),
             child: Text(
-              "I need you to help me with the file.",
+              context.localization.iNeedYouToHelpMeWithTheFile,
               style: TextStyle(
                 fontSize: 10.sp,
                 fontWeight: FontWeight.w500,
@@ -145,7 +146,7 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
-  chatBubbleSent() {
+  chatBubbleSent(BuildContext context) {
     return Align(
       alignment: AlignmentGeometry.topRight,
       child: Column(
@@ -159,7 +160,8 @@ class ChatScreen extends StatelessWidget {
             ),
             padding: EdgeInsets.all(10.h),
             child: Text(
-              "Which of the file? The one you gave me yesterday?",
+                context.localization
+                    .whichOfTheFileTheOneYouGaveMeYesterday,
               style: TextStyle(
                 fontSize: 10.sp,
                 fontWeight: FontWeight.w500,

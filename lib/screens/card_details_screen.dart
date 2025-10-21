@@ -1,6 +1,7 @@
 import 'package:beauty_near_sp/screens/bot_nav_bar_page.dart';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:beauty_near_sp/view_models/auth_view_model.dart';
 import 'package:beauty_near_sp/view_models/personal_information_view_model.dart';
 import 'package:beauty_near_sp/widgets/custom_back_button.dart';
@@ -31,7 +32,7 @@ class CardDetailsScreen extends StatelessWidget {
 
                   Center(
                     child: Text(
-                      'Add Interac Account Details',
+                      context.localization.addInteracAccountDetails,
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w500,
@@ -43,7 +44,7 @@ class CardDetailsScreen extends StatelessWidget {
                   SizedBox(height: 10.h),
                   Center(
                     child: Text(
-                      'Withdraw your earnings directly to your bank account using Interac e-Transfer.',
+                      context.localization.withdrawYourEarningsInterac,
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w400,
@@ -66,7 +67,7 @@ class CardDetailsScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Full Name',
+                        context.localization.fullName,
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: 14.sp,
@@ -76,10 +77,10 @@ class CardDetailsScreen extends StatelessWidget {
                       SizedBox(height: 8.h),
                       TextFormField(
                       //  controller: authViewModel.getInteracNameController,
-                          decoration: InputDecoration(hintText: 'Your Name')),
+                          decoration: InputDecoration(hintText: context.localization.yourName)),
                       SizedBox(height: 20.h),
                       Text(
-                        'Email Address',
+                        context.localization.emailAddress,
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: 14.sp,
@@ -90,11 +91,11 @@ class CardDetailsScreen extends StatelessWidget {
                       TextFormField(
                         keyboardType: TextInputType.emailAddress,
                     //    controller: authViewModel.getInteracEmailController,
-                        decoration: InputDecoration(hintText: 'Your Email'),
+                        decoration: InputDecoration(hintText: context.localization.yourEmail),
                       ),
                       SizedBox(height: 20.h),
                       Text(
-                        'Phone Number',
+                        context.localization.phoneNumber,
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: 14.sp,
@@ -105,7 +106,7 @@ class CardDetailsScreen extends StatelessWidget {
                       TextFormField(
                         keyboardType: TextInputType.phone,
                       //  controller: authViewModel.getInteracPhoneController,
-                        decoration: InputDecoration(hintText: 'Phone Number'),
+                        decoration: InputDecoration(hintText: context.localization.phoneNumber),
                       ),
                  /*     Text(
                         'Card Holder Name',
@@ -353,7 +354,7 @@ class CardDetailsScreen extends StatelessWidget {
                       onPressed: () {
                         showSuccessDialog(
                           screenContext: context,
-                          desc: 'Your Account Successfully\nCreated',
+                          desc: context.localization.accountCreatedSuccessfully,
                           onSuccess: () {
                             Navigator.pushNamedAndRemoveUntil(
                               context,
@@ -363,7 +364,7 @@ class CardDetailsScreen extends StatelessWidget {
                           },
                         );
                       },
-                      child: Text('Submit'),
+                      child: Text(context.localization.submit),
                     ),
                   ),
                 ],
