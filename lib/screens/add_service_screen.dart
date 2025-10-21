@@ -14,7 +14,7 @@ class AddServiceScreen extends StatefulWidget {
 }
 
 class _AddServiceScreenState extends State<AddServiceScreen> {
-  // List<String> selectedGenders = [];
+  List<String> _selectedEthnicity = [];
   // String? _selectedGender; // Add this variable
   List<String> _selectedGenders = []; // Changed to List for multiple selection
 
@@ -254,10 +254,10 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                       'Asian',
                       'others',
                     ],
-                    initialValues: _selectedGenders,
+                    initialValues: _selectedEthnicity,
                     onSelectionChanged: (selected) {
                       setState(() {
-                        _selectedGenders = selected;
+                        _selectedEthnicity = selected;
                       });
                       print('Selected: $selected');
                     },
