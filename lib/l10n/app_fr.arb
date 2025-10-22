@@ -194,5 +194,7 @@
   "camera": "Appareil Photo",
   "takeAPhoto": "Prendre une photo",
   "chooseFromGallery": "Choisir depuis la galerie",
-  "myWallet": "Mon Portefeuille"
+  "myWallet": "Mon Portefeuille",
+  "paymentReceived": "Paiement Reçu",
+  "request": "Demande"
 }

@@ -613,4 +613,10 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get myWallet => 'Mi Billetera';
+
+  @override
+  String get paymentReceived => 'Pago Recibido';
+
+  @override
+  String get request => 'Solicitud';
 }

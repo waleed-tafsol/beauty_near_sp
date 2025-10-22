@@ -194,5 +194,7 @@
   "camera": "Cámara",
   "takeAPhoto": "Tomar una foto",
   "chooseFromGallery": "Elegir de la galería",
-   "myWallet": "Mi Billetera"
+   "myWallet": "Mi Billetera",
+   "paymentReceived": "Pago Recibido",
+   "request": "Solicitud"
 }

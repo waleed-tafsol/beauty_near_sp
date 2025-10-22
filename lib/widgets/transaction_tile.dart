@@ -1,3 +1,4 @@
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -60,7 +61,7 @@ class TransactionTile extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '08:23 AM . Payment Received',
+                    '08:23 AM . ${context.localization.paymentReceived}',
                     style: TextStyle(
                       fontSize: 11.sp,
                       fontWeight: FontWeight.w400,

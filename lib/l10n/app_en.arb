@@ -194,7 +194,12 @@
   "camera":"Camera",
   "takeAPhoto":"Take a photo",
   "chooseFromGallery":"Choose from gallery",
-  "myWallet":"My Wallet"
+  "myWallet":"My Wallet",
+  "paymentReceived":"Payment Received",
+  "request":"Request"
+  
+  
+
 
   
 

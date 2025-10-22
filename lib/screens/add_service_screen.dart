@@ -61,7 +61,9 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                   ),
                   SizedBox(height: 8.h),
                   TextFormField(
-                    decoration: InputDecoration(hintText: context.localization.headMassage),
+                    decoration: InputDecoration(
+                      hintText: context.localization.headMassage,
+                    ),
                   ),
                   SizedBox(height: 20.h),
                   Text(
@@ -135,53 +137,58 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                                   ],
                                 ),
                               ),
-                        items: [context.localization.male, context.localization.female].map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Container(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 16.w,
-                                vertical: 8.h,
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 20.w,
-                                    height: 20.h,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: selectedGenders.contains(value)
-                                            ? Color(0xffDC2626)
-                                            : Color(0xffD1D5DB),
-                                        width: 2,
+                        items:
+                            [
+                              context.localization.male,
+                              context.localization.female,
+                            ].map((String value) {
+                              return DropdownMenuItem<String>(
+                                value: value,
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 16.w,
+                                    vertical: 8.h,
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 20.w,
+                                        height: 20.h,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          border: Border.all(
+                                            color:
+                                                selectedGenders.contains(value)
+                                                ? Color(0xffDC2626)
+                                                : Color(0xffD1D5DB),
+                                            width: 2,
+                                          ),
+                                          color: selectedGenders.contains(value)
+                                              ? Color(0xffDC2626)
+                                              : Colors.transparent,
+                                        ),
+                                        child: selectedGenders.contains(value)
+                                            ? Icon(
+                                                Icons.check,
+                                                color: Colors.white,
+                                                size: 12.sp,
+                                              )
+                                            : null,
                                       ),
-                                      color: selectedGenders.contains(value)
-                                          ? Color(0xffDC2626)
-                                          : Colors.transparent,
-                                    ),
-                                    child: selectedGenders.contains(value)
-                                        ? Icon(
-                                            Icons.check,
-                                            color: Colors.white,
-                                            size: 12.sp,
-                                          )
-                                        : null,
+                                      SizedBox(width: 12.w),
+                                      Text(
+                                        value,
+                                        style: TextStyle(
+                                          color: AppColors.textPrimaryColor,
+                                          fontSize: 14.sp,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(width: 12.w),
-                                  Text(
-                                    value,
-                                    style: TextStyle(
-                                      color: AppColors.textPrimaryColor,
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        }).toList(),
+                                ),
+                              );
+                            }).toList(),
                         onChanged: (String? newValue) {
                           if (newValue != null) {
                             setState(() {
@@ -282,11 +289,18 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
         child: Container(
           padding: EdgeInsets.only(bottom: 12.h, left: 20.w, right: 20.w),
           width: double.infinity,
-          child: ElevatedButton(onPressed: () {
-            showSuccessDialog(screenContext: context,desc: context.localization.yourServiceSuccessfullyCreated,onSuccess:(){
-              Navigator.pop(context);
-            });
-          }, child: Text(context.localization.create)),
+          child: ElevatedButton(
+            onPressed: () {
+              showSuccessDialog(
+                screenContext: context,
+                desc: context.localization.yourServiceSuccessfullyCreated,
+                onSuccess: () {
+                  Navigator.pop(context);
+                },
+              );
+            },
+            child: Text(context.localization.create),
+          ),
         ),
       ),
     );

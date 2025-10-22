@@ -613,4 +613,10 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get myWallet => 'Mon Portefeuille';
+
+  @override
+  String get paymentReceived => 'Paiement Reçu';
+
+  @override
+  String get request => 'Demande';
 }

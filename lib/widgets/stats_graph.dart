@@ -1,3 +1,4 @@
+import 'package:beauty_near_sp/utils/date_time_utils.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,13 +33,13 @@ class StatsGraph extends StatelessWidget {
                 getTitlesWidget: (value, meta) {
                   // Define the days of the week for the X axis
                   List<String> daysOfWeek = [
-                    'Mon',
-                    'Tue',
-                    'Wed',
-                    'Thu',
-                    'Fri',
-                    'Sat',
-                    'Sun',
+                    translateWeekday('Mon'),
+                    translateWeekday('Tue'),
+                    translateWeekday('Wed'),
+                    translateWeekday('Thu'),
+                    translateWeekday('Fri'),
+                    translateWeekday('Sat'),
+                    translateWeekday('Sun'),
                   ];
                   int index = value
                       .toInt(); // Use the value directly as the index
