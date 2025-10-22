@@ -1,6 +1,7 @@
 import 'package:beauty_near_sp/route_generator.dart';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -32,7 +33,7 @@ class OtpScreen extends StatelessWidget {
                 SizedBox(height: 50.h),
                 Center(
                   child: Text(
-                    'Enter OTP',
+                    context.localization.enterOtp,
                     style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w500,
@@ -43,7 +44,7 @@ class OtpScreen extends StatelessWidget {
                 SizedBox(height: 10.h),
                 Center(
                   child: Text(
-                    'Enter the OTP code we just sent you on your\nregistered Email/ Phone Number',
+                    context.localization.enterOtpDescription,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -96,7 +97,7 @@ class OtpScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      'Didn’t get OTP?',
+                      context.localization.didNotGetOtp,
                       style: TextStyle(
                         fontSize: 14.sp,
                         color: AppColors.darkGreyColor,
@@ -105,7 +106,7 @@ class OtpScreen extends StatelessWidget {
                     GestureDetector(
                       onTap: () {},
                       child: Text(
-                        ' Resend OTP',
+                        context.localization.resendOtp,
                         style: TextStyle(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w500,
@@ -122,7 +123,7 @@ class OtpScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushNamed(context, genderServiceScreen);
                     },
-                    child: Text('Submit'),
+                    child: Text(context.localization.submit),
                   ),
                 ),
               ],

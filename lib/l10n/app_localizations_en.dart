@@ -526,4 +526,91 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get myServices => 'My Services';
+
+  @override
+  String get totalBalance => 'Total Balance';
+
+  @override
+  String get weeklyStats => 'Weekly Stats';
+
+  @override
+  String get latestTransactions => 'Latest Transactions';
+
+  @override
+  String get notifications => 'Notifications';
+
+  @override
+  String get enterOtp => 'Enter OTP';
+
+  @override
+  String get enterOtpDescription => 'Enter the OTP code we just sent you on your\nregistered Email/ Phone Number';
+
+  @override
+  String get didNotGetOtp => 'Didn’t get OTP?';
+
+  @override
+  String get resendOtp => ' Resend OTP';
+
+  @override
+  String get interac => 'Interac';
+
+  @override
+  String get enterFullName => 'Enter Full Name';
+
+  @override
+  String get enterEmail => 'Enter Email';
+
+  @override
+  String get enterPhone => 'Enter Phone';
+
+  @override
+  String get or => 'Or';
+
+  @override
+  String get usePhoneNumber => 'Use Phone Number';
+
+  @override
+  String get useEmailAddress => 'Use Email Address';
+
+  @override
+  String get voidCheque => 'Void cheque';
+
+  @override
+  String get enterBankDetails => 'Enter Bank Details';
+
+  @override
+  String get yourBankDetails => 'Your Bank Details';
+
+  @override
+  String get signIn => 'Sign In';
+
+  @override
+  String get uploadYourProfileImage => 'Upload Your Profile Image';
+
+  @override
+  String get changeImage => 'Change Image';
+
+  @override
+  String get uploadImage => 'Upload Image';
+
+  @override
+  String get skip => 'Skip';
+
+  @override
+  String get gallery => 'Gallery';
+
+  @override
+  String get selectImage => 'Select Image';
+
+  @override
+  String get camera => 'Camera';
+
+  @override
+  String get takeAPhoto => 'Take a photo';
+
+  @override
+  String get chooseFromGallery => 'Choose from gallery';
+
+  @override
+  String get myWallet => 'My Wallet';
 }

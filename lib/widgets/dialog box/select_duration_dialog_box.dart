@@ -1,3 +1,4 @@
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,7 +16,7 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
         builder: (context, setState) {
           return AlertDialog(
             title: Text(
-              'Select Duration',
+              context.localization.selectDuration,
               style: TextStyle(
                 color: AppColors.textPrimaryColor,
                 fontSize: 18.sp,
@@ -31,7 +32,7 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
                     child: Column(
                       children: [
                         Text(
-                          'Hours',
+                          context.localization.hours,
                           style: TextStyle(
                             color: AppColors.textPrimaryColor,
                             fontSize: 14.sp,
@@ -72,7 +73,7 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
                     child: Column(
                       children: [
                         Text(
-                          'Minutes',
+                          context.localization.minutesHeading,
                           style: TextStyle(
                             color: AppColors.textPrimaryColor,
                             fontSize: 14.sp,
@@ -117,7 +118,7 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
                   Navigator.of(context).pop();
                 },
                 child: Text(
-                  'Cancel',
+                  context.localization.cancel,
                   style: TextStyle(
                     color: AppColors.darkGreyColor,
                     fontSize: 14.sp,
@@ -142,7 +143,7 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
                   ),
                 ),
                 child: Text(
-                  'Done',
+                  context.localization.done,
                   style: TextStyle(fontSize: 14.sp),
                 ),
               ),

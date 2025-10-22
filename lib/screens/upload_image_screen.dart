@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:beauty_near_sp/view_models/auth_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +26,7 @@ class UploadImageScreen extends StatelessWidget {
             SizedBox(height: 77.h),
 
             Text(
-              'Upload Your Profile Image',
+                  context.localization.uploadYourProfileImage,
               style: GoogleFonts.montserrat(
                 fontSize: 20.sp,
                 fontWeight: FontWeight.w500,
@@ -77,7 +78,7 @@ class UploadImageScreen extends StatelessWidget {
                           ),
                           SizedBox(height: 15.h),
                           Text(
-                            'Change Image',
+                            context.localization.changeImage,
                             style: GoogleFonts.montserrat(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
@@ -93,7 +94,7 @@ class UploadImageScreen extends StatelessWidget {
                           SvgPicture.asset(SvgAssets.upload, height: 35.h, width: 35.w),
                           SizedBox(height: 15.h),
                           Text(
-                            'Upload Image',
+                            context.localization.uploadImage,
                             style: GoogleFonts.montserrat(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
@@ -131,7 +132,7 @@ class UploadImageScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, availabilityScreen);
                 },
-                child: Text('Next'),
+                child: Text(context.localization.next),
               ),
             ),
             SizedBox(width: 10.w),
@@ -148,7 +149,7 @@ class UploadImageScreen extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    'Skip',
+                    context.localization.skip,
                     style: GoogleFonts.montserrat(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w500,

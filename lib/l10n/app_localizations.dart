@@ -1098,6 +1098,180 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My Services'**
   String get myServices;
+
+  /// No description provided for @totalBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Balance'**
+  String get totalBalance;
+
+  /// No description provided for @weeklyStats.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly Stats'**
+  String get weeklyStats;
+
+  /// No description provided for @latestTransactions.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest Transactions'**
+  String get latestTransactions;
+
+  /// No description provided for @notifications.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notifications;
+
+  /// No description provided for @enterOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter OTP'**
+  String get enterOtp;
+
+  /// No description provided for @enterOtpDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the OTP code we just sent you on your\nregistered Email/ Phone Number'**
+  String get enterOtpDescription;
+
+  /// No description provided for @didNotGetOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Didn’t get OTP?'**
+  String get didNotGetOtp;
+
+  /// No description provided for @resendOtp.
+  ///
+  /// In en, this message translates to:
+  /// **' Resend OTP'**
+  String get resendOtp;
+
+  /// No description provided for @interac.
+  ///
+  /// In en, this message translates to:
+  /// **'Interac'**
+  String get interac;
+
+  /// No description provided for @enterFullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Full Name'**
+  String get enterFullName;
+
+  /// No description provided for @enterEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Email'**
+  String get enterEmail;
+
+  /// No description provided for @enterPhone.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Phone'**
+  String get enterPhone;
+
+  /// No description provided for @or.
+  ///
+  /// In en, this message translates to:
+  /// **'Or'**
+  String get or;
+
+  /// No description provided for @usePhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Phone Number'**
+  String get usePhoneNumber;
+
+  /// No description provided for @useEmailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Email Address'**
+  String get useEmailAddress;
+
+  /// No description provided for @voidCheque.
+  ///
+  /// In en, this message translates to:
+  /// **'Void cheque'**
+  String get voidCheque;
+
+  /// No description provided for @enterBankDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Bank Details'**
+  String get enterBankDetails;
+
+  /// No description provided for @yourBankDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Bank Details'**
+  String get yourBankDetails;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get signIn;
+
+  /// No description provided for @uploadYourProfileImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload Your Profile Image'**
+  String get uploadYourProfileImage;
+
+  /// No description provided for @changeImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Change Image'**
+  String get changeImage;
+
+  /// No description provided for @uploadImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload Image'**
+  String get uploadImage;
+
+  /// No description provided for @skip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get skip;
+
+  /// No description provided for @gallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Gallery'**
+  String get gallery;
+
+  /// No description provided for @selectImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Image'**
+  String get selectImage;
+
+  /// No description provided for @camera.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get camera;
+
+  /// No description provided for @takeAPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a photo'**
+  String get takeAPhoto;
+
+  /// No description provided for @chooseFromGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose from gallery'**
+  String get chooseFromGallery;
+
+  /// No description provided for @myWallet.
+  ///
+  /// In en, this message translates to:
+  /// **'My Wallet'**
+  String get myWallet;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

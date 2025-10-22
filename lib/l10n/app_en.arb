@@ -165,6 +165,38 @@
  "targetGenderForServices":"Target Gender for Services",
  "minSession":"60 min session",
  "hello":"Hello",
- "myServices":"My Services"
+ "myServices":"My Services",
+ "totalBalance":"Total Balance",
+ "weeklyStats":"Weekly Stats",
+  "latestTransactions":"Latest Transactions",
+  "notifications":"Notifications",
+  "enterOtp":"Enter OTP",
+  "enterOtpDescription":"Enter the OTP code we just sent you on your\nregistered Email/ Phone Number",
+  "didNotGetOtp":"Didn’t get OTP?",
+  "resendOtp":" Resend OTP",
+  "interac":"Interac",
+  "enterFullName":"Enter Full Name",
+  "enterEmail":"Enter Email",
+  "enterPhone":"Enter Phone",
+  "or":"Or",
+  "usePhoneNumber":"Use Phone Number",
+  "useEmailAddress":"Use Email Address",
+  "voidCheque":"Void cheque",
+  "enterBankDetails":"Enter Bank Details",
+  "yourBankDetails":"Your Bank Details",
+  "signIn":"Sign In",
+  "uploadYourProfileImage":"Upload Your Profile Image",
+  "changeImage":"Change Image",
+  "uploadImage":"Upload Image",
+  "skip":"Skip",
+  "gallery":"Gallery",
+  "selectImage":"Select Image",
+  "camera":"Camera",
+  "takeAPhoto":"Take a photo",
+  "chooseFromGallery":"Choose from gallery",
+  "myWallet":"My Wallet"
+
+  
+
 
 }

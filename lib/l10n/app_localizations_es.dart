@@ -450,80 +450,167 @@ class AppLocalizationsEs extends AppLocalizations {
   String get allServices => 'Todos los servicios';
 
   @override
-  String get payment => 'Payment';
+  String get payment => 'Pago';
 
   @override
-  String get selectYourAvailability => 'Select Your Availability';
+  String get selectYourAvailability => 'Selecciona tu Disponibilidad';
 
   @override
-  String get startTime => 'Start Time';
+  String get startTime => 'Hora de Inicio';
 
   @override
-  String get endTime => 'End Time';
+  String get endTime => 'Hora de Finalización';
 
   @override
-  String get addService => 'Add Service';
+  String get addService => 'Agregar Servicio';
 
   @override
-  String get addServiceDetails => 'Add Service Details';
+  String get addServiceDetails => 'Agregar Detalles del Servicio';
 
   @override
-  String get serviceName => 'Service Name';
+  String get serviceName => 'Nombre del Servicio';
 
   @override
-  String get targetGender => 'Target Gender';
+  String get targetGender => 'Género Objetivo';
 
   @override
-  String get selectGender => 'Select Gender';
+  String get selectGender => 'Seleccionar Género';
 
   @override
-  String get male => 'Male';
+  String get male => 'Masculino';
 
   @override
-  String get female => 'Female';
+  String get female => 'Femenino';
 
   @override
-  String get servicePrice => 'Service Price';
+  String get servicePrice => 'Precio del Servicio';
 
   @override
-  String get serviceDuration => 'Service Duration';
+  String get serviceDuration => 'Duración del Servicio';
 
   @override
-  String get yourServiceSuccessfullyCreated => 'Your Service Successfully Created';
+  String get yourServiceSuccessfullyCreated => 'Tu Servicio se Creó Exitosamente';
 
   @override
-  String get create => 'Create';
+  String get create => 'Crear';
 
   @override
-  String get addInteracAccountDetails => 'Add Interac Account Details';
+  String get addInteracAccountDetails => 'Agregar Detalles de Cuenta Interac';
 
   @override
-  String get withdrawYourEarningsInterac => 'Withdraw your earnings directly to your bank account using Interac e-Transfer.';
+  String get withdrawYourEarningsInterac => 'Retira tus ganancias directamente a tu cuenta bancaria usando Interac e-Transfer.';
 
   @override
-  String get currentPassword => 'Current Password';
+  String get currentPassword => 'Contraseña Actual';
 
   @override
-  String get newPassword => 'New Password';
+  String get newPassword => 'Nueva Contraseña';
 
   @override
-  String get confirmNewPassword => 'Confirm New Password';
+  String get confirmNewPassword => 'Confirmar Nueva Contraseña';
 
   @override
-  String get iNeedYouToHelpMeWithTheFile => 'I need you to help me with the file.';
+  String get iNeedYouToHelpMeWithTheFile => 'Necesito que me ayudes con el archivo.';
 
   @override
-  String get whichOfTheFileTheOneYouGaveMeYesterday => 'Which of the file? The one you gave me yesterday?';
+  String get whichOfTheFileTheOneYouGaveMeYesterday => '¿Cuál archivo? ¿El que me diste ayer?';
 
   @override
-  String get targetGenderForServices => 'Target Gender for Services';
+  String get targetGenderForServices => 'Género Objetivo para Servicios';
 
   @override
-  String get minSession => '60 min session';
+  String get minSession => 'Sesión de 60 minutos';
 
   @override
-  String get hello => 'Hello';
+  String get hello => 'Hola';
 
   @override
-  String get myServices => 'My Services';
+  String get myServices => 'Mis Servicios';
+
+  @override
+  String get totalBalance => 'Saldo Total';
+
+  @override
+  String get weeklyStats => 'Estadísticas Semanales';
+
+  @override
+  String get latestTransactions => 'Últimas Transacciones';
+
+  @override
+  String get notifications => 'Notificaciones';
+
+  @override
+  String get enterOtp => 'Ingrese OTP';
+
+  @override
+  String get enterOtpDescription => 'Ingrese el código OTP que acabamos de enviarle a su\nCorreo Electrónico/Número de Teléfono registrado';
+
+  @override
+  String get didNotGetOtp => '¿No recibiste el OTP?';
+
+  @override
+  String get resendOtp => ' Reenviar OTP';
+
+  @override
+  String get interac => 'Interac';
+
+  @override
+  String get enterFullName => 'Ingrese Nombre Completo';
+
+  @override
+  String get enterEmail => 'Ingrese Correo Electrónico';
+
+  @override
+  String get enterPhone => 'Ingrese Teléfono';
+
+  @override
+  String get or => 'O';
+
+  @override
+  String get usePhoneNumber => 'Usar Número de Teléfono';
+
+  @override
+  String get useEmailAddress => 'Usar Correo Electrónico';
+
+  @override
+  String get voidCheque => 'Cheque Anulado';
+
+  @override
+  String get enterBankDetails => 'Ingrese Detalles Bancarios';
+
+  @override
+  String get yourBankDetails => 'Sus Detalles Bancarios';
+
+  @override
+  String get signIn => 'Iniciar Sesión';
+
+  @override
+  String get uploadYourProfileImage => 'Suba su Imagen de Perfil';
+
+  @override
+  String get changeImage => 'Cambiar Imagen';
+
+  @override
+  String get uploadImage => 'Subir Imagen';
+
+  @override
+  String get skip => 'Omitir';
+
+  @override
+  String get gallery => 'Galería';
+
+  @override
+  String get selectImage => 'Seleccionar Imagen';
+
+  @override
+  String get camera => 'Cámara';
+
+  @override
+  String get takeAPhoto => 'Tomar una foto';
+
+  @override
+  String get chooseFromGallery => 'Elegir de la galería';
+
+  @override
+  String get myWallet => 'Mi Billetera';
 }

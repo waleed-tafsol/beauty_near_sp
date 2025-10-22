@@ -1,3 +1,5 @@
+import 'package:beauty_near_sp/route_generator.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:image_picker/image_picker.dart';
@@ -16,7 +18,7 @@ class ImageSelectionBottomSheet {
       isScrollControlled: true,
       builder: (BuildContext context) {
         return ImageSelectionBottomSheetContent(
-          title: title ?? 'Select Image',
+          title: title ?? navigatorKey.currentContext!.localization.selectImage,
         );
       },
     );
@@ -100,8 +102,8 @@ class _ImageSelectionBottomSheetContentState extends State<ImageSelectionBottomS
                 Expanded(
                   child: _buildOption(
                     icon: Icons.camera_alt,
-                    title: 'Camera',
-                    subtitle: 'Take a photo',
+                    title:context.localization.camera ,
+                    subtitle: context.localization.takeAPhoto,
                     onTap: () => _pickImage(ImageSource.camera),
                   ),
                 ),
@@ -111,8 +113,8 @@ class _ImageSelectionBottomSheetContentState extends State<ImageSelectionBottomS
                 Expanded(
                   child: _buildOption(
                     icon: Icons.photo_library,
-                    title: 'Gallery',
-                    subtitle: 'Choose from gallery',
+                    title: context.localization.gallery,
+                    subtitle: context.localization.chooseFromGallery,
                     onTap: () => _pickImage(ImageSource.gallery),
                   ),
                 ),
@@ -134,7 +136,7 @@ class _ImageSelectionBottomSheetContentState extends State<ImageSelectionBottomS
                   ),
                 ),
                 child: Text(
-                  'Cancel',
+                context.localization.cancel,
                   style: TextStyle(
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w500,

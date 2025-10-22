@@ -1,3 +1,4 @@
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,7 +21,7 @@ class PaymentMethodScreen extends StatelessWidget {
       return Consumer<AuthViewModel>(
         builder: (context, authViewModel, _) {
         return Scaffold(
-          appBar: CustomAppBar(title: 'Payment'),
+          appBar: CustomAppBar(title: context.localization.payment),
 
           body: SafeArea(
             top: false,
@@ -53,7 +54,7 @@ class PaymentMethodScreen extends StatelessWidget {
                                 Icon(Iconsax.activity1),
                                 SizedBox(width: 5.w),
                                 Text(
-                                  'Interac',
+                                  context.localization.interac,
                                   style: TextStyle(
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w700,
@@ -105,7 +106,7 @@ class PaymentMethodScreen extends StatelessWidget {
                                 Align(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
-                                    'Enter Full Name',
+                                    context.localization.enterFullName,
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       fontSize: 14.sp,
@@ -119,7 +120,7 @@ class PaymentMethodScreen extends StatelessWidget {
                                   controller:
                                   authViewModel.getInteracNameController,
                                   decoration: InputDecoration(
-                                    hintText: 'Your Name',
+                                    hintText: context.localization.yourName,
                                   ),
                                 ),
                                 SizedBox(height: 10.h),
@@ -127,8 +128,8 @@ class PaymentMethodScreen extends StatelessWidget {
                                   alignment: Alignment.centerLeft,
                                   child: Text(
                                     authViewModel.getIntracWithEmail
-                                        ? 'Enter Email'
-                                        : 'Enter Phone',
+                                        ? context.localization.enterEmail
+                                        : context.localization.enterPhone,
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       fontSize: 14.sp,
@@ -146,13 +147,13 @@ class PaymentMethodScreen extends StatelessWidget {
                                       .getInteracEmailPhoneController,
                                   decoration: InputDecoration(
                                     hintText: authViewModel.getIntracWithEmail
-                                        ? 'Your Email'
-                                        : 'Your Phone',
+                                         ? context.localization.enterEmail
+                                        : context.localization.enterPhone,
                                   ),
                                 ),
                                 SizedBox(height: 10.h),
                                 Text(
-                                  'Or',
+                                  context.localization.or,
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontSize: 14.sp,
@@ -166,8 +167,8 @@ class PaymentMethodScreen extends StatelessWidget {
                                   },
                                   child: Text(
                                     authViewModel.getIntracWithEmail
-                                        ? 'Use Phone Number'
-                                        : 'Use Email Address',
+                                        ? context.localization.usePhoneNumber
+                                        :   context.localization.useEmailAddress,
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       fontSize: 14.sp,
@@ -185,7 +186,7 @@ class PaymentMethodScreen extends StatelessWidget {
                                         width: double.infinity,
                                         child: ElevatedButton(
                                           onPressed: () {},
-                                          child: Text("Submit"),
+                                          child: Text(context.localization.submit),
                                         ),
                                       ),
                                     ],
@@ -223,7 +224,7 @@ class PaymentMethodScreen extends StatelessWidget {
                                 Icon(Iconsax.activity1),
                                 SizedBox(width: 5.w),
                                 Text(
-                                  'Void cheque',
+                                  context.localization.voidCheque,
                                   style: TextStyle(
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w700,
@@ -276,7 +277,7 @@ class PaymentMethodScreen extends StatelessWidget {
                                 Align(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
-                                    'Enter Bank Details',
+                                    context.localization.enterBankDetails,
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       fontSize: 14.sp,
@@ -290,7 +291,7 @@ class PaymentMethodScreen extends StatelessWidget {
                                   controller: authViewModel
                                       .getInteracEmailPhoneController,
                                   decoration: InputDecoration(
-                                    hintText:  'Your Bank Details',
+                                    hintText:  context.localization.yourBankDetails,
                                   ),
                                 ),
                                 Visibility(
@@ -302,7 +303,7 @@ class PaymentMethodScreen extends StatelessWidget {
                                         width: double.infinity,
                                         child: ElevatedButton(
                                           onPressed: () {},
-                                          child: Text("Submit"),
+                                          child: Text(context.localization.submit),
                                         ),
                                       ),
                                     ],

@@ -108,7 +108,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
         backgroundColor: AppColors.kScaffoldColor,
         centerTitle: true,
         title: Text(
-          "My Bookings",
+          context.localization.myBookings,
           style: TextStyle(fontSize: 19.sp, fontWeight: FontWeight.w500),
         ),
       ),

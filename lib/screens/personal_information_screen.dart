@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:beauty_near_sp/route_generator.dart';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:beauty_near_sp/widgets/custom_app_bar.dart';
 import 'package:beauty_near_sp/widgets/bottom_sheets/image_selection_bottom_sheet.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
     return Consumer<AuthViewModel>(
       builder: (context, authViewModel, _) {
         return Scaffold(
-          appBar: CustomAppBar(title: 'Personal Information'),
+          appBar: CustomAppBar(title: context.localization.personalInfo),
           body: SingleChildScrollView(
             child: SafeArea(
               child: Padding(
@@ -82,7 +83,7 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                     ),
                     SizedBox(height: 30.h),
                     Text(
-                      'Full Name',
+                      context.localization.fullName,
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 14.sp,
@@ -92,11 +93,11 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                     SizedBox(height: 8.h),
                     TextFormField(
                       controller: authViewModel.getNameController,
-                      decoration: InputDecoration(hintText: 'Your Name'),
+                      decoration: InputDecoration(hintText: context.localization.yourName),
                     ),
                     SizedBox(height: 20.h),
                     Text(
-                      'Email Address',
+                      context.localization.emailAddress,
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 14.sp,
@@ -107,11 +108,11 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       controller: authViewModel.getEmailController,
-                      decoration: InputDecoration(hintText: 'Your Email'),
+                      decoration: InputDecoration(hintText: context.localization.yourEmail),
                     ),
                     SizedBox(height: 20.h),
                     Text(
-                      'Phone Number',
+                      context.localization.phoneNumber,
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 14.sp,
@@ -122,7 +123,7 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                     TextFormField(
                       keyboardType: TextInputType.phone,
                       controller: authViewModel.getPhoneController,
-                      decoration: InputDecoration(hintText: 'Phone Number'),
+                      decoration: InputDecoration(hintText: context.localization.phoneNumber),
                     ),
                     SizedBox(height: 15.h),
                     GestureDetector(
@@ -145,7 +146,7 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                         child: Row(
                           children: [
                             Text(
-                              "Change Password",
+                              context.localization.changePassword,
                               style: TextStyle(
                                 fontSize: 16.sp,
                                 fontWeight: FontWeight.w500,
@@ -167,7 +168,7 @@ class _PersonalInformationScreenState extends State<PersonalInformationScreen> {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {},
-                        child: Text("Edit Profile"),
+                        child: Text(context.localization.editProfile),
                       ),
                     ),
                     SizedBox(height: 20.h),
