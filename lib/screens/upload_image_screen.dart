@@ -1,6 +1,8 @@
 import 'dart:io';
 import 'package:beauty_near_sp/utils/extensions.dart';
+import 'package:beauty_near_sp/screens/bot_nav_bar_page.dart';
 import 'package:beauty_near_sp/view_models/auth_view_model.dart';
+import 'package:beauty_near_sp/widgets/dialog%20box/success_dialog_box.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -50,7 +52,9 @@ class UploadImageScreen extends StatelessWidget {
 
             GestureDetector(
               onTap: () async {
-                await context.read<AuthViewModel>().setProfileImagePath(context: context);
+                await context.read<AuthViewModel>().setProfileImagePath(
+                  context: context,
+                );
               },
               child: Container(
                 width: double.infinity,
@@ -68,9 +72,15 @@ class UploadImageScreen extends StatelessWidget {
                               width: 200.w,
                               height: 200.h,
                               decoration: BoxDecoration(
-                              //  borderRadius: BorderRadius.circular(12.r),
+                                //  borderRadius: BorderRadius.circular(12.r),
                                 image: DecorationImage(
-                                  image: FileImage(File(context.watch<AuthViewModel>().getProfileImagePath!)),
+                                  image: FileImage(
+                                    File(
+                                      context
+                                          .watch<AuthViewModel>()
+                                          .getProfileImagePath!,
+                                    ),
+                                  ),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -91,7 +101,11 @@ class UploadImageScreen extends StatelessWidget {
                     : Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          SvgPicture.asset(SvgAssets.upload, height: 35.h, width: 35.w),
+                          SvgPicture.asset(
+                            SvgAssets.upload,
+                            height: 35.h,
+                            width: 35.w,
+                          ),
                           SizedBox(height: 15.h),
                           Text(
                             context.localization.uploadImage,
@@ -130,7 +144,17 @@ class UploadImageScreen extends StatelessWidget {
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, availabilityScreen);
+                  showSuccessDialog(
+                    screenContext: context,
+                    desc: 'Your Account Successfully\nCreated',
+                    onSuccess: () {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        BotNavPage.routeName,
+                        (route) => false,
+                      );
+                    },
+                  );
                 },
                 child: Text(context.localization.next),
               ),
@@ -138,7 +162,17 @@ class UploadImageScreen extends StatelessWidget {
             SizedBox(width: 10.w),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, availabilityScreen);
+                showSuccessDialog(
+                  screenContext: context,
+                  desc: 'Your Account Successfully\nCreated',
+                  onSuccess: () {
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      BotNavPage.routeName,
+                      (route) => false,
+                    );
+                  },
+                );
               },
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 22.w),

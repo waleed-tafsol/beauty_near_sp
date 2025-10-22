@@ -27,17 +27,20 @@ class _AppInitState extends State<AppInit> {
   @override
   Widget build(BuildContext context) {
     final ThemeMode themeMode = context.watch<ThemeViewModel>().themeMode;
-    final Locale currentLocale = context.watch<LanguageViewModel>().currentLocale;
-    
+    final Locale currentLocale = context
+        .watch<LanguageViewModel>()
+        .currentLocale;
+
     return MaterialApp(
+      navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
       title: 'Beauty Points',
-      initialRoute: loginScreen,
+      initialRoute: splashScreen,
       onGenerateRoute: RouteGenerator.generateRoute,
       themeMode: themeMode,
-      navigatorKey: navigatorKey,
+      
       theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
+      darkTheme: AppTheme.lightTheme,
       locale: currentLocale,
       localizationsDelegates: const [
         AppLocalizations.delegate,

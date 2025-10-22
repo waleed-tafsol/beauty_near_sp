@@ -1,8 +1,12 @@
 import 'package:beauty_near_sp/l10n/app_localizations_en.dart';
+import 'package:beauty_near_sp/utils/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:intl/intl.dart';
 
 import '../l10n/app_localizations.dart';
+import '../route_generator.dart';
 import 'assets.dart';
 
 extension ContextUtils on BuildContext {
@@ -59,5 +63,37 @@ extension LocaleUtils on Locale {
       default:
         throw Exception('Invalid language code: $languageCode');
     }
+  }
+}
+
+extension DateUtils on DateTime {
+  String get formattedDate {
+    return DateFormat('dd MMM, yyyy').format(this);
+  }
+}
+
+extension ChangeNotifierUtils on ChangeNotifier {
+  Future<void> showError(String message) async {
+    ScaffoldFeatureController? banner;
+    banner = ScaffoldMessenger.of(navigatorKey.currentContext!)
+        .showMaterialBanner(
+          MaterialBanner(
+            leading: Icon(Iconsax.danger, color: Colors.white),
+            content: Text(message),
+            surfaceTintColor: Colors.white,
+            contentTextStyle: TextStyle(color: Colors.white),
+            backgroundColor: AppColors.kPrimaryColor,
+            actions: [
+              IconButton(
+                onPressed: () {
+                  banner?.close();
+                },
+                icon: Icon(Icons.close, color: Colors.white),
+              ),
+            ],
+          ),
+        );
+    await Future.delayed(Duration(seconds: 2));
+    banner.close();
   }
 }

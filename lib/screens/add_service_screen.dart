@@ -1,6 +1,4 @@
 import 'package:beauty_near_sp/utils/extensions.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +15,10 @@ class AddServiceScreen extends StatefulWidget {
 }
 
 class _AddServiceScreenState extends State<AddServiceScreen> {
-  List<String> selectedGenders = [];
+  List<String> _selectedEthnicity = [];
+  // String? _selectedGender; // Add this variable
+  List<String> _selectedGenders = []; // Changed to List for multiple selection
+
   final TextEditingController _durationController = TextEditingController();
 
   @override
@@ -36,250 +37,125 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 30.h),
+            Text(
+              context.localization.addServiceDetails,
+              style: TextStyle(
+                color: AppColors.textPrimaryColor,
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Text(
-                      context.localization.addServiceDetails,
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 21.h),
+                    Text(
+                     context.localization.serviceName,
                       style: TextStyle(
                         color: AppColors.textPrimaryColor,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w500,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
-                  ),
-                  SizedBox(height: 21.h),
-                  Text(
-                    context.localization.serviceName,
-                    style: TextStyle(
-                      color: AppColors.textPrimaryColor,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
+                    SizedBox(height: 8.h),
+                    TextFormField(
+                      decoration: InputDecoration(hintText: context.localization.headMassage),
                     ),
-                  ),
-                  SizedBox(height: 8.h),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      hintText: context.localization.headMassage,
+                    SizedBox(height: 20.h),
+                    Text(
+                      context.localization.targetGender,
+                      style: TextStyle(
+                        color: AppColors.textPrimaryColor,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 20.h),
-                  Text(
-                    context.localization.targetGender,
-                    style: TextStyle(
-                      color: AppColors.textPrimaryColor,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
+                    SizedBox(height: 8.h),
+                    MultiSelectTagField(
+                      options: [context.localization.male, context.localization.female],
+                      initialValues: _selectedGenders,
+                      onSelectionChanged: (selected) {
+                        setState(() {
+                          _selectedGenders = selected;
+                        });
+                        print('Selected: $selected');
+                      },
                     ),
-                  ),
-                  SizedBox(height: 8.h),
-                  Container(
-                    width: double.infinity,
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.strokeColor),
-                      borderRadius: BorderRadius.circular(38.r),
-                      // borderSide: BorderSide(color: AppColors.strokeColor),
-                      color: Colors.white,
+                    SizedBox(height: 20),
+                    Text(
+                      "Select Ethnicity",
+                      style: TextStyle(
+                        color: AppColors.textPrimaryColor,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                    child: DropdownButtonHideUnderline(
-                      child: DropdownButton2<String>(
-                        isExpanded: true,
+                    SizedBox(height: 8.h),
+                    MultiSelectTagField(
+                      options: [
+                        'White',
+                        'Black/African/Caribbean',
+                        'Asian',
+                        'Others',
+                      ],
+                      initialValues: _selectedEthnicity,
+                      onSelectionChanged: (selected) {
+                        setState(() {
+                          _selectedEthnicity = selected;
+                        });
+                        print('Selected: $selected');
+                      },
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                     context.localization.servicePrice,
 
-                        hint: selectedGenders.isEmpty
-                            ? Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 12.w),
-                                child: Text(
-                                  context.localization.selectGender,
-                                  style: TextStyle(
-                                    color: Color(0xff9CA3AF),
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              )
-                            : Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      child: Wrap(
-                                        spacing: 8.w,
-                                        children: selectedGenders.map((gender) {
-                                          return Container(
-                                            padding: EdgeInsets.symmetric(
-                                              horizontal: 12.w,
-                                              vertical: 6.h,
-                                            ),
-                                            decoration: BoxDecoration(
-                                              color: Color(
-                                                0xffFEE2E2,
-                                              ), // Light pink background
-                                              borderRadius:
-                                                  BorderRadius.circular(16.r),
-                                            ),
-                                            child: Text(
-                                              gender,
-                                              style: TextStyle(
-                                                color: Color(
-                                                  0xffDC2626,
-                                                ), // Reddish-pink text
-                                                fontSize: 12.sp,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                            ),
-                                          );
-                                        }).toList(),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                        items:
-                            [
-                              context.localization.male,
-                              context.localization.female,
-                            ].map((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 16.w,
-                                    vertical: 8.h,
-                                  ),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width: 20.w,
-                                        height: 20.h,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                            color:
-                                                selectedGenders.contains(value)
-                                                ? Color(0xffDC2626)
-                                                : Color(0xffD1D5DB),
-                                            width: 2,
-                                          ),
-                                          color: selectedGenders.contains(value)
-                                              ? Color(0xffDC2626)
-                                              : Colors.transparent,
-                                        ),
-                                        child: selectedGenders.contains(value)
-                                            ? Icon(
-                                                Icons.check,
-                                                color: Colors.white,
-                                                size: 12.sp,
-                                              )
-                                            : null,
-                                      ),
-                                      SizedBox(width: 12.w),
-                                      Text(
-                                        value,
-                                        style: TextStyle(
-                                          color: AppColors.textPrimaryColor,
-                                          fontSize: 14.sp,
-                                          fontWeight: FontWeight.w400,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            }).toList(),
-                        onChanged: (String? newValue) {
-                          if (newValue != null) {
-                            setState(() {
-                              if (selectedGenders.contains(newValue)) {
-                                selectedGenders.remove(newValue);
-                              } else {
-                                selectedGenders.add(newValue);
-                              }
-                            });
-                          }
-                        },
-                        iconStyleData: IconStyleData(
-                          icon: Padding(
-                            padding: EdgeInsets.only(right: 16.w),
-                            child: Icon(
-                              Icons.keyboard_arrow_down,
-                              color: Color(0xff6B7280),
-                              size: 20.sp,
+                      style: TextStyle(
+                        color: AppColors.textPrimaryColor,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(height: 6.h),
+                    TextFormField(
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(hintText: "0"),
+                    ),
+                    SizedBox(height: 20.h),
+                    Text(
+                      context.localization.serviceDuration,
+                      style: TextStyle(
+                        color: AppColors.textPrimaryColor,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(height: 6.h),
+                    GestureDetector(
+                      onTap: () async {
+                        _durationController.text =
+                            await selectDurationDialogBox(
+                              screenContext: context,
+                            );
+                      },
+                      child: AbsorbPointer(
+                        child: TextFormField(
+                          controller: _durationController,
+                          decoration: InputDecoration(
+                            hintText: "HH/MM",
+                            suffixIcon: Icon(
+                              Icons.access_time,
+                              size: 18.sp,
+                              color: AppColors.darkGreyColor,
                             ),
                           ),
                         ),
-                        dropdownStyleData: DropdownStyleData(
-                          maxHeight: 200.h,
-                          width: MediaQuery.of(context).size.width - 40.w,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12.r),
-                            color: Colors.white,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.1),
-                                blurRadius: 10,
-                                offset: Offset(0, 5),
-                              ),
-                            ],
-                          ),
-                          offset: const Offset(0, -5),
-                          scrollbarTheme: ScrollbarThemeData(
-                            radius: Radius.circular(40),
-                            thickness: WidgetStateProperty.all(6),
-                            thumbVisibility: WidgetStateProperty.all(true),
-                          ),
-                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
-                    context.localization.servicePrice,
-
-                    style: TextStyle(
-                      color: AppColors.textPrimaryColor,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  SizedBox(height: 6.h),
-                  TextFormField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(hintText: "0"),
-                  ),
-                  SizedBox(height: 20.h),
-                  Text(
-                    context.localization.serviceDuration,
-                    style: TextStyle(
-                      color: AppColors.textPrimaryColor,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  SizedBox(height: 6.h),
-                  GestureDetector(
-                    onTap: () async {
-                      _durationController.text = await selectDurationDialogBox(
-                        screenContext: context,
-                      );
-                    },
-                    child: AbsorbPointer(
-                      child: TextFormField(
-                        controller: _durationController,
-                        decoration: InputDecoration(
-                          hintText: "HH/MM",
-                          suffixIcon: Icon(
-                            Icons.access_time,
-                            size: 18.sp,
-                            color: AppColors.darkGreyColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
@@ -293,7 +169,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
             onPressed: () {
               showSuccessDialog(
                 screenContext: context,
-                desc: context.localization.yourServiceSuccessfullyCreated,
+                desc:context.localization.yourServiceSuccessfullyCreated,
                 onSuccess: () {
                   Navigator.pop(context);
                 },
@@ -302,6 +178,99 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
             child: Text(context.localization.create),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class MultiSelectTagField extends StatefulWidget {
+  final Function(List<String>) onSelectionChanged;
+  final List<String>? initialValues;
+  final List<String> options; // User can pass any list of options
+  final Color? selectedColor;
+  final Color? selectedTextColor;
+  final Color? unselectedBorderColor;
+  final Color? containerBorderColor;
+  final double? containerBorderRadius;
+  final double? tagBorderRadius;
+
+  const MultiSelectTagField({
+    Key? key,
+    required this.onSelectionChanged,
+    required this.options, // Required: user must provide options
+    this.initialValues,
+    this.selectedColor = const Color(0xffFEE2E2),
+    this.selectedTextColor = const Color(0xffDC2626),
+    this.unselectedBorderColor = const Color(0xffDC2626),
+    this.containerBorderColor,
+    this.containerBorderRadius = 38.0,
+    this.tagBorderRadius = 16.0,
+  }) : super(key: key);
+
+  @override
+  State<MultiSelectTagField> createState() => _MultiSelectTagFieldState();
+}
+
+class _MultiSelectTagFieldState extends State<MultiSelectTagField> {
+  List<String> selectedItems = [];
+
+  @override
+  void initState() {
+    super.initState();
+    selectedItems = widget.initialValues ?? [];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      // padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+      //  decoration: BoxDecoration(
+      //    border: Border.all(
+      //      color: widget.containerBorderColor ?? AppColors.strokeColor,
+      //    ),
+      //    borderRadius: BorderRadius.circular(widget.containerBorderRadius!.r),
+      //    color: Colors.white,
+      //  ),
+      child: Wrap(
+        spacing: 12.w,
+        runSpacing: 12.h,
+        children: widget.options.map((option) {
+          final isSelected = selectedItems.contains(option);
+          return GestureDetector(
+            onTap: () {
+              setState(() {
+                if (isSelected) {
+                  selectedItems.remove(option);
+                } else {
+                  selectedItems.add(option);
+                }
+              });
+              widget.onSelectionChanged(selectedItems);
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
+              decoration: BoxDecoration(
+                color: isSelected ? widget.selectedColor : Colors.white,
+                borderRadius: BorderRadius.circular(widget.tagBorderRadius!.r),
+                border: Border.all(
+                  color: isSelected
+                      ? Colors.transparent
+                      : widget.unselectedBorderColor!,
+                  width: isSelected ? 2 : 1,
+                ),
+              ),
+              child: Text(
+                option,
+                style: TextStyle(
+                  color: widget.selectedTextColor,
+                  fontSize: 14.sp,
+                  fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+                ),
+              ),
+            ),
+          );
+        }).toList(),
       ),
     );
   }

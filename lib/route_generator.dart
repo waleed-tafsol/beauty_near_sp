@@ -28,9 +28,9 @@ import 'screens/terms_and_condition_screen.dart';
 import 'screens/upload_image_screen.dart';
 import 'view_models/bot_nav_view_model.dart';
 
-const String splashScreen = '/splash_screen';
+const String splashScreen = '/';
 const String homeScreen = '/home_screen';
-const String loginScreen = '/';
+const String loginScreen = '/login_screen';
 const String signupScreen = '/signup_screen';
 const String otpScreen = '/otp';
 const String genderServiceScreen = '/gender_service';
