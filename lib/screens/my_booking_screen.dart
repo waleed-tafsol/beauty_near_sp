@@ -1,3 +1,4 @@
+import 'package:beauty_near_sp/route_generator.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
 import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:beauty_near_sp/widgets/custom_booking_card.dart';
@@ -13,7 +14,11 @@ class MyBookingScreen extends StatefulWidget {
 
 class _MyBookingScreenState extends State<MyBookingScreen> {
   int selectedTabIndex = 0;
-  final List<String> tabs = ['Request', 'Upcoming', 'Past'];
+  final List<String> tabs = [
+    navigatorKey.currentContext!.localization.request,
+    navigatorKey.currentContext!.localization.upcoming,
+    navigatorKey.currentContext!.localization.past,
+  ];
 
   // Shared booking data that persists across tabs
   List<Map<String, dynamic>> allBookings = [
@@ -108,7 +113,7 @@ class _MyBookingScreenState extends State<MyBookingScreen> {
         backgroundColor: AppColors.kScaffoldColor,
         centerTitle: true,
         title: Text(
-          "My Bookings",
+          context.localization.myBookings,
           style: TextStyle(fontSize: 19.sp, fontWeight: FontWeight.w500),
         ),
       ),

@@ -18,7 +18,7 @@ class MyWalletScreen extends StatelessWidget {
         forceMaterialTransparency: true,
         leadingWidth: 0,
         centerTitle: true,
-        title: const Text('My Wallet'),
+        title: Text(context.localization.myWallet),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 3.h),
@@ -37,7 +37,7 @@ class MyWalletScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Total Balance',
+                    context.localization.totalBalance,
                     style: TextStyle(fontSize: 16.sp, color: Colors.white),
                   ),
                   // k1hSizedBox,
@@ -61,7 +61,7 @@ class MyWalletScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Weekly Stats',
+                      context.localization.weeklyStats,
                       style: TextStyle(
                         fontSize: 17.6.sp,
                         color: AppColors.kBlackText,
@@ -84,7 +84,7 @@ class MyWalletScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Latest Transactions',
+                      context.localization.latestTransactions,
                       style: TextStyle(
                         fontSize: 16.sp,
                         color: const Color(0xff1C1C1C),

@@ -1,10 +1,12 @@
-import 'package:beauty_near_sp/route_generator.dart';
-import 'package:beauty_near_sp/utils/assets.dart';
-import 'package:beauty_near_sp/utils/color_constant.dart';
-import 'package:beauty_near_sp/widgets/custom_app_bar.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+
+import '../route_generator.dart';
+import '../utils/assets.dart';
+import '../utils/color_constant.dart';
+import '../widgets/custom_app_bar.dart';
 
 class MyBookingDetailScreen extends StatelessWidget {
   const MyBookingDetailScreen({super.key});
@@ -12,7 +14,7 @@ class MyBookingDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Bookings Details"),
+      appBar: CustomAppBar(title: context.localization.bookingDetails),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -36,7 +38,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Congratulations!",
+                        context.localization.congratulations,
                         style: TextStyle(
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w400,
@@ -45,7 +47,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 10.h),
                       Text(
-                        "Your Booking was successfully Booked.",
+                        context.localization.bookingBooked,
                         style: TextStyle(
                           fontSize: 12.sp,
                           fontWeight: FontWeight.w400,
@@ -56,7 +58,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            "Booking ID:",
+                            context.localization.bookingId,
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
@@ -78,7 +80,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            "Booked On:",
+                            context.localization.bookedOn,
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w400,
@@ -132,7 +134,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                       width: 40.w,
                       height: 40.h,
                       decoration: BoxDecoration(
-                        color: AppColors.kPrimaryColor.withOpacity(0.1),
+                        color: AppColors.kPrimaryColor.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(20.r),
                       ),
                       child: Icon(
@@ -146,7 +148,7 @@ class MyBookingDetailScreen extends StatelessWidget {
               ),
               SizedBox(height: 30.h),
               Text(
-                "Booking Details",
+                context.localization.bookingDetails,
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w500,
@@ -179,7 +181,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                           ),
                         ),
                         title: Text(
-                          "Service",
+                          context.localization.service,
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
@@ -189,7 +191,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                         subtitle: Padding(
                           padding: EdgeInsets.only(top: 7.0),
                           child: Text(
-                            'Haircut  •  Shaving  •  Head Massage',
+                            '${context.localization.haircut}  •  ${context.localization.shaving}  •  ${context.localization.headMassage}',
                             style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
@@ -209,7 +211,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                           ),
                         ),
                         title: Text(
-                          "Persons",
+                          context.localization.persons,
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
@@ -219,7 +221,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                         subtitle: Padding(
                           padding: EdgeInsets.only(top: 7.0),
                           child: Text(
-                            '2 Adults  •  1 Kid',
+                            '${context.localization.adults(2)}  •  ${context.localization.kids(1)}',
                             style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w400,
@@ -239,7 +241,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                           ),
                         ),
                         title: Text(
-                          "Timing",
+                          context.localization.timing,
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
@@ -264,7 +266,7 @@ class MyBookingDetailScreen extends StatelessWidget {
               ),
               SizedBox(height: 30.h),
               Text(
-                "Payment Summary",
+                context.localization.paymentSummary,
                 style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w500,
@@ -281,22 +283,37 @@ class MyBookingDetailScreen extends StatelessWidget {
                   padding: EdgeInsets.all(15.0.w),
                   child: Column(
                     children: [
-                      paymentSummartRow(service: "Haircut", price: "\$20"),
+                      paymentSummartRow(
+                        service: context.localization.haircut,
+                        price: "\$20",
+                      ),
                       SizedBox(height: 20.h),
-                      paymentSummartRow(service: "Haircut", price: "\$20"),
+                      paymentSummartRow(
+                        service: context.localization.haircut,
+                        price: "\$20",
+                      ),
                       SizedBox(height: 20.h),
-                      paymentSummartRow(service: "Haircut", price: "\$20"),
+                      paymentSummartRow(
+                        service: context.localization.haircut,
+                        price: "\$20",
+                      ),
                       SizedBox(height: 20.h),
-                      paymentSummartRow(service: "Haircut", price: "\$20"),
+                      paymentSummartRow(
+                        service: context.localization.haircut,
+                        price: "\$20",
+                      ),
                       SizedBox(height: 20.h),
-                      paymentSummartRow(service: "Haircut", price: "\$20"),
+                      paymentSummartRow(
+                        service: context.localization.haircut,
+                        price: "\$20",
+                      ),
                       SizedBox(height: 15.h),
                       Divider(color: AppColors.greyColor),
                       SizedBox(height: 10.h),
                       Row(
                         children: [
                           Text(
-                            "Total Amount:",
+                            context.localization.totalAmount,
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w500,
@@ -335,7 +352,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                         child: Row(
                           children: [
                             Text(
-                              "Total Duration",
+                              context.localization.totalDuration,
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
@@ -344,7 +361,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                             ),
                             Spacer(),
                             Text(
-                              "60 Minutes",
+                              context.localization.minutes(60),
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 color: Colors.white,
@@ -371,7 +388,7 @@ class MyBookingDetailScreen extends StatelessWidget {
                         ),
                         child: Center(
                           child: Text(
-                            "Accept",
+                            context.localization.accept,
                             style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500,
@@ -385,14 +402,13 @@ class MyBookingDetailScreen extends StatelessWidget {
                     Expanded(
                       child: Container(
                         padding: EdgeInsets.symmetric(vertical: 12.h),
-
                         decoration: BoxDecoration(
                           color: AppColors.kPrimaryColor.withValues(alpha: 0.2),
                           borderRadius: BorderRadius.circular(38.r),
                         ),
                         child: Center(
                           child: Text(
-                            "Reject",
+                            context.localization.reject,
                             style: TextStyle(
                               fontSize: 16.sp,
                               fontWeight: FontWeight.w500,

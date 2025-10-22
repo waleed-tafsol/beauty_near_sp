@@ -1,3 +1,4 @@
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -32,7 +33,7 @@ class _GenderServiceScreenState extends State<GenderServiceScreen> {
                 child: Column(
                   children: [
                     Text(
-                      'Target Gender for Services',
+                      context.localization.targetGenderForServices,
                       style: TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 20.sp,
@@ -56,14 +57,14 @@ class _GenderServiceScreenState extends State<GenderServiceScreen> {
                     SizedBox(height: 30.h),
 
                     _buildGenderCard(
-                      title: "Men's Services",
+                      title: context.localization.mensService,
                       icon: SvgAssets.men,
                       isSelected: false,
                       id: 1,
                     ),
                     SizedBox(height: 15.h),
                     _buildGenderCard(
-                      title: "Women's Services",
+                      title: context.localization.womensService,
                       icon: SvgAssets.women,
                       isSelected: false,
                       id: 2,
@@ -83,7 +84,7 @@ class _GenderServiceScreenState extends State<GenderServiceScreen> {
                       onPressed: () {
                         Navigator.pushNamed(context, locationScreen);
                       },
-                      child: Text('Next'),
+                      child: Text(context.localization.next),
                     ),
                   ),
                 ],

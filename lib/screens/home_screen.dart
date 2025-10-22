@@ -15,59 +15,59 @@ import '../widgets/custom_search_bar.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  final List<Service> services = [
+  List<Service> get services => [
     Service(
-      name: 'Haircut',
-      duration: '60 min session',
+      name: navigatorKey.currentContext!.localization.shaving,
+      duration: navigatorKey.currentContext!.localization.minSession,
       price: '\$20',
       icon: SvgAssets.haircut,
       iconBackgroundColor: Color(0xFFF7E6EC),
     ),
     Service(
-      name: 'Shaving',
-      duration: '60 min session',
+      name: navigatorKey.currentContext!.localization.shaving,
+      duration: navigatorKey.currentContext!.localization.minSession,
       price: '\$20',
       icon: SvgAssets.shaving,
       iconBackgroundColor: Color(0xFFFCEBEC),
     ),
     Service(
-      name: 'Haircut',
-      duration: '60 min session',
+      name: navigatorKey.currentContext!.localization.haircut,
+      duration: navigatorKey.currentContext!.localization.minSession,
       price: '\$20',
       icon: SvgAssets.haircut,
       iconBackgroundColor: Color(0xFFF7E6EC),
     ),
     Service(
-      name: 'Shaving',
-      duration: '60 min session',
+      name: navigatorKey.currentContext!.localization.shaving,
+      duration: navigatorKey.currentContext!.localization.minSession,
       price: '\$20',
       icon: SvgAssets.shaving,
       iconBackgroundColor: Color(0xFFFCEBEC),
     ),
     Service(
-      name: 'Haircut',
-      duration: '60 min session',
+      name: navigatorKey.currentContext!.localization.shaving,
+      duration: navigatorKey.currentContext!.localization.minSession,
       price: '\$20',
       icon: SvgAssets.haircut,
       iconBackgroundColor: Color(0xFFF7E6EC),
     ),
     Service(
-      name: 'Shaving',
-      duration: '60 min session',
+      name: navigatorKey.currentContext!.localization.shaving,
+      duration: navigatorKey.currentContext!.localization.minSession,
       price: '\$20',
       icon: SvgAssets.shaving,
       iconBackgroundColor: Color(0xFFFCEBEC),
     ),
     Service(
-      name: 'Haircut',
-      duration: '60 min session',
+      name: navigatorKey.currentContext!.localization.shaving,
+      duration: navigatorKey.currentContext!.localization.minSession,
       price: '\$20',
       icon: SvgAssets.haircut,
       iconBackgroundColor: Color(0xFFF7E6EC),
     ),
     Service(
-      name: 'Shaving',
-      duration: '60 min session',
+      name: navigatorKey.currentContext!.localization.shaving,
+      duration: navigatorKey.currentContext!.localization.minSession,
       price: '\$20',
       icon: SvgAssets.shaving,
       iconBackgroundColor: Color(0xFFFCEBEC),
@@ -126,7 +126,7 @@ class HomeScreen extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Hello Kelly',
+                  '${context.localization.hello} Kelly',
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 14.sp,
@@ -167,7 +167,7 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'My Services',
+                context.localization.myServices,
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 16.sp,
@@ -188,7 +188,7 @@ class HomeScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(48.r),
                   ),
                   child: Text(
-                    'Add Service',
+                    context.localization.addService,
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 14.sp,

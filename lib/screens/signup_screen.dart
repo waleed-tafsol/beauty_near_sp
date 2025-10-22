@@ -1,6 +1,7 @@
 import 'package:beauty_near_sp/route_generator.dart';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:beauty_near_sp/widgets/language_app_bar.dart';
 import 'package:beauty_near_sp/widgets/social_button.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +42,7 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(height: 50.h),
                     Center(
                       child: Text(
-                        'Create an Account',
+                        context.localization.createAnAccount,
                         style: TextStyle(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w500,
@@ -51,7 +52,7 @@ class SignupScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 32.h),
                     Text(
-                      'Full Name',
+                      context.localization.fullName,
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 14.sp,
@@ -61,11 +62,11 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(height: 8.h),
                     TextFormField(
                       controller: authViewModel.getNameController,
-                      decoration: InputDecoration(hintText: 'Your Name'),
+                      decoration: InputDecoration(hintText: context.localization.yourName),
                     ),
                     SizedBox(height: 20.h),
                     Text(
-                      'Email Address',
+                      context.localization.emailAddress,
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 14.sp,
@@ -76,11 +77,11 @@ class SignupScreen extends StatelessWidget {
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       controller: authViewModel.getEmailController,
-                      decoration: InputDecoration(hintText: 'Your Email'),
+                      decoration: InputDecoration(hintText: context.localization.yourEmail),
                     ),
                     SizedBox(height: 20.h),
                     Text(
-                      'Phone Number',
+                      context.localization.phoneNumber,
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 14.sp,
@@ -91,11 +92,11 @@ class SignupScreen extends StatelessWidget {
                     TextFormField(
                       keyboardType: TextInputType.phone,
                       controller: authViewModel.getPhoneController,
-                      decoration: InputDecoration(hintText: 'Phone Number'),
+                      decoration: InputDecoration(hintText: context.localization.phoneNumber),
                     ),
                     SizedBox(height: 20.h),
                     Text(
-                      'Password',
+                      context.localization.password,
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 14.sp,
@@ -105,13 +106,13 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(height: 8.h),
                     TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Password',
+                        hintText: context.localization.password,
                         suffixIcon: Icon(Iconsax.eye),
                       ),
                     ),
                     SizedBox(height: 20.h),
                     Text(
-                      'Confirm Password',
+                      context.localization.confirmPassword,
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         fontSize: 14.sp,
@@ -121,7 +122,7 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(height: 8.h),
                     TextFormField(
                       decoration: InputDecoration(
-                        hintText: 'Confirm Password',
+                        hintText: context.localization.confirmPassword,
                         suffixIcon: Icon(Iconsax.eye),
                       ),
                     ),
@@ -133,7 +134,7 @@ class SignupScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.pushNamed(context, otpScreen);
                         },
-                        child: Text('Next'),
+                        child: Text(context.localization.next),
                       ),
                     ),
                     SizedBox(height: 24.h),
@@ -144,13 +145,13 @@ class SignupScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 24.h),
                     SocialButton(
-                      text: 'Continue with Google',
+                      text: context.localization.continueWithGoogle,
                       iconPath: SvgAssets.google,
                       onPressed: () {},
                     ),
                     SizedBox(height: 16.h),
                     SocialButton(
-                      text: 'Continue with Facebook',
+                      text: context.localization.continueWithFacebook,
                       iconPath: SvgAssets.facebook,
                       onPressed: () {},
                     ),
@@ -159,7 +160,7 @@ class SignupScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Already have an account ?',
+                          context.localization.alreadyHaveAccount,
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: AppColors.darkGreyColor,
@@ -170,7 +171,7 @@ class SignupScreen extends StatelessWidget {
                             Navigator.pushNamed(context, loginScreen);
                           },
                           child: Text(
-                            ' Sign In',
+                            context.localization.signIn,
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontWeight: FontWeight.w500,

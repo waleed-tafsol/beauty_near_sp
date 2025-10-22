@@ -1,3 +1,4 @@
+import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,7 +30,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Add Service"),
+      appBar: CustomAppBar(title: context.localization.addService),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
@@ -37,7 +38,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
           children: [
             SizedBox(height: 30.h),
             Text(
-              "Add Service Details",
+              context.localization.addServiceDetails,
               style: TextStyle(
                 color: AppColors.textPrimaryColor,
                 fontSize: 16.sp,
@@ -51,7 +52,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                   children: [
                     SizedBox(height: 21.h),
                     Text(
-                      "Service Name",
+                     context.localization.serviceName,
                       style: TextStyle(
                         color: AppColors.textPrimaryColor,
                         fontSize: 14.sp,
@@ -60,11 +61,11 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     ),
                     SizedBox(height: 8.h),
                     TextFormField(
-                      decoration: InputDecoration(hintText: "Head Massage"),
+                      decoration: InputDecoration(hintText: context.localization.headMassage),
                     ),
                     SizedBox(height: 20.h),
                     Text(
-                      "Target Gender",
+                      context.localization.targetGender,
                       style: TextStyle(
                         color: AppColors.textPrimaryColor,
                         fontSize: 14.sp,
@@ -73,7 +74,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     ),
                     SizedBox(height: 8.h),
                     MultiSelectTagField(
-                      options: ['Male', 'Female'],
+                      options: [context.localization.male, context.localization.female],
                       initialValues: _selectedGenders,
                       onSelectionChanged: (selected) {
                         setState(() {
@@ -109,7 +110,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      "Service Price",
+                     context.localization.servicePrice,
 
                       style: TextStyle(
                         color: AppColors.textPrimaryColor,
@@ -124,7 +125,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     ),
                     SizedBox(height: 20.h),
                     Text(
-                      "Service Duration",
+                      context.localization.serviceDuration,
                       style: TextStyle(
                         color: AppColors.textPrimaryColor,
                         fontSize: 14.sp,
@@ -169,13 +170,13 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
             onPressed: () {
               showSuccessDialog(
                 screenContext: context,
-                desc: 'Your Service Successfully\nCreated',
+                desc:context.localization.yourServiceSuccessfullyCreated,
                 onSuccess: () {
                   Navigator.pop(context);
                 },
               );
             },
-            child: Text("Create"),
+            child: Text(context.localization.create),
           ),
         ),
       ),

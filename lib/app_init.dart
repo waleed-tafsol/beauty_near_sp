@@ -4,7 +4,6 @@ import 'package:beauty_near_sp/utils/theme.dart';
 import 'package:beauty_near_sp/view_models/language_view_model.dart';
 import 'package:beauty_near_sp/view_models/theme_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
 class AppInit extends StatefulWidget {
@@ -41,17 +40,8 @@ class _AppInitState extends State<AppInit> {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.lightTheme,
       locale: currentLocale,
-      localizationsDelegates: const [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('en', ''), // English
-        Locale('es', ''), // Spanish
-        Locale('fr', ''), // French
-      ],
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }
