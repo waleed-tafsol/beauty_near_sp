@@ -153,6 +153,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                         ),
                       ),
                     ),
+                    SizedBox(height: 10.h),
                   ],
                 ),
               ),
