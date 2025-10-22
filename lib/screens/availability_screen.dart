@@ -1,5 +1,4 @@
 import 'package:beauty_near_sp/utils/extensions.dart';
-import 'package:beauty_near_sp/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -7,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import '../utils/color_constant.dart';
 import '../view_models/availability_view_model.dart';
+import '../widgets/custom_app_bar.dart';
 
 class AvailabilityEntry {
   final String day;
@@ -54,17 +54,19 @@ class AvailabilityScreen extends StatelessWidget {
               ),
             ),
           ),
-          bottomNavigationBar: Padding(
-            padding: EdgeInsetsGeometry.only(
-              left: 20.w,
-              right: 20.w,
-              bottom: 20.h,
-            ),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Submit'),
+          bottomNavigationBar: SafeArea(
+            child: Padding(
+              padding: EdgeInsetsGeometry.only(
+                left: 20.w,
+                right: 20.w,
+                bottom: 20.h,
+              ),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('Submit'),
+              ),
             ),
           ),
         );

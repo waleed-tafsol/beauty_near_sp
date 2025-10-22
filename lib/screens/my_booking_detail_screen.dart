@@ -359,49 +359,51 @@ class MyBookingDetailScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 12.h),
-                      decoration: BoxDecoration(
-                        color: Color(0xff00A12B).withValues(alpha: 0.2),
-                        borderRadius: BorderRadius.circular(38.r),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Accept",
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff00A12B),
+              SafeArea(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 12.h),
+                        decoration: BoxDecoration(
+                          color: Color(0xff00A12B).withValues(alpha: 0.2),
+                          borderRadius: BorderRadius.circular(38.r),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Accept",
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xff00A12B),
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 10.w),
-                  Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 12.h),
+                    SizedBox(width: 10.w),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 12.h),
 
-                      decoration: BoxDecoration(
-                        color: AppColors.kPrimaryColor.withValues(alpha: 0.2),
-                        borderRadius: BorderRadius.circular(38.r),
-                      ),
-                      child: Center(
-                        child: Text(
-                          "Reject",
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w500,
-                            color: AppColors.kPrimaryColor,
+                        decoration: BoxDecoration(
+                          color: AppColors.kPrimaryColor.withValues(alpha: 0.2),
+                          borderRadius: BorderRadius.circular(38.r),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Reject",
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.kPrimaryColor,
+                            ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               SizedBox(height: 25.h),
             ],
