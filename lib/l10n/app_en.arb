@@ -196,7 +196,21 @@
   "chooseFromGallery":"Choose from gallery",
   "myWallet":"My Wallet",
   "paymentReceived":"Payment Received",
-  "request":"Request"
+  "request":"Request",
+  "availability":"Availability",
+  "pleaseSelectTheDaysAndTimesYouAreAvailable":"Please select the days and times you are available.",
+  "yourAvailability":"Your Availability",
+  "unavailability":"Unavailability",
+  "to":"to",
+  "remove":"Remove",
+  "add":"Add",
+"white":"White",
+"blackAfricanCaribbean":"Black/African/Caribbean",
+"asian":"Asian",
+"other":"Other",
+"selectEthnicity":"Select Ethnicity"
+  
+
   
   
 

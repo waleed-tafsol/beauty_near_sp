@@ -619,4 +619,40 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get request => 'Request';
+
+  @override
+  String get availability => 'Availability';
+
+  @override
+  String get pleaseSelectTheDaysAndTimesYouAreAvailable => 'Please select the days and times you are available.';
+
+  @override
+  String get yourAvailability => 'Your Availability';
+
+  @override
+  String get unavailability => 'Unavailability';
+
+  @override
+  String get to => 'to';
+
+  @override
+  String get remove => 'Remove';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get white => 'White';
+
+  @override
+  String get blackAfricanCaribbean => 'Black/African/Caribbean';
+
+  @override
+  String get asian => 'Asian';
+
+  @override
+  String get other => 'Other';
+
+  @override
+  String get selectEthnicity => 'Select Ethnicity';
 }

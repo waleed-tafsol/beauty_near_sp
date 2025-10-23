@@ -85,7 +85,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     ),
                     SizedBox(height: 20),
                     Text(
-                      "Select Ethnicity",
+                      context.localization.selectEthnicity,
                       style: TextStyle(
                         color: AppColors.textPrimaryColor,
                         fontSize: 14.sp,
@@ -95,10 +95,10 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     SizedBox(height: 8.h),
                     MultiSelectTagField(
                       options: [
-                        'White',
-                        'Black/African/Caribbean',
-                        'Asian',
-                        'Others',
+                        context.localization.white,
+                        context.localization.blackAfricanCaribbean,
+                        context.localization.asian,
+                        context.localization.other,
                       ],
                       initialValues: _selectedEthnicity,
                       onSelectionChanged: (selected) {
