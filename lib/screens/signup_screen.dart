@@ -62,7 +62,9 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(height: 8.h),
                     TextFormField(
                       controller: authViewModel.getNameController,
-                      decoration: InputDecoration(hintText: context.localization.yourName),
+                      decoration: InputDecoration(
+                        hintText: context.localization.yourName,
+                      ),
                     ),
                     SizedBox(height: 20.h),
                     Text(
@@ -77,7 +79,9 @@ class SignupScreen extends StatelessWidget {
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       controller: authViewModel.getEmailController,
-                      decoration: InputDecoration(hintText: context.localization.yourEmail),
+                      decoration: InputDecoration(
+                        hintText: context.localization.yourEmail,
+                      ),
                     ),
                     SizedBox(height: 20.h),
                     Text(
@@ -92,7 +96,9 @@ class SignupScreen extends StatelessWidget {
                     TextFormField(
                       keyboardType: TextInputType.phone,
                       controller: authViewModel.getPhoneController,
-                      decoration: InputDecoration(hintText: context.localization.phoneNumber),
+                      decoration: InputDecoration(
+                        hintText: context.localization.phoneNumber,
+                      ),
                     ),
                     SizedBox(height: 20.h),
                     Text(
@@ -138,10 +144,12 @@ class SignupScreen extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 24.h),
-                    SvgPicture.asset(
-                      SvgAssets.or,
-                      // width: double.infinity,
-                      // height: 24.h,
+                    Center(
+                      child: SvgPicture.asset(
+                        SvgAssets.or,
+                        // width: double.infinity,
+                        // height: 24.h,
+                      ),
                     ),
                     SizedBox(height: 24.h),
                     SocialButton(
@@ -158,6 +166,7 @@ class SignupScreen extends StatelessWidget {
                     SizedBox(height: 24.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      spacing: 5.w,
                       children: [
                         Text(
                           context.localization.alreadyHaveAccount,

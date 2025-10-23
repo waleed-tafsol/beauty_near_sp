@@ -33,7 +33,7 @@ class _AppInitState extends State<AppInit> {
     return MaterialApp(
       navigatorKey: navigatorKey,
       debugShowCheckedModeBanner: false,
-      title: 'Beauty Points',
+      title: 'BeautyNear SP',
       initialRoute: splashScreen,
       onGenerateRoute: RouteGenerator.generateRoute,
       themeMode: themeMode,
