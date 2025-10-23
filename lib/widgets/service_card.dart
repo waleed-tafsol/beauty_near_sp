@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,41 +29,26 @@ class ServiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-       width: 168.w,
+      width: 168.w,
       height: 144.h,
-    // color: Colors.amberAccent,
-     // padding: EdgeInsets.all(10.r),
-      // decoration: BoxDecoration(
-      //   color: Colors.white,
-      //   borderRadius: BorderRadius.circular(8.r),
-      //   boxShadow: [
-      //     BoxShadow(
-      //       color: Colors.black.withOpacity(0.08),
-      //       blurRadius: 16,
-      //       offset: Offset(0, -4),
-      //     ),
-      //   ],
-      // ),
       child: Card(
         margin: EdgeInsets.zero,
         clipBehavior: Clip.antiAlias,
         color: Colors.white,
         child: Padding(
-          padding:  EdgeInsets.all(10.0.r),
+          padding: EdgeInsets.all(10.0.r),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             spacing: 10.h,
             children: [
-              // Icon Section
               SvgPicture.asset(service.icon, width: 45.h),
-            //  SizedBox(height: 10.h),
-              // Text Section
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  AutoSizeText(
                     service.name,
+                    maxLines: 1,
                     style: TextStyle(
                       height: 0,
                       fontWeight: FontWeight.w500,
@@ -70,7 +56,7 @@ class ServiceCard extends StatelessWidget {
                       color: AppColors.textPrimaryColor,
                     ),
                   ),
-                           // SizedBox(height: 3.h),
+                  // SizedBox(height: 3.h),
                   Text(
                     service.duration,
                     style: TextStyle(
@@ -82,8 +68,6 @@ class ServiceCard extends StatelessWidget {
                   ),
                 ],
               ),
-              //SizedBox(height: 10.h),
-              // Price
               Text(
                 service.price,
                 style: TextStyle(

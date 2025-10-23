@@ -13,8 +13,6 @@ class AppTheme {
       ),
     ).copyWith(
       brightness: Brightness.light,
-
-      // primaryColor: AppColors.kPrimaryColor,
       scaffoldBackgroundColor: AppColors.kScaffoldColor,
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.kScaffoldColor,
@@ -45,6 +43,21 @@ class AppTheme {
             return Colors.white;
           }
           return AppColors.darkGreyColor;
+        }),
+      ),
+      datePickerTheme: DatePickerThemeData(
+        backgroundColor: AppColors.kScaffoldColor,
+        todayBackgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.kPrimaryColor;
+          }
+          return AppColors.kScaffoldColor;
+        }),
+        dayBackgroundColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.kPrimaryColor;
+          }
+          return AppColors.kScaffoldColor;
         }),
       ),
       iconTheme: const IconThemeData(color: Colors.black54),

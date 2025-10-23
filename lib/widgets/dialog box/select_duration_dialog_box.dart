@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../utils/color_constant.dart';
 
-Future<String> selectDurationDialogBox({required BuildContext screenContext}) async {
+Future<String> selectDurationDialogBox({
+  required BuildContext screenContext,
+}) async {
   FocusManager.instance.primaryFocus?.unfocus();
   int selectedHours = 0;
   int selectedMinutes = 0;
@@ -15,6 +17,7 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
       return StatefulBuilder(
         builder: (context, setState) {
           return AlertDialog(
+            backgroundColor: AppColors.kScaffoldColor,
             title: Text(
               context.localization.selectDuration,
               style: TextStyle(
@@ -86,7 +89,8 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
                             itemExtent: 40.h,
                             onSelectedItemChanged: (index) {
                               setState(() {
-                                selectedMinutes = index * 5; // 0, 5, 10, 15, etc.
+                                selectedMinutes =
+                                    index * 5; // 0, 5, 10, 15, etc.
                               });
                             },
                             children: List.generate(12, (index) {
@@ -128,7 +132,8 @@ Future<String> selectDurationDialogBox({required BuildContext screenContext}) as
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    duration = '${selectedHours.toString().padLeft(2, '0')}:${selectedMinutes.toString().padLeft(2, '0')}';
+                    duration =
+                        '${selectedHours.toString().padLeft(2, '0')}:${selectedMinutes.toString().padLeft(2, '0')}';
                   });
                   Navigator.of(context).pop();
                   Future.delayed(Duration(milliseconds: 100), () {
