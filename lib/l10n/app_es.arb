@@ -196,5 +196,17 @@
   "chooseFromGallery": "Elegir de la galería",
    "myWallet": "Mi Billetera",
    "paymentReceived": "Pago Recibido",
-   "request": "Solicitud"
+   "request": "Solicitud",
+   "availability": "Disponibilidad",
+  "pleaseSelectTheDaysAndTimesYouAreAvailable": "Por favor seleccione los días y horarios en que está disponible.",
+  "yourAvailability": "Su Disponibilidad",
+  "unavailability": "No Disponibilidad",
+  "to": "a",
+  "remove": "Eliminar",
+  "add": "Agregar",
+  "white": "Blanco",
+  "blackAfricanCaribbean": "Negro/Africano/Caribeño",
+  "asian": "Asiático",
+  "other": "Otro",
+  "selectEthnicity": "Seleccionar Etnia"
 }

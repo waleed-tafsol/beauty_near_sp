@@ -1,3 +1,4 @@
+import 'package:beauty_near_sp/route_generator.dart';
 import 'package:beauty_near_sp/utils/date_time_utils.dart';
 import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:beauty_near_sp/utils/extensions.dart';
@@ -42,7 +43,7 @@ class AvailabilityScreen extends StatelessWidget {
     return Consumer<AvailabilityViewModel>(
       builder: (context, viewModel, child) {
         return Scaffold(
-          appBar: CustomAppBar(title: 'Availability'),
+          appBar: CustomAppBar(title: context.localization.availability),
           body: SingleChildScrollView(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -67,7 +68,7 @@ class AvailabilityScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Submit'),
+              child: Text(context.localization.submit),
             ),
           ),
         );
@@ -83,7 +84,7 @@ class AvailabilityScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Please select the days and times you are available.',
+          context.localization.pleaseSelectTheDaysAndTimesYouAreAvailable,
           style: TextStyle(
             fontSize: 14.sp,
             fontWeight: FontWeight.w400,
@@ -97,7 +98,7 @@ class AvailabilityScreen extends StatelessWidget {
         SizedBox(height: 30.h),
         if (viewModel.availabilityList.isNotEmpty) ...[
           Text(
-            'Your Availability',
+            context.localization.yourAvailability,
             style: TextStyle(
               fontSize: 16.sp,
               fontWeight: FontWeight.w500,
@@ -121,7 +122,7 @@ class AvailabilityScreen extends StatelessWidget {
       children: [
         ListTile(
           title: Text(
-            'Unavailability',
+            context.localization.unavailability,
             style: TextStyle(
               fontSize: 16.sp,
               fontWeight: FontWeight.bold,
@@ -130,7 +131,7 @@ class AvailabilityScreen extends StatelessWidget {
             ),
           ),
           subtitle: Text(
-            'Please select the off days and holidays.',
+            context.localization.pleaseSelectTheDaysAndTimesYouAreAvailable,
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w400,
@@ -192,7 +193,7 @@ class AvailabilityScreen extends StatelessWidget {
             ),
           ),
           Text(
-            'to',
+            navigatorKey.currentContext!.localization.to,
             style: TextStyle(
               fontSize: 14.sp,
               fontWeight: FontWeight.w500,
@@ -257,7 +258,7 @@ class AvailabilityScreen extends StatelessWidget {
             iconColor: AppColors.kPrimaryColor,
             collapsedIconColor: AppColors.kPrimaryColor,
             title: Text(
-              day.label,
+              translateWeekdayFullName(day.label),
               style: TextStyle(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.w500,
@@ -276,7 +277,7 @@ class AvailabilityScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Start Time',
+                          context.localization.startTime,
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
@@ -302,7 +303,7 @@ class AvailabilityScreen extends StatelessWidget {
                                   child: Text(
                                     viewModel.startTimes[day.label] != null
                                         ? '${viewModel.startTimes[day.label]!.hour.toString().padLeft(2, '0')}:${viewModel.startTimes[day.label]!.minute.toString().padLeft(2, '0')}'
-                                        : 'Select Time',
+                                        : context.localization.selectTime,
                                     style: TextStyle(
                                       fontSize: 12.sp,
                                       color:
@@ -331,7 +332,7 @@ class AvailabilityScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'End Time',
+                          context.localization.endTime,
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w400,
@@ -357,7 +358,7 @@ class AvailabilityScreen extends StatelessWidget {
                                   child: Text(
                                     viewModel.endTimes[day.label] != null
                                         ? '${viewModel.endTimes[day.label]!.hour.toString().padLeft(2, '0')}:${viewModel.endTimes[day.label]!.minute.toString().padLeft(2, '0')}'
-                                        : 'Select Time',
+                                        : context.localization.selectTime,
                                     style: TextStyle(
                                       fontSize: 12.sp,
                                       color:
@@ -409,7 +410,9 @@ class AvailabilityScreen extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 8.h),
                   ),
                   child: Text(
-                    viewModel.hasEntryForDay(day.label) ? 'Remove' : 'Add',
+                    viewModel.hasEntryForDay(day.label)
+                        ? context.localization.remove
+                        : context.localization.add,
                     style: TextStyle(
                       fontSize: 12.sp,
                       fontWeight: FontWeight.w500,

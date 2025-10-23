@@ -1284,6 +1284,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Request'**
   String get request;
+
+  /// No description provided for @availability.
+  ///
+  /// In en, this message translates to:
+  /// **'Availability'**
+  String get availability;
+
+  /// No description provided for @pleaseSelectTheDaysAndTimesYouAreAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Please select the days and times you are available.'**
+  String get pleaseSelectTheDaysAndTimesYouAreAvailable;
+
+  /// No description provided for @yourAvailability.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Availability'**
+  String get yourAvailability;
+
+  /// No description provided for @unavailability.
+  ///
+  /// In en, this message translates to:
+  /// **'Unavailability'**
+  String get unavailability;
+
+  /// No description provided for @to.
+  ///
+  /// In en, this message translates to:
+  /// **'to'**
+  String get to;
+
+  /// No description provided for @remove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get remove;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @white.
+  ///
+  /// In en, this message translates to:
+  /// **'White'**
+  String get white;
+
+  /// No description provided for @blackAfricanCaribbean.
+  ///
+  /// In en, this message translates to:
+  /// **'Black/African/Caribbean'**
+  String get blackAfricanCaribbean;
+
+  /// No description provided for @asian.
+  ///
+  /// In en, this message translates to:
+  /// **'Asian'**
+  String get asian;
+
+  /// No description provided for @other.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get other;
+
+  /// No description provided for @selectEthnicity.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Ethnicity'**
+  String get selectEthnicity;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

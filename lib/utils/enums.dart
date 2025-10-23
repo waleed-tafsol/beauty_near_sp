@@ -22,5 +22,3 @@ enum Days {
 
   const Days(this.label);
 }
-
-
