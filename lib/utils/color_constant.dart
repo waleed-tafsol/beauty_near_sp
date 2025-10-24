@@ -10,6 +10,7 @@ class AppColors {
   static const Color strokeColor = Color(0xffF3F3F3);
   static const Color kBlackText = Color(0xff000000);
   static const Color iconColor = Color(0xFFABABAB);
+  static const Color textGreyColor = Color(0xffAAAAAA);
   static const LinearGradient primaryGradient = LinearGradient(
     colors: [kPrimaryColor, Color(0xffDE6C75)],
     begin: Alignment.centerLeft,

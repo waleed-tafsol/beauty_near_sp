@@ -8,7 +8,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:pinput/pinput.dart';
 
 class OtpScreen extends StatelessWidget {
-  const OtpScreen({super.key});
+  final bool forget;
+
+  const OtpScreen({super.key, required this.forget});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,7 @@ class OtpScreen extends StatelessWidget {
                 SizedBox(height: 10.h),
                 Center(
                   child: Text(
-                    context.localization.enterOtpDescription,
+                    context.localization.otpText,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 14.sp,
@@ -97,7 +99,7 @@ class OtpScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      context.localization.didNotGetOtp,
+                      context.localization.didntReceiveOtp,
                       style: TextStyle(
                         fontSize: 14.sp,
                         color: AppColors.darkGreyColor,
@@ -121,7 +123,25 @@ class OtpScreen extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, genderServiceScreen);
+                      this.forget == true
+                          ? Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              locationScreen,
+                              arguments: {
+                                'onSuccess': () =>
+                                    Navigator.pushNamedAndRemoveUntil(
+                                      navigatorKey.currentContext!,
+                                      congratulationsScreen,
+                                      (_) => false,
+                                    ),
+                              },
+                              (_) => false,
+                            )
+                          : Navigator.pushNamedAndRemoveUntil(
+                              context,
+                              resetPasswordScreen,
+                              (_) => false,
+                            );
                     },
                     child: Text(context.localization.submit),
                   ),

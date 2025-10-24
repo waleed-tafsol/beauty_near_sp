@@ -109,6 +109,48 @@ abstract class AppLocalizations {
   /// **'About Us'**
   String get aboutUs;
 
+  /// No description provided for @resetPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset Password'**
+  String get resetPassword;
+
+  /// No description provided for @enterOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter OTP'**
+  String get enterOtp;
+
+  /// No description provided for @didntReceiveOtp.
+  ///
+  /// In en, this message translates to:
+  /// **'Didn’t get OTP?'**
+  String get didntReceiveOtp;
+
+  /// No description provided for @resendOtp.
+  ///
+  /// In en, this message translates to:
+  /// **' Resend OTP'**
+  String get resendOtp;
+
+  /// No description provided for @otpText.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the OTP code we just sent you on your\nregistered Email/ Phone Number'**
+  String get otpText;
+
+  /// No description provided for @forgetPasswordSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter your email to reset the password'**
+  String get forgetPasswordSubtitle;
+
+  /// No description provided for @forgetPasswordTextField.
+  ///
+  /// In en, this message translates to:
+  /// **'Email/ Mobile Number'**
+  String get forgetPasswordTextField;
+
   /// No description provided for @accountSettings.
   ///
   /// In en, this message translates to:
@@ -1123,12 +1165,6 @@ abstract class AppLocalizations {
   /// **'Notifications'**
   String get notifications;
 
-  /// No description provided for @enterOtp.
-  ///
-  /// In en, this message translates to:
-  /// **'Enter OTP'**
-  String get enterOtp;
-
   /// No description provided for @enterOtpDescription.
   ///
   /// In en, this message translates to:
@@ -1140,12 +1176,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Didn’t get OTP?'**
   String get didNotGetOtp;
-
-  /// No description provided for @resendOtp.
-  ///
-  /// In en, this message translates to:
-  /// **' Resend OTP'**
-  String get resendOtp;
 
   /// No description provided for @interac.
   ///

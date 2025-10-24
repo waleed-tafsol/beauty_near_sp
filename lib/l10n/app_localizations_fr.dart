@@ -15,6 +15,27 @@ class AppLocalizationsFr extends AppLocalizations {
   String get aboutUs => 'À propos de nous';
 
   @override
+  String get resetPassword => 'Réinitialiser le mot de passe';
+
+  @override
+  String get enterOtp => 'Entrez le Code OTP';
+
+  @override
+  String get didntReceiveOtp => 'Vous n\'avez pas reçu d\'OTP ?';
+
+  @override
+  String get resendOtp => ' Renvoyer le Code OTP';
+
+  @override
+  String get otpText => 'Saisissez le code OTP que nous venons de vous envoyer sur votre adresse e-mail/numéro de téléphone enregistré';
+
+  @override
+  String get forgetPasswordSubtitle => 'Veuillez saisir votre email pour réinitialiser le mot de passe';
+
+  @override
+  String get forgetPasswordTextField => 'E-mail/Numéro de portable';
+
+  @override
   String get accountSettings => 'Paramètres du compte';
 
   @override
@@ -540,16 +561,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get notifications => 'Notifications';
 
   @override
-  String get enterOtp => 'Entrez le Code OTP';
-
-  @override
   String get enterOtpDescription => 'Entrez le code OTP que nous venons de vous envoyer sur votre\nEmail/Numéro de Téléphone enregistré';
 
   @override
   String get didNotGetOtp => 'Vous n\'avez pas reçu le code OTP ?';
-
-  @override
-  String get resendOtp => ' Renvoyer le Code OTP';
 
   @override
   String get interac => 'Interac';
