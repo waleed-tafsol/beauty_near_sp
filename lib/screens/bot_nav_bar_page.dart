@@ -30,30 +30,34 @@ class BotNavPage extends StatelessWidget {
             bottom: context.bottomNotch > 0
                 ? 62.5.h + context.bottomNotch
                 : 62.5.h,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, availabilityScreen);
-              },
-              child: Center(
-                child: Transform.rotate(
-                  angle: pi / 4,
-                  child: Container(
-                    width: 60.h,
-                    height: 60.h,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColors.kPrimaryColor,
-                        width: 1.h,
+            child: Center(
+              child: Transform.rotate(
+                angle: pi / 4,
+                child: Material(
+                  type: MaterialType.transparency,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(14.r),
+                    onTap: () {
+                      Navigator.pushNamed(context, availabilityScreen);
+                    },
+                    child: Ink(
+                      width: 60.h,
+                      height: 60.h,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: AppColors.kPrimaryColor,
+                          width: 1.h,
+                        ),
+                        gradient: AppColors.primaryGradient,
+                        borderRadius: BorderRadius.circular(14.r),
                       ),
-                      gradient: AppColors.primaryGradient,
-                      borderRadius: BorderRadius.circular(14.r),
-                    ),
-                    child: Transform.rotate(
-                      angle: pi / -4,
-                      child: Icon(
-                        Icons.calendar_month,
-                        color: Colors.white,
-                        size: 24.sp,
+                      child: Transform.rotate(
+                        angle: pi / -4,
+                        child: Icon(
+                          Icons.calendar_month,
+                          color: Colors.white,
+                          size: 24.sp,
+                        ),
                       ),
                     ),
                   ),

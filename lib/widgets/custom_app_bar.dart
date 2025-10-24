@@ -21,23 +21,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           fontWeight: FontWeight.w500,
         ),
       ),
-      leading: Padding(
-        padding: EdgeInsets.only(left: 20.0.w),
-        child: Container(
-          width: 36.w,
-          height: 36.h,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Color(0xffFFFFFF),
-          ),
+      leading: Center(
+        child: Padding(
+          padding: EdgeInsets.only(left: 20.0.w),
           child: InkWell(
+            customBorder: CircleBorder(),
             onTap: () {
               Navigator.pop(context);
             },
-            child: Icon(
-              Icons.chevron_left,
-              color: Color(0xff292D32),
-              size: 18.sp,
+            child: Ink(
+              width: 36.w,
+              height: 36.h,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Color(0xffFFFFFF),
+              ),
+              child: Icon(
+                Icons.chevron_left,
+                color: Color(0xff292D32),
+                size: 18.sp,
+              ),
             ),
           ),
         ),
