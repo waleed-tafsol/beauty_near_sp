@@ -45,6 +45,29 @@ class AuthViewModel extends ChangeNotifier {
 
 
   String get getSelectedPaymentType => _selectedPaymentType;
+  
+ List<int> _selectedServices = [];
+  
+  List<int> get selectedServices => _selectedServices;
+  
+  void toggleService(int id) {
+    if (_selectedServices.contains(id)) {
+      _selectedServices.remove(id);
+    } else {
+      _selectedServices.add(id);
+    }
+    notifyListeners();
+  }
+  
+  bool isServiceSelected(int id) {
+    return _selectedServices.contains(id);
+  }
+  
+  void clearSelection() {
+    _selectedServices.clear();
+    notifyListeners();
+  }
+
 
 
   void setSelectedPaymentType ({required String value}){
