@@ -138,7 +138,11 @@ class SignupScreen extends StatelessWidget {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, otpScreen);
+                          Navigator.pushNamed(
+                            context,
+                            otpScreen,
+                            arguments: {'forget': true},
+                          );
                         },
                         child: Text(context.localization.next),
                       ),
