@@ -14,6 +14,7 @@ class AppTheme {
     ).copyWith(
       brightness: Brightness.light,
       scaffoldBackgroundColor: AppColors.kScaffoldColor,
+      cardTheme: CardThemeData(color: Colors.white),
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.kScaffoldColor,
         foregroundColor: Colors.white,

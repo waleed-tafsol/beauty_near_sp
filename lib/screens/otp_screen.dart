@@ -123,25 +123,27 @@ class OtpScreen extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      this.forget == true
-                          ? Navigator.pushNamedAndRemoveUntil(
-                              context,
-                              locationScreen,
-                              arguments: {
-                                'onSuccess': () =>
-                                    Navigator.pushNamedAndRemoveUntil(
-                                      navigatorKey.currentContext!,
-                                      congratulationsScreen,
-                                      (_) => false,
-                                    ),
-                              },
-                              (_) => false,
-                            )
-                          : Navigator.pushNamedAndRemoveUntil(
-                              context,
-                              resetPasswordScreen,
-                              (_) => false,
-                            );
+                      if (forget) {
+                        Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          genderServiceScreen,
+                          arguments: {
+                            'onSuccess': () =>
+                                Navigator.pushNamedAndRemoveUntil(
+                                  navigatorKey.currentContext!,
+                                  congratulationsScreen,
+                                  (_) => false,
+                                ),
+                          },
+                          (_) => false,
+                        );
+                      } else {
+                        Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          resetPasswordScreen,
+                          (_) => false,
+                        );
+                      }
                     },
                     child: Text(context.localization.submit),
                   ),

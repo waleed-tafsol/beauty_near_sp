@@ -62,6 +62,7 @@ class LanguagesScreen extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(18.r),
         gradient: AppColors.kPrimaryGradient,
+        boxShadow: kElevationToShadow[1],
       ),
       child: Row(
         children: [
@@ -106,55 +107,54 @@ class LanguagesScreen extends StatelessWidget {
     );
   }
 
-  Container _buildLanguageCard(BuildContext context, Locale locale) {
-    return Container(
-      padding: EdgeInsets.all(12.r),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(18.r),
-        color: Colors.white,
-      ),
-      child: GestureDetector(
-        onTap: () => context.read<LanguageViewModel>().changeLocale(locale),
-        behavior: HitTestBehavior.opaque,
-        child: Row(
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
-              decoration: BoxDecoration(
-                color: Color(0xffEFC2C8),
-                borderRadius: BorderRadius.circular(12.r),
-              ),
-              child: SvgPicture.asset(
-                locale.svg,
-                width: 32.w,
-                height: 20,
-                fit: BoxFit.cover,
-              ),
-            ),
-            SizedBox(width: 12.w),
-            Text(
-              locale.name,
-              style: TextStyle(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w500,
-                color: AppColors.textPrimaryColor,
-              ),
-            ),
-            Spacer(),
-            SizedBox(
-              width: 18.w,
-              height: 18.h,
-              child: Checkbox(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(6.r),
+  Card _buildLanguageCard(BuildContext context, Locale locale) {
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.r)),
+      child: Padding(
+        padding: EdgeInsets.all(12.r),
+        child: GestureDetector(
+          onTap: () => context.read<LanguageViewModel>().changeLocale(locale),
+          behavior: HitTestBehavior.opaque,
+          child: Row(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
+                decoration: BoxDecoration(
+                  color: Color(0xffEFC2C8),
+                  borderRadius: BorderRadius.circular(12.r),
                 ),
-                value: false,
-                onChanged: (value) {},
-                activeColor: AppColors.textPrimaryColor,
-                checkColor: AppColors.kPrimaryColor,
+                child: SvgPicture.asset(
+                  locale.svg,
+                  width: 32.w,
+                  height: 20,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-          ],
+              SizedBox(width: 12.w),
+              Text(
+                locale.name,
+                style: TextStyle(
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.textPrimaryColor,
+                ),
+              ),
+              Spacer(),
+              SizedBox(
+                width: 18.w,
+                height: 18.h,
+                child: Checkbox(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6.r),
+                  ),
+                  value: false,
+                  onChanged: (value) {},
+                  activeColor: AppColors.textPrimaryColor,
+                  checkColor: AppColors.kPrimaryColor,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

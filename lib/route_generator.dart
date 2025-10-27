@@ -57,8 +57,8 @@ const String support = '/support';
 const String notification = '/notification';
 const String changePassword = '/change_password';
 const String congratulationsScreen = '/congratulations_screen';
-const String forgetPasswordScreen = 'forget_password_screen';
-const String resetPasswordScreen = 'reset_password_screen';
+const String forgetPasswordScreen = '/forget_password_screen';
+const String resetPasswordScreen = '/reset_password_screen';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
@@ -98,7 +98,7 @@ class RouteGenerator {
       case otpScreen:
         return MaterialPageRoute(
           settings: RouteSettings(name: otpScreen),
-          builder: (_) => OtpScreen(forget: args?['forget'] ?? 0),
+          builder: (_) => OtpScreen(forget: (args?['forget'] as bool?) ?? true),
         );
       case forgetPasswordScreen:
         return MaterialPageRoute(

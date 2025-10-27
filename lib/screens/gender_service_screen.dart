@@ -6,7 +6,6 @@ import 'package:flutter_svg/svg.dart';
 import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
-import '../widgets/custom_back_button.dart';
 
 class GenderServiceScreen extends StatefulWidget {
   const GenderServiceScreen({super.key});
@@ -73,21 +72,14 @@ class _GenderServiceScreenState extends State<GenderServiceScreen> {
                 ),
               ),
 
-              Row(
-                children: [
-                  CustomBackButton(),
-
-                  SizedBox(width: 10.w),
-
-                  Expanded(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, locationScreen);
-                      },
-                      child: Text(context.localization.next),
-                    ),
-                  ),
-                ],
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, locationScreen);
+                  },
+                  child: Text(context.localization.next),
+                ),
               ),
               SizedBox(height: 20.h),
             ],

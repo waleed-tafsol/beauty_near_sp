@@ -40,7 +40,8 @@ class NotificationScreen extends StatelessWidget {
                 Spacer(),
                 Container(
                   height: 32.h,
-                  width: 102.w,
+                  // width: 102.w,
+                  padding: EdgeInsets.symmetric(horizontal: 10.w),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(70.r),
                     gradient: AppColors.kPrimaryGradient,
