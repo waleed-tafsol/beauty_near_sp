@@ -15,7 +15,7 @@ class LanguageAppBar extends StatelessWidget implements PreferredSizeWidget {
       scrolledUnderElevation: 0,
       automaticallyImplyLeading: false,
       elevation: 0,
-      actions: [LanguageDropDown()],
+      actions: [LanguageButton()],
     );
   }
 

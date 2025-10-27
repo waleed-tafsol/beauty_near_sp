@@ -79,25 +79,15 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         actions: [
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, notification);
-            },
-            child: Container(
-              width: 36.w,
-              height: 36.h,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(50.r),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.1),
-                    blurRadius: 30,
-                    offset: Offset(0, 0),
-                  ),
-                ],
-              ),
-              child: Center(
+          Card(
+            shape: CircleBorder(),
+            clipBehavior: Clip.antiAlias,
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, notification);
+              },
+              child: Padding(
+                padding: EdgeInsets.all(10.w),
                 child: Icon(
                   Iconsax.notification,
                   size: 18.sp,
@@ -106,7 +96,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          LanguageDropDown(),
+          LanguageButton(),
         ],
         forceMaterialTransparency: true,
         elevation: 0,

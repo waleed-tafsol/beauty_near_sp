@@ -143,7 +143,8 @@ class LoginScreen extends StatelessWidget {
             ],
           ),
         ),
-      ) /*
+      ),
+      /*
   Widget _buildUserTypeSelector() {
     return Consumer<AuthViewModel>(
       builder: (context, viewModel, _) {
@@ -185,7 +186,7 @@ class LoginScreen extends StatelessWidget {
       },
     );
   }
-*/,
+*/
     );
   }
 }
