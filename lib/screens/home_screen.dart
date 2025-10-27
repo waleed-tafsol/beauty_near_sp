@@ -2,7 +2,7 @@ import 'package:beauty_near_sp/route_generator.dart';
 import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
 import 'package:beauty_near_sp/utils/extensions.dart';
-import 'package:beauty_near_sp/widgets/language_drop_down.dart';
+import 'package:beauty_near_sp/widgets/language_button.dart';
 import 'package:beauty_near_sp/widgets/service_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
