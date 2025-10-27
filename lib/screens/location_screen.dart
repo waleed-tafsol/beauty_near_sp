@@ -81,7 +81,7 @@ class LocationScreen extends StatelessWidget {
       ),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.only(
-          bottom: context.notchAwareBottomPadding,
+          bottom: context.bottomNotch + 20.h,
           left: 20.w,
           right: 20.w,
         ),
