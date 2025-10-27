@@ -1,21 +1,16 @@
 import 'package:beauty_near_sp/utils/extensions.dart';
+import 'package:beauty_near_sp/view_models/auth_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
 
-class GenderServiceScreen extends StatefulWidget {
+class GenderServiceScreen extends StatelessWidget {
   const GenderServiceScreen({super.key});
-
-  @override
-  State<GenderServiceScreen> createState() => _GenderServiceScreenState();
-}
-
-class _GenderServiceScreenState extends State<GenderServiceScreen> {
-  List<int> selectedServices = [];
 
   @override
   Widget build(BuildContext context) {
@@ -54,19 +49,26 @@ class _GenderServiceScreenState extends State<GenderServiceScreen> {
                     ),
 
                     SizedBox(height: 30.h),
-
-                    _buildGenderCard(
-                      title: context.localization.mensService,
-                      icon: SvgAssets.men,
-                      isSelected: false,
-                      id: 1,
-                    ),
-                    SizedBox(height: 15.h),
-                    _buildGenderCard(
-                      title: context.localization.womensService,
-                      icon: SvgAssets.women,
-                      isSelected: false,
-                      id: 2,
+                    Consumer<AuthViewModel>(
+                      builder: (context, viewModel, child) {
+                        return Column(
+                          children: [
+                            _buildGenderCard(
+                              title: context.localization.mensService,
+                              icon: SvgAssets.men,
+                              isSelected: viewModel.isServiceSelected(1),
+                              id: 1,
+                            ),
+                            SizedBox(height: 15.h),
+                            _buildGenderCard(
+                              title: context.localization.womensService,
+                              icon: SvgAssets.women,
+                              isSelected: viewModel.isServiceSelected(2),
+                              id: 2,
+                            ),
+                          ],
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -98,23 +100,13 @@ class _GenderServiceScreenState extends State<GenderServiceScreen> {
   }) {
     return GestureDetector(
       onTap: () {
-        if (selectedServices.contains(id)) {
-          setState(() {
-            selectedServices.remove(id);
-          });
-        } else {
-          setState(() {
-            selectedServices.add(id);
-          });
-        }
+        navigatorKey.currentContext!.read<AuthViewModel>().toggleService(id);
       },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 24.h),
         width: double.infinity,
         decoration: BoxDecoration(
-          color: selectedServices.contains(id)
-              ? const Color(0xffFBE9EA)
-              : Colors.white,
+          color: isSelected ? const Color(0xffFBE9EA) : Colors.white,
           borderRadius: BorderRadius.circular(10.r),
         ),
         child: Column(
