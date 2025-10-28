@@ -5,7 +5,7 @@ import '../screens/availability_screen.dart';
 import '../utils/enums.dart';
 
 class AvailabilityViewModel extends ChangeNotifier {
-  final List<Days> _days = Days.values;
+  final List<Days> _days =  Days.values;
 
   final Map<String, TimeOfDay?> _startTimes = {};
   final Map<String, TimeOfDay?> _endTimes = {};

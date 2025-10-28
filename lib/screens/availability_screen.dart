@@ -455,7 +455,7 @@ class AvailabilityScreen extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              entry.day,
+              translateWeekdayFullName(entry.day),
               style: TextStyle(
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w500,

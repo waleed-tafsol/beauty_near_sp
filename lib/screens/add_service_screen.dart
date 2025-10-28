@@ -1,34 +1,22 @@
 import 'package:beauty_near_sp/utils/extensions.dart';
+import 'package:beauty_near_sp/view_models/add_service_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 import '../utils/color_constant.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/dialog box/select_duration_dialog_box.dart';
 import '../widgets/dialog box/success_dialog_box.dart';
 
-class AddServiceScreen extends StatefulWidget {
+
+class AddServiceScreen extends StatelessWidget {
   const AddServiceScreen({super.key});
 
   @override
-  State<AddServiceScreen> createState() => _AddServiceScreenState();
-}
-
-class _AddServiceScreenState extends State<AddServiceScreen> {
-  List<String> _selectedEthnicity = [];
-  // String? _selectedGender; // Add this variable
-  List<String> _selectedGenders = []; // Changed to List for multiple selection
-
-  final TextEditingController _durationController = TextEditingController();
-
-  @override
-  void dispose() {
-    _durationController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final addServiceViewModel = context.watch<AddServiceViewModel>();
+
     return Scaffold(
       appBar: CustomAppBar(title: context.localization.addService),
       body: Padding(
@@ -52,7 +40,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                   children: [
                     SizedBox(height: 21.h),
                     Text(
-                     context.localization.serviceName,
+                      context.localization.serviceName,
                       style: TextStyle(
                         color: AppColors.textPrimaryColor,
                         fontSize: 14.sp,
@@ -61,7 +49,10 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     ),
                     SizedBox(height: 8.h),
                     TextFormField(
-                      decoration: InputDecoration(hintText: context.localization.headMassage),
+                      controller: addServiceViewModel.serviceNameController,
+                      decoration: InputDecoration(
+                        hintText: context.localization.headMassage,
+                      ),
                     ),
                     SizedBox(height: 20.h),
                     Text(
@@ -74,12 +65,13 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     ),
                     SizedBox(height: 8.h),
                     MultiSelectTagField(
-                      options: [context.localization.male, context.localization.female],
-                      initialValues: _selectedGenders,
+                      options: [
+                        context.localization.male,
+                        context.localization.female,
+                      ],
+                      selectedItems: addServiceViewModel.selectedGenders,
                       onSelectionChanged: (selected) {
-                        setState(() {
-                          _selectedGenders = selected;
-                        });
+                        addServiceViewModel.updateSelectedGenders(selected);
                         print('Selected: $selected');
                       },
                     ),
@@ -100,18 +92,15 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                         context.localization.asian,
                         context.localization.other,
                       ],
-                      initialValues: _selectedEthnicity,
+                      selectedItems: addServiceViewModel.selectedEthnicity,
                       onSelectionChanged: (selected) {
-                        setState(() {
-                          _selectedEthnicity = selected;
-                        });
+                        addServiceViewModel.updateSelectedEthnicity(selected);
                         print('Selected: $selected');
                       },
                     ),
                     SizedBox(height: 20),
                     Text(
-                     context.localization.servicePrice,
-
+                      context.localization.servicePrice,
                       style: TextStyle(
                         color: AppColors.textPrimaryColor,
                         fontSize: 14.sp,
@@ -120,6 +109,7 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     ),
                     SizedBox(height: 6.h),
                     TextFormField(
+                      controller: addServiceViewModel.servicePriceController,
                       keyboardType: TextInputType.number,
                       decoration: InputDecoration(hintText: "0"),
                     ),
@@ -135,14 +125,14 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
                     SizedBox(height: 6.h),
                     GestureDetector(
                       onTap: () async {
-                        _durationController.text =
-                            await selectDurationDialogBox(
-                              screenContext: context,
-                            );
+                        final duration = await selectDurationDialogBox(
+                          screenContext: context,
+                        );
+                        addServiceViewModel.updateDuration(duration);
                       },
                       child: AbsorbPointer(
                         child: TextFormField(
-                          controller: _durationController,
+                          controller: addServiceViewModel.durationController,
                           decoration: InputDecoration(
                             hintText: "HH/MM",
                             suffixIcon: Icon(
@@ -170,8 +160,9 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
             onPressed: () {
               showSuccessDialog(
                 screenContext: context,
-                desc:context.localization.yourServiceSuccessfullyCreated,
+                desc: context.localization.yourServiceSuccessfullyCreated,
                 onSuccess: () {
+                  addServiceViewModel.clearAll();
                   Navigator.pop(context);
                 },
               );
@@ -183,11 +174,10 @@ class _AddServiceScreenState extends State<AddServiceScreen> {
     );
   }
 }
-
-class MultiSelectTagField extends StatefulWidget {
+class MultiSelectTagField extends StatelessWidget {
   final Function(List<String>) onSelectionChanged;
-  final List<String>? initialValues;
-  final List<String> options; // User can pass any list of options
+  final List<String> selectedItems;
+  final List<String> options;
   final Color? selectedColor;
   final Color? selectedTextColor;
   final Color? unselectedBorderColor;
@@ -198,8 +188,8 @@ class MultiSelectTagField extends StatefulWidget {
   const MultiSelectTagField({
     Key? key,
     required this.onSelectionChanged,
-    required this.options, // Required: user must provide options
-    this.initialValues,
+    required this.options,
+    required this.selectedItems,
     this.selectedColor = const Color(0xffFEE2E2),
     this.selectedTextColor = const Color(0xffDC2626),
     this.unselectedBorderColor = const Color(0xffDC2626),
@@ -209,62 +199,40 @@ class MultiSelectTagField extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<MultiSelectTagField> createState() => _MultiSelectTagFieldState();
-}
-
-class _MultiSelectTagFieldState extends State<MultiSelectTagField> {
-  List<String> selectedItems = [];
-
-  @override
-  void initState() {
-    super.initState();
-    selectedItems = widget.initialValues ?? [];
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      // padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
-      //  decoration: BoxDecoration(
-      //    border: Border.all(
-      //      color: widget.containerBorderColor ?? AppColors.strokeColor,
-      //    ),
-      //    borderRadius: BorderRadius.circular(widget.containerBorderRadius!.r),
-      //    color: Colors.white,
-      //  ),
       child: Wrap(
         spacing: 12.w,
         runSpacing: 12.h,
-        children: widget.options.map((option) {
+        children: options.map((option) {
           final isSelected = selectedItems.contains(option);
           return GestureDetector(
             onTap: () {
-              setState(() {
-                if (isSelected) {
-                  selectedItems.remove(option);
-                } else {
-                  selectedItems.add(option);
-                }
-              });
-              widget.onSelectionChanged(selectedItems);
+              List<String> newSelection = List.from(selectedItems);
+              if (isSelected) {
+                newSelection.remove(option);
+              } else {
+                newSelection.add(option);
+              }
+              onSelectionChanged(newSelection);
             },
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
               decoration: BoxDecoration(
-                color: isSelected ? widget.selectedColor : Colors.white,
-                borderRadius: BorderRadius.circular(widget.tagBorderRadius!.r),
+                color: isSelected ? selectedColor : Colors.white,
+                borderRadius: BorderRadius.circular(tagBorderRadius!.r),
                 border: Border.all(
                   color: isSelected
                       ? Colors.transparent
-                      : widget.unselectedBorderColor!,
+                      : unselectedBorderColor!,
                   width: isSelected ? 2 : 1,
                 ),
               ),
               child: Text(
                 option,
                 style: TextStyle(
-                  color: widget.selectedTextColor,
+                  color: selectedTextColor,
                   fontSize: 14.sp,
                   fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
                 ),

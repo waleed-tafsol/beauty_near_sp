@@ -1,8 +1,10 @@
 import 'package:beauty_near_sp/app_init.dart';
 import 'package:beauty_near_sp/services/locator.dart';
 import 'package:beauty_near_sp/utils/screen_size.dart';
+import 'package:beauty_near_sp/view_models/add_service_view_model.dart';
 import 'package:beauty_near_sp/view_models/availability_view_model.dart';
 import 'package:beauty_near_sp/view_models/language_view_model.dart';
+import 'package:beauty_near_sp/view_models/my_booking_view_model.dart';
 import 'package:beauty_near_sp/view_models/personal_information_view_model.dart';
 import 'package:beauty_near_sp/view_models/theme_view_model.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +31,9 @@ Future<void> main() async {
           create: (context) => PersonalInformationViewModel(),
         ),
         ChangeNotifierProvider(create: (_) => LanguageViewModel(), lazy: false),
-        ChangeNotifierProvider(create: (_) => AvailabilityViewModel())
+        ChangeNotifierProvider(create: (_) => AvailabilityViewModel()),
+        ChangeNotifierProvider(create: (_) => AddServiceViewModel()),
+        ChangeNotifierProvider(create: (_) => MyBookingViewModel())
       ],
       child: ScreenUtilInit(
         designSize: getDesignSize(),
