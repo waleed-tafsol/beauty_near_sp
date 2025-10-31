@@ -76,8 +76,11 @@ class CardDetailsScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 8.h),
                       TextFormField(
-                      //  controller: authViewModel.getInteracNameController,
-                          decoration: InputDecoration(hintText: context.localization.yourName)),
+                        //  controller: authViewModel.getInteracNameController,
+                        decoration: InputDecoration(
+                          hintText: context.localization.yourName,
+                        ),
+                      ),
                       SizedBox(height: 20.h),
                       Text(
                         context.localization.emailAddress,
@@ -90,8 +93,10 @@ class CardDetailsScreen extends StatelessWidget {
                       SizedBox(height: 8.h),
                       TextFormField(
                         keyboardType: TextInputType.emailAddress,
-                    //    controller: authViewModel.getInteracEmailController,
-                        decoration: InputDecoration(hintText: context.localization.yourEmail),
+                        //    controller: authViewModel.getInteracEmailController,
+                        decoration: InputDecoration(
+                          hintText: context.localization.yourEmail,
+                        ),
                       ),
                       SizedBox(height: 20.h),
                       Text(
@@ -105,10 +110,12 @@ class CardDetailsScreen extends StatelessWidget {
                       SizedBox(height: 8.h),
                       TextFormField(
                         keyboardType: TextInputType.phone,
-                      //  controller: authViewModel.getInteracPhoneController,
-                        decoration: InputDecoration(hintText: context.localization.phoneNumber),
+                        //  controller: authViewModel.getInte.;'.';.;'.;';.[[racPhoneController,
+                        decoration: InputDecoration(
+                          hintText: context.localization.phoneNumber,
+                        ),
                       ),
-                 /*     Text(
+                      /*     Text(
                         'Card Holder Name',
                         textAlign: TextAlign.left,
                         style: TextStyle(
@@ -372,7 +379,7 @@ class CardDetailsScreen extends StatelessWidget {
             ),
           ),
         );
-      }
+      },
     );
   }
 }

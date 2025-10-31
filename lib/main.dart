@@ -33,7 +33,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => LanguageViewModel(), lazy: false),
         ChangeNotifierProvider(create: (_) => AvailabilityViewModel()),
         ChangeNotifierProvider(create: (_) => AddServiceViewModel()),
-        ChangeNotifierProvider(create: (_) => MyBookingViewModel())
+        ChangeNotifierProvider(create: (_) => MyBookingViewModel()),
       ],
       child: ScreenUtilInit(
         designSize: getDesignSize(),
