@@ -77,7 +77,7 @@ class AppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.symmetric(vertical: 13.h),
+          padding: EdgeInsets.symmetric(vertical: 12.h),
           textStyle: GoogleFonts.montserrat(
             textStyle: TextStyle(
               color: Colors.white,

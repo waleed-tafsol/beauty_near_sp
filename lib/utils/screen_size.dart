@@ -4,9 +4,9 @@ import 'package:beauty_near_sp/utils/enums.dart';
 import 'package:flutter/material.dart';
 
 final screenNotifier = ValueNotifier(ScreenSize.none);
-Size getDesignSize() {
+Size getDesignSize({required BuildContext context}) {
   // Get the actual screen size
-  final window = WidgetsBinding.instance.window;
+  final window = View.of(context);
   final size = window.physicalSize / window.devicePixelRatio;
   // Return appropriate design size based on screen width
   if (size.width >= 1200) {

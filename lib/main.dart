@@ -35,13 +35,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (_) => AddServiceViewModel()),
         ChangeNotifierProvider(create: (_) => MyBookingViewModel()),
       ],
-      child: ScreenUtilInit(
-        designSize: getDesignSize(),
-        minTextAdapt: true,
-        ensureScreenSize: true,
-        splitScreenMode: true,
-        child: const AppInit(),
-      ),
+      child: const AppInit(),
     ),
   );
 }

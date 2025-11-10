@@ -13,7 +13,7 @@ import '../widgets/custom_search_bar.dart';
 // Service Model
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   List<Service> get services => [
     Service(

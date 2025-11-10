@@ -111,7 +111,7 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
-  chatBubbleReceive(BuildContext context, ) {
+  Align chatBubbleReceive(BuildContext context, ) {
     return Align(
       alignment: AlignmentGeometry.topLeft,
       child: Column(
@@ -146,7 +146,7 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
-  chatBubbleSent(BuildContext context) {
+  Align chatBubbleSent(BuildContext context) {
     return Align(
       alignment: AlignmentGeometry.topRight,
       child: Column(

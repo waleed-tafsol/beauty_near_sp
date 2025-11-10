@@ -186,7 +186,7 @@ class MultiSelectTagField extends StatelessWidget {
   final double? tagBorderRadius;
 
   const MultiSelectTagField({
-    Key? key,
+    super.key,
     required this.onSelectionChanged,
     required this.options,
     required this.selectedItems,
@@ -196,11 +196,11 @@ class MultiSelectTagField extends StatelessWidget {
     this.containerBorderColor,
     this.containerBorderRadius = 38.0,
     this.tagBorderRadius = 16.0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Wrap(
         spacing: 12.w,

@@ -1,16 +1,11 @@
 import 'package:beauty_near_sp/screens/bot_nav_bar_page.dart';
-import 'package:beauty_near_sp/utils/assets.dart';
 import 'package:beauty_near_sp/utils/color_constant.dart';
 import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:beauty_near_sp/view_models/auth_view_model.dart';
-import 'package:beauty_near_sp/view_models/personal_information_view_model.dart';
 import 'package:beauty_near_sp/widgets/custom_back_button.dart';
 import 'package:beauty_near_sp/widgets/dialog%20box/success_dialog_box.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
 class CardDetailsScreen extends StatelessWidget {

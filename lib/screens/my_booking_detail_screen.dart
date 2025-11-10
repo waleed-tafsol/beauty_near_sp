@@ -429,7 +429,7 @@ class MyBookingDetailScreen extends StatelessWidget {
     );
   }
 
-  paymentSummartRow({required String service, required String price}) {
+  Row paymentSummartRow({required String service, required String price}) {
     return Row(
       children: [
         Text(

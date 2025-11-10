@@ -1,17 +1,13 @@
 import 'package:beauty_near_sp/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 
-import '../route_generator.dart';
-import '../utils/assets.dart';
 import '../utils/color_constant.dart';
 import '../utils/enums.dart';
 import '../view_models/auth_view_model.dart';
 import '../widgets/custom_app_bar.dart';
-import '../widgets/custom_back_button.dart';
 
 class PaymentMethodScreen extends StatelessWidget {
   const PaymentMethodScreen({super.key});

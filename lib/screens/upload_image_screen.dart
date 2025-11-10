@@ -9,11 +9,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-import '../route_generator.dart';
 import '../utils/assets.dart';
 import '../utils/color_constant.dart';
 import '../widgets/custom_back_button.dart';
-import '../widgets/bottom_sheets/image_selection_bottom_sheet.dart';
 
 class UploadImageScreen extends StatelessWidget {
   const UploadImageScreen({super.key});

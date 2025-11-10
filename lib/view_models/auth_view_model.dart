@@ -1,7 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../utils/enums.dart';
 import '../widgets/bottom_sheets/image_selection_bottom_sheet.dart';
 
 class AuthViewModel extends ChangeNotifier {
