@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'language_button.dart';
 
@@ -8,6 +9,7 @@ class LanguageAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      toolbarHeight: kToolbarHeight.h,
       forceMaterialTransparency: true,
       foregroundColor: Colors.transparent,
       surfaceTintColor: Colors.transparent,
@@ -20,5 +22,5 @@ class LanguageAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => Size.fromHeight(kToolbarHeight.h);
 }
