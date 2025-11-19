@@ -27,6 +27,7 @@ class _AppInitState extends State<AppInit> {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context);
     final ThemeMode themeMode = context.watch<ThemeViewModel>().themeMode;
     final Locale currentLocale = context
         .watch<LanguageViewModel>()
